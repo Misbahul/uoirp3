@@ -1,7 +1,9 @@
-// template.do
+// uoirp_import.do
 set more off
 
 /*
+	02DEC2010: File created based on template.do
+
 	02DEC2010: File copied from L-SLIS files.
 
 	09JUL09: File Created.
@@ -12,7 +14,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "template"
+global dofilename "uoirp_import"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -21,17 +23,21 @@ global dofilename "template"
 	If you want an output directory, keep this file as is.
 	Otherwise, uncomment the local makeoutput = 0 line.
 */
-local makeoutput = 1
-// local makeoutput = 0
+// local makeoutput = 1
+local makeoutput = 0
 include "do/header"
 
-// Sample Command to load the data file.
-// use "${workdatapath}analysis/l${appendcode}_002"
-
 /*
-	Your code goes here.
+	Import the data from the spreadsheet.
+	tab = tab-delimited
+	clear = clear data already in memory (should be redundant)
+	case = preseve variable name case
+	names = first row of the data is the variable names
 */
-display _newline as text "Hello World!"
+
+insheet using "${sourcedatapath}Retention_Data_v2_15NOV2010.txt", tab clear case names
+
+save "${workdatapath}initial_retention_data.dta", replace
 
 log close
 clear
