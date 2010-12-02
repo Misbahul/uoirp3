@@ -26,7 +26,7 @@ local makeoutput = 1
 include "do/header"
 
 // Sample Command to load the data file.
-// use "${workdatapath}analysis/${appendcode}_002"
+// use "${workdatapath}analysis/l${appendcode}_002"
 
 /*
 	Your code goes here.
