@@ -29,10 +29,10 @@ mydata.each do |row|
   # f1.puts("label define apptype_codes " + (index+1).to_s + " " + '"' + row[0].to_s.strip + '"' + ", add")
   label_number = row[1]
   if row[0].to_s == 'QC' 
-    label_number = row[1] + 100
+    label_number = row[1].to_i + 100
   end
-  f2.puts("label define county_en_label " + row[1].to_s + " " + '"' + row[2].to_s.strip + '"' + ", add")
-  f3.puts("label define county_fr_label " + row[1].to_s + " " + '"' + row[3].to_s.strip + '"' + ", add")
+  f2.puts("label define county_en_label " + label_number.to_s + " " + '"' + row[2].to_s.strip + '"' + ", add")
+  f3.puts("label define county_fr_label " + label_number.to_s + " " + '"' + row[3].to_s.strip + '"' + ", add")
 end
 
 # f1.puts("")
