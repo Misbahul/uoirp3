@@ -1,0 +1,22 @@
+label define kind_of_program_cd_codes 1 "A", add
+label define kind_of_program_cd_codes 2 "B", add
+label define kind_of_program_cd_codes 3 "C", add
+label define kind_of_program_cd_codes 4 "D", add
+label define kind_of_program_cd_codes 5 "E", add
+label define kind_of_program_cd_codes 6 "G", add
+label define kind_of_program_cd_codes 7 "H", add
+label define kind_of_program_cd_codes 8 "I", add
+label define kind_of_program_cd_codes 9 "K", add
+label define kind_of_program_cd_codes 10 "L", add
+label define kind_of_program_cd_codes 11 "M", add
+label define kind_of_program_cd_codes 12 "P", add
+label define kind_of_program_cd_codes 13 "Q", add
+label define kind_of_program_cd_codes 14 "S", add
+label define kind_of_program_cd_codes 15 "T", add
+label define kind_of_program_cd_codes 16 "U", add
+label define kind_of_program_cd_codes 17 "V", add
+label define kind_of_program_cd_codes 18 "W", add
+label define kind_of_program_cd_codes 19 "X", add
+label define kind_of_program_cd_codes 20 "Y", add
+label define kind_of_program_cd_codes 21 "Z", add
+
