@@ -30,7 +30,7 @@ use "${workdatapath}initial_retention_data"
 
 // APPTYPE
 include do/apptype_codes.do
-encode APPTYPE, generate(apptype) label(apptype_codes)
+encode DIR_ENTRY_APPTYPE, generate(apptype) label(apptype_codes)
 include do/apptype_en_label.do
 label values apptype apptype_en_label
 
@@ -47,7 +47,7 @@ generate province = .
 replace province = 10 if fsa1=="A"	// Newfoundland and Labrador
 replace province = 12 if fsa1=="B"	// Nova Soctia
 replace province = 11 if fsa1=="C"	// Prince Edward Island
-replace proivnce = 13 if fsa1=="E"	// New Brunswick
+replace province = 13 if fsa1=="E"	// New Brunswick
 replace province = 24 if fsa1=="G"	// Eastern Québec
 replace province = 24 if fsa1=="H"	// Metro Montréal
 replace province = 24 if fsa1=="J"	// Western Québec
