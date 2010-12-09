@@ -251,8 +251,14 @@ label values gender gender_en_label
 
 // BIRTH_DT
 
-genderate long birth_dt = date(BIRTH_DT, "MD19Y")
+generate long birth_dt = date(BIRTH_DT, "MD19Y")
 format birth_dt %td
+
+generate birth_year = yofd(birth_dt)
+tab birth_year
+tab2 birth_year cohort
+
+tabulate cohort, summarize(birth_year)
 
 generate long age_days = entry_day - birth_dt
 generate float age_float = age_days / 365.25
@@ -260,6 +266,20 @@ generate int age = floor(age_float)
 
 tab age
 tabulate cohort, summarize(age)
+
+// PRIMARY_ORG_CD
+label define primary_org_cd_codes 1 "ADMIN", add
+label define primary_org_cd_codes 2 "ARTS", add
+label define primary_org_cd_codes 3 "GENIE", add
+label define primary_org_cd_codes 4 "SCIEN", add
+label define primary_org_cd_codes 5 "SSAN", add
+label define primary_org_cd_codes 6 "SSOC", add
+encode PRIMARY_ORG_CD, generate(primary_org_cd) label(primary_org_cd_codes)
+label values primary_org_cd primary_org_cd_codes
+
+tab primary_org_cd, missing
+
+
 
 save "${workdatapath}labeled_retention_data", replace
 
