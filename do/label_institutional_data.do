@@ -42,7 +42,7 @@ label values apptype apptype_en_label
 	We know the Postal Code, and if the first letter is "G" or "J",
 	then the student is from Québec.
 */
-generate fsa1 = substr(POST_CD,1,1)
+generate fsa1 = substr(POSTAL_CD,1,1)
 generate province = .
 replace province = 10 if fsa1=="A"	// Newfoundland and Labrador
 replace province = 12 if fsa1=="B"	// Nova Soctia
