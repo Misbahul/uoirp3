@@ -190,17 +190,17 @@ tab2 province er_province
 
 // SESSION_CD
 label define SESSION_CD 19979 "September 1997", add
-label define SESSION_CD 19989 "September 1997", add
-label define SESSION_CD 19999 "September 1997", add
-label define SESSION_CD 20009 "September 1997", add
-label define SESSION_CD 20019 "September 1997", add
-label define SESSION_CD 20029 "September 1997", add
-label define SESSION_CD 20039 "September 1997", add
-label define SESSION_CD 20049 "September 1997", add
-label define SESSION_CD 20059 "September 1997", add
-label define SESSION_CD 20069 "September 1997", add
-label define SESSION_CD 20079 "September 1997", add
-label define SESSION_CD 20089 "September 1997", add
+label define SESSION_CD 19989 "September 1998", add
+label define SESSION_CD 19999 "September 1999", add
+label define SESSION_CD 20009 "September 2000", add
+label define SESSION_CD 20019 "September 2001", add
+label define SESSION_CD 20029 "September 2002", add
+label define SESSION_CD 20039 "September 2003", add
+label define SESSION_CD 20049 "September 2004", add
+label define SESSION_CD 20059 "September 2005", add
+label define SESSION_CD 20069 "September 2006", add
+label define SESSION_CD 20079 "September 2007", add
+label define SESSION_CD 20089 "September 2008", add
 
 label values SESSION_CD SESSION_CD
 
@@ -733,17 +733,20 @@ egen any_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng110
 label values any_highest grade_codes
 tabulate any_highest, missing
 
-rename PERSION_ID person_id
+rename PERSON_ID person_id
 rename ECON_REGION_ORIGIN econ_region_origin
 rename POSTAL_CD postal_cd
 rename ADMISSION_AVG admission_avg
 rename CGPA cgpa
+rename CIP_CD cip_cd
+rename YEAR_OF_STUDY year_of_study
 
 label variable person_id "Personal Identifier"
 label variable econ_region_origin "Economic Region of Origin"
 label variable postal_cd "Postal Code"
 label variable admission_avg "Admission Average"
 label variable cgpa "University GPA"
+label variable year_of_study "Year of Study"
 label variable apptype "Application Type"
 label variable fsa1 "First Letter of Postal Code"
 label variable province "Province (from Postal Code)"
@@ -761,13 +764,14 @@ label variable er_province "Province (from Economic Region)"
 label variable session_cd "Session"
 label variable cohort "Cohort"
 label variable entry_month "Month of University Entry"
-label variable entry_dat "Day of University Entry"
+label variable entry_day "Day of University Entry"
 label variable birth_dt "Birth Date"
 label variable birth_year "Birth Year"
 label variable age_days "Age (in days)"
 label variable age_float "Age (in years, floating)"
 label variable age "Entry Age"
 label variable primary_org_cd "Primary Organizational Code"
+label variable cip_cd "CIP Code (6 Digit)"
 label variable cip_2digit "CIP Code (2 Digit)"
 label variable cip_4digit "CIP Code (4 Digit)"
 label variable prgm7 "Program (7 Categories)"
@@ -800,6 +804,42 @@ compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd
 compress er_province session_cd cohort gender primary_org_cd cip_2digit cip_4digit prgm7
 compress cip_french_desc cip_english_desc post_cd coop_ind used_tongue cont2 cont3
 compress mat* eng* fra* phi* math_highest english_highest philosophy_highest any_highest
+compress year_of_study
+
+drop SESSION_CD
+drop COHORT
+drop GENDER
+drop BIRTH_DT
+drop COUNTY_CD
+drop DIR_ENTRY_APPTYPE
+drop POST_CD
+drop KIND_OF_PROGRAM_CD
+drop CREDENTIAL_CD
+drop J_CREDENTIAL_CD
+drop MAIN_SUBJECT1_CD
+drop MAIN_SUBJECT2_CD
+drop J_MAIN_SUBJECT1_CD
+drop J_MAIN_SUBJECT2_CD
+drop UG_SPEC_LEVEL_CD
+drop PRIMARY_ORG_CD
+drop CIP_FRENCH_DESC
+drop CIP_ENGLISH_DESC
+drop COOP_IND
+drop PRINC_TEACHING_LNG
+drop USED_TONGUE
+drop MOTHER_TONGUE
+drop MAT1320
+drop MAT1720
+drop MAT1330
+drop MAT1730
+drop ENG1100
+drop ENG1112
+drop FRA1528
+drop FRA1538
+drop FRA1710
+drop PHI1101
+drop PHI1501
+
 
 describe, fullnames
 

@@ -11,4 +11,4 @@ label define ug_spec_level_cd_fr_label 10 "Baccalauréat général(3 ans) avec mine
 label define ug_spec_level_cd_fr_label 11 "Baccalauréat (quatre ans) avec majeure", add
 label define ug_spec_level_cd_fr_label 12 "Baccalauréat (quatre ans) avec mineure", add
 label define ug_spec_level_cd_fr_label 13 "Baccalauréat multidisciplinaire", add
-
+label define ug_spec_level_cd_fr_label 14 "P", add
