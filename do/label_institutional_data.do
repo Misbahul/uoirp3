@@ -706,14 +706,14 @@ label define grade_codes 17 "S", add
 label define grade_codes 18 "NNR", add
 label define grade_codes 19 "NS", add
 
-foreach i of varlist MAT1300 MAT1320 MAT1700 MAT1720 MAT1330 MAT1730 MAT1300 MAT1700 ENG1100 ENG1112 FRA1528 FRA1538 FRA1710 PHI1101 PHI1501 {
+foreach i of varlist MAT1320 MAT1720 MAT1330 MAT1730 MAT1300 MAT1700 ENG1100 ENG1112 FRA1528 FRA1538 FRA1710 PHI1101 PHI1501 {
 	local lower_i = lower("`i'")
 	encode `i', generate(`lower_i') label(grade_codes)
 	tabulate `lower_i', missing
 } 
 
 // Highest in each category
-egen math_highest = rowmin(mat1300 mat1320 mat1700 mat1720 mat1330 mat1730 mat1300 mat1700)
+egen math_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
 label values math_highest grade_codes
 tabulate math_highest, missing
 
@@ -729,7 +729,7 @@ egen philosophy_highest = rowmin(phi1101 phi1501)
 label values philosophy_highest grade_codes
 tabulate philosophy_highest, missing
 
-egen any_highest = rowmin(mat1300 mat1320 mat1700 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
+egen any_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
 label values any_highest grade_codes
 tabulate any_highest, missing
 
@@ -742,6 +742,7 @@ rename CIP_CD cip_cd
 rename YEAR_OF_STUDY year_of_study
 
 label variable person_id "Personal Identifier"
+label variable imstat "Immigration Status"
 label variable econ_region_origin "Economic Region of Origin"
 label variable postal_cd "Postal Code"
 label variable admission_avg "Admission Average"
@@ -765,6 +766,7 @@ label variable session_cd "Session"
 label variable cohort "Cohort"
 label variable entry_month "Month of University Entry"
 label variable entry_day "Day of University Entry"
+label variable gender "Gender"
 label variable birth_dt "Birth Date"
 label variable birth_year "Birth Year"
 label variable age_days "Age (in days)"
@@ -786,6 +788,8 @@ label variable mat1320 "MAT1320 Grade"
 label variable mat1720 "MAT1720 Grade"
 label variable mat1330 "MAT1330 Grade"
 label variable mat1730 "MAT1730 Grade"
+label variable mat1300 "MAT1300 Grade"
+label variable mat1700 "MAT1700 Grade"
 label variable eng1100 "ENG1100 Grade"
 label variable eng1112 "ENG1112 Grade"
 label variable fra1528 "FRA1528 Grade"
