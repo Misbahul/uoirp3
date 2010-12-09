@@ -66,6 +66,8 @@ replace province = 60 if fsa1=="X"	// NWT & Nunavut
 replace province = 61 if fsa1=="Y"	// Yukon
 
 tabulate province
+tab2 apptype province, missing
+
 clonevar county = COUNTY
 replace county = county + 100 if province==24
 
