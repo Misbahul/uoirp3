@@ -714,25 +714,94 @@ foreach i of varlist MAT1320 MAT1720 MAT1330 MAT1730 MAT1300 MAT1700 ENG1100 ENG
 
 // Highest in each category
 egen math_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
-label math_highest grade_codes
+label values math_highest grade_codes
 tabulate math_highest, missing
 
 egen english_highest = rowmin(eng1100 eng1112)
-label english_highest grade_codes
+label values english_highest grade_codes
 tabulate english_highest, missing
 
 egen french_highest = rowmin(fra1528 fra1538 fra1710)
-label french_highest grade_codes
+label values french_highest grade_codes
 tabulate french_highest, missing
 
 egen philosophy_highest = rowmin(phi1101 phi1501)
-label philosophy_highest grade_codes
+label values philosophy_highest grade_codes
 tabulate philosophy_highest, missing
 
 egen any_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
-label any_highest grade_codes
+label values any_highest grade_codes
 tabulate any_highest, missing
 
+rename PERSION_ID person_id
+rename ECON_REGION_ORIGIN econ_region_origin
+rename POSTAL_CD postal_cd
+rename ADMISSION_AVG admission_avg
+rename CGPA cgpa
+
+label variable person_id "Personal Identifier"
+label variable econ_region_origin "Economic Region of Origin"
+label variable postal_cd "Postal Code"
+label variable admission_avg "Admission Average"
+label variable cgpa "University GPA"
+label variable apptype "Application Type"
+label variable fsa1 "First Letter of Postal Code"
+label variable province "Province (from Postal Code)"
+label variable county "County of Origin"
+label variable credential_cd "Credential Code"
+label variable j_credential_cd "Credential Code (J)"
+label variable kind_of_program_cd "Kind of Program"
+label variable mother_tongue "Mother Tongue"
+label variable princ_teaching_lng "Principal Teaching Language"
+label variable main_subject1_cd "Main Subject 1"
+label variable main_subject2_cd "Main Subject 2"
+label variable j_main_subject1_cd "Main Subject 1 (J)"
+label variable ug_spec_level_cd "University Specific Level Code"
+label variable er_province "Province (from Economic Region)"
+label variable session_cd "Session"
+label variable cohort "Cohort"
+label variable entry_month "Month of University Entry"
+label variable entry_dat "Day of University Entry"
+label variable birth_dt "Birth Date"
+label variable birth_year "Birth Year"
+label variable age_days "Age (in days)"
+label variable age_float "Age (in years, floating)"
+label variable age "Entry Age"
+label variable primary_org_cd "Primary Organizational Code"
+label variable cip_2digit "CIP Code (2 Digit)"
+label variable cip_4digit "CIP Code (4 Digit)"
+label variable prgm7 "Program (7 Categories)"
+label variable cip_french_desc "Program (French Description)"
+label variable cip_english_desc "Program (English Description)"
+label variable post_cd "Post Code (related to program)"
+label variable coop_ind "Co-Op Program"
+label variable used_tongue "Correspondence Language"
+label variable cont2 "Continued to Second Year"
+label variable cont3 "Continued to Third Year"
+label variable mat1320 "MAT1320 Grade"
+label variable mat1720 "MAT1720 Grade"
+label variable mat1330 "MAT1330 Grade"
+label variable mat1730 "MAT1730 Grade"
+label variable eng1100 "ENG1100 Grade"
+label variable eng1112 "ENG1112 Grade"
+label variable fra1528 "FRA1528 Grade"
+label variable fra1538 "FRA1538 Grade"
+label variable fra1710 "FRA1710 Grade"
+label variable phi1101 "PHI1101 Grade"
+label variable phi1501 "PHI1501 Grade"
+label variable math_highest "Highest Math Grade"
+label variable english_highest "Highest English Grade"
+label variable french_highest "Highest French Grade"
+label variable philosophy_highest "Highest Philosophy Grade"
+label variable any_highest "Highest Grade"
+
+compress province county credential_cd j_credential_cd kind_of_program_cd mother_tongue
+compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd ug_spec_level_cd
+compress er_province session_cd cohort gender primary_org_cd cip_2digit cip_4digit prgm7
+compress cip_french_desc cip_english_desc post_cd coop_ind used_tongue cont2 cont3
+compress mat* eng* fra* phi* math_highest english_highest philosophy_highest any_highest
+
+describe, fullnames
 
 save "${workdatapath}labeled_retention_data", replace
 
