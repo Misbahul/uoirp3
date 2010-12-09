@@ -34,6 +34,8 @@ encode DIR_ENTRY_APPTYPE, generate(apptype) label(apptype_codes)
 include do/apptype_en_label.do
 label values apptype apptype_en_label
 
+tabulate apptype, missing
+
 // COUNTY
 /*
 	This one is made a bit difficult because we don't know
@@ -74,7 +76,27 @@ label values county county_en_label
 
 tabulate county, missing
 
+tabulate province if missing(county)
 
+tabulate county if province!=24 & province!=35, missing
+
+tabulate province if !missing(county) & province!=24 & province!=35
+
+// CREDENTIAL_CD
+include do/credential_cd_codes.do
+encode CREDENTIAL_CD, generate(credential_cd) label(credential_cd_codes)
+include do/credential_cd_en_label.do
+label values credential_cd credential_cd_en_label
+
+tabulate credential_cd, missing
+
+// IMSTAT
+include do/imstat_codes.do
+encode IMSTAT, generate(imstat) label(imstat_codes)
+include do/imstat_en_label.do
+label values imstat imstat_en_label
+
+tabulate imstat, missing
 
 log close
 clear
