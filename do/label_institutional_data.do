@@ -188,6 +188,79 @@ recode ECON_REGION_ORIGIN 	(1010/1040	= 10) ///
 label values er_province province
 tab2 province er_province
 
+// SESSION_CD
+label define SESSION_CD 19979 "September 1997", add
+label define SESSION_CD 19989 "September 1997", add
+label define SESSION_CD 19999 "September 1997", add
+label define SESSION_CD 20009 "September 1997", add
+label define SESSION_CD 20019 "September 1997", add
+label define SESSION_CD 20029 "September 1997", add
+label define SESSION_CD 20039 "September 1997", add
+label define SESSION_CD 20049 "September 1997", add
+label define SESSION_CD 20059 "September 1997", add
+label define SESSION_CD 20069 "September 1997", add
+label define SESSION_CD 20079 "September 1997", add
+label define SESSION_CD 20089 "September 1997", add
+
+label values SESSION_CD SESSION_CD
+
+recode SESSION_CD	(19979 =	1 "September 1997") ///
+					(19989 =	2 "September 1998") ///
+					(19999 =	3 "September 1999") ///
+					(20009 =	4 "September 2000") ///
+					(20019 = 	5 "September 2001") ///
+					(20029 =	6 "September 2002") ///
+					(20039 =	7 "September 2003") ///
+					(20049 =	8 "September 2004") ///
+					(20059 =	9 "September 2005") ///
+					(20069 =	10 "September 2006") ///
+					(20079 =	11 "September 2007") ///
+					(20089 =	12 "September 2008") ///
+					, generate(session_cd)
+
+recode COHORT		(1997 =	1 "1997") ///
+					(1998 =	2 "1998") ///
+					(1999 =	3 "1999") ///
+					(2000 =	4 "2000") ///
+					(2001 = 5 "2001") ///
+					(2002 =	6 "2002") ///
+					(2003 =	7 "2003") ///
+					(2004 =	8 "2004") ///
+					(2005 =	9 "2005") ///
+					(2006 =	10 "2006") ///
+					(2007 =	11 "2007") ///
+					(2008 =	12 "2008") ///
+					, generate(cohort)
+					
+compare session_cd cohort
+tab2 session_cd cohort
+
+generate int entry_month = ym(COHORT, 9)
+format %tm entry_month
+
+generate long entry_day = mdy(9, 1, COHORT)
+format %td entry_day
+
+
+// GENDER
+
+label define gender_codes 0 "F" 1 "H"
+encode GENDER, generate(gender) label(gender_codes)
+label define gender_en_label 0 "Female" 1 "Male"
+label values gender gender_en_label
+
+// BIRTH_DT
+
+genderate long birth_dt = date(BIRTH_DT, "MD19Y")
+format birth_dt %td
+
+generate long age_days = entry_day - birth_dt
+generate float age_float = age_days / 365.25
+generate int age = floor(age_float)
+
+tab age
+tabulate cohort, summarize(age)
+
 save "${workdatapath}labeled_retention_data", replace
 
 log close
