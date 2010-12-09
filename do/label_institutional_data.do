@@ -93,8 +93,10 @@ label values credential_cd credential_cd_en_label
 tabulate credential_cd, missing
 
 // IMSTAT
-include do/imstat_codes.do
-encode IMSTAT, generate(imstat) label(imstat_codes)
+/*
+	IMSTAT is already numeric.
+*/
+rename IMSTAT imstat
 include do/imstat_en_label.do
 label values imstat imstat_en_label
 
