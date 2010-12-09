@@ -646,7 +646,7 @@ recode cip_2digit ///
 	(31 34 36 42 51 = 7 "Health and Fitness") ///
 	(12 21 22 28 29 30 32 33 35 37 43 53 60 98/max = .o) ///
 	, generate(prgm7)
-tab pgrm7, missing
+tab prgm7, missing
 
 encode CIP_FRENCH_DESC, generate(cip_french_desc)
 encode CIP_ENGLISH_DESC, generate(cip_english_desc)
@@ -686,31 +686,52 @@ label values cont3 cont
 tab cont3, missing
 
 // Course Grades
-label grade_codes 1 "A+", add
-label grade_codes 2 "A", add
-label grade_codes 3 "A-", add
-label grade_codes 4 "B+", add
-label grade_codes 5 "B", add
-label grade_codes 6 "C+", add
-label grade_codes 7 "C", add
-label grade_codes 8 "D+", add
-label grade_codes 9 "D", add
-label grade_codes 10 "E", add
-label grade_codes 11 "F", add
-label grade_codes 12 "ABS", add
-label grade_codes 13 "AUD", add
-label grade_codes 14 "DR", add
-label grade_codes 15 "DFR", add
-label grade_codes 16 "INC", add
-label grade_codes 17 "S", add
-label grade_codes 18 "NNR", add
-label grade_codes 19 "NS", add
+label define grade_codes 1 "A+", add
+label define grade_codes 2 "A", add
+label define grade_codes 3 "A-", add
+label define grade_codes 4 "B+", add
+label define grade_codes 5 "B", add
+label define grade_codes 6 "C+", add
+label define grade_codes 7 "C", add
+label define grade_codes 8 "D+", add
+label define grade_codes 9 "D", add
+label define grade_codes 10 "E", add
+label define grade_codes 11 "F", add
+label define grade_codes 12 "ABS", add
+label define grade_codes 13 "AUD", add
+label define grade_codes 14 "DR", add
+label define grade_codes 15 "DFR", add
+label define grade_codes 16 "INC", add
+label define grade_codes 17 "S", add
+label define grade_codes 18 "NNR", add
+label define grade_codes 19 "NS", add
 
 foreach i of varlist MAT1320 MAT1720 MAT1330 MAT1730 MAT1300 MAT1700 ENG1100 ENG1112 FRA1528 FRA1538 FRA1710 PHI1101 PHI1501 {
 	local lower_i = lower("`i'")
 	encode `i', generate(`lower_i') label(grade_codes)
 	tabulate `lower_i', missing
 } 
+
+// Highest in each category
+egen math_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
+label math_highest grade_codes
+tabulate math_highest, missing
+
+egen english_highest = rowmin(eng1100 eng1112)
+label english_highest grade_codes
+tabulate english_highest, missing
+
+egen french_highest = rowmin(fra1528 fra1538 fra1710)
+label french_highest grade_codes
+tabulate french_highest, missing
+
+egen philosophy_highest = rowmin(phi1101 phi1501)
+label philosophy_highest grade_codes
+tabulate philosophy_highest, missing
+
+egen any_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
+label any_highest grade_codes
+tabulate any_highest, missing
 
 
 save "${workdatapath}labeled_retention_data", replace
