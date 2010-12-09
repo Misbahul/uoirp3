@@ -65,6 +65,22 @@ replace province = 59 if fsa1=="V"	// British Columbia
 replace province = 60 if fsa1=="X"	// NWT & Nunavut
 replace province = 61 if fsa1=="Y"	// Yukon
 
+label define province 10 "Newfoundland and Labrador", add
+label define province 11 "Prince Edward Island", add
+label define province 12 "Nova Scotia", add
+label define province 13 "New Brunswick", add
+label define province 24 "Quebec", add
+label define province 35 "Ontario", add
+label define province 46 "Manitoba", add
+label define province 47 "Saskatchewan", add
+label define province 48 "Alberta", add
+label define province 59 "British Columbia", add
+label define province 60 "Northwest Territories", add
+label define province 61 "Yukon", add
+label define province 62 "Nunavut", add
+
+label values province province
+
 tabulate province
 tab2 apptype province, missing
 
@@ -132,7 +148,7 @@ tabulate princ_teaching_lng, missing
 // SUBJECT_CD
 include do/subject_cd_codes.do
 include do/subject_cd_en_label.do
-foreach i of varlist MAIN_SUBJECT1_CD MAIN_SUBJECT2_CD J_MAIN_SUBJECT1_CD J_MAIN_SUBJECT2_CD {
+foreach i of varlist MAIN_SUBJECT1_CD MAIN_SUBJECT2_CD J_MAIN_SUBJECT1_CD /* J_MAIN_SUBJECT2_CD */ {
 	local lower_i = lower("`i'")
 	encode `i', generate(`lower_i') label(subject_cd_codes)
 	label values `lower_i' subject_cd_en_label
@@ -145,6 +161,32 @@ include do/ug_spec_level_cd_codes.do
 encode UG_SPEC_LEVEL_CD, generate(ug_spec_level_cd) label(ug_spec_level_cd_codes)
 include do/ug_spec_level_cd_en_label.do
 label values ug_spec_level_cd ug_spec_level_cd_en_label
+
+tabulate ug_spec_level_cd, missing
+
+// ECON_REGION_ORIGIN
+include do/econ_region_codes.do
+label values ECON_REGION_ORIGIN econ_region_codes
+
+tabulate ECON_REGION_ORIGIN
+
+recode ECON_REGION_ORIGIN 	(1010/1040	= 10) ///
+							(1110 		= 11) ///
+							(1210/1250	= 12) ///
+							(1310/1350	= 13) ///
+							(2410/2490	= 24) ///
+							(3510/3595	= 35) ///
+							(4610/4680	= 46) ///
+							(4710/4760	= 47) ///
+							(4810/4880	= 48) ///
+							(5910/5980	= 59) ///
+							(6010		= 60) ///
+							(6110		= 61) ///
+							(6210		= 62) ///
+							, generate(er_province)
+							
+label values er_province province
+tab2 province er_province
 
 save "${workdatapath}labeled_retention_data", replace
 
