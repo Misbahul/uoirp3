@@ -87,10 +87,13 @@ tabulate province if !missing(county) & province!=24 & province!=35
 // CREDENTIAL_CD
 include do/credential_cd_codes.do
 encode CREDENTIAL_CD, generate(credential_cd) label(credential_cd_codes)
+encode J_CREDENTIAL_CD, generate(j_credential_cd) label(j_credential_cd)
 include do/credential_cd_en_label.do
 label values credential_cd credential_cd_en_label
+label values j_credential_cd credential_cd_en_label
 
 tabulate credential_cd, missing
+tabulate j_credential_cd, missing
 
 // IMSTAT
 /*
@@ -101,6 +104,49 @@ include do/imstat_en_label.do
 label values imstat imstat_en_label
 
 tabulate imstat, missing
+
+// KIND_OF_PROGRAM_CD
+include do/kind_of_program_cd_codes.do
+encode KIND_OF_PROGRAM_CD, generate(kind_of_program_cd) label(kind_of_program_cd_codes)
+include do/kind_of_program_cd_en_label.do
+label values kind_of_program_cd kind_of_program_cd_en_label
+
+tabulate kind_of_program_cd, missing
+
+// MOTHER_TOUNGE
+include do/mother_tongue_codes.do
+encode MOTHER_TONGUE, generate(mother_tongue) label(mother_tongue_codes)
+include do/mother_tongue_en_label.do
+label values mother_tongue mother_tongue_en_label
+
+tabulate mother_tongue, missing
+
+// PRINC_TEACHING_LNG
+include do/princ_teaching_lng_codes.do
+encode PRINC_TEACHING_LNG, generate(princ_teaching_lng) label(princ_teaching_lng_codes)
+include do/princ_teaching_lng_en_label.do
+label values princ_teaching_lng princ_teaching_lng_en_label
+
+tabulate princ_teaching_lng, missing
+
+// SUBJECT_CD
+include do/subject_cd_codes.do
+include do/subject_cd_en_label.do
+foreach i of varlist MAIN_SUBJECT1_CD MAIN_SUBJECT2_CD J_MAIN_SUBJECT1_CD J_MAIN_SUBJECT2_CD {
+	local lower_i = lower("`i'")
+	encode `i', generate(`lower_i') label(subject_cd_codes)
+	label values `lower_i' subject_cd_en_label
+	tabulate `lower_i', missing
+	display _n
+}
+
+// UG_SPEC_LEVEL_CD
+include do/ug_spec_level_cd_codes.do
+encode UG_SPEC_LEVEL_CD, generate(ug_spec_level_cd) label(ug_spec_level_cd_codes)
+include do/ug_spec_level_cd_en_label.do
+label values ug_spec_level_cd ug_spec_level_cd_en_label
+
+save "${workdatapath}labeled_retention_data", replace
 
 log close
 clear
