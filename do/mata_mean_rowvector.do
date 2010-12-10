@@ -21,7 +21,7 @@ real matrix mean_rowvector(string scalar varname1, string scalar varname2, real 
 	for (i=1; i<=rows(A_row); i++) {
 		(void) st_addvar("byte", name=st_tempname())
 		st_view(Y, ., (name))
-		Y = (Z :== A_row[i,1])
+		Y[.,.] = (Z :== A_row[i,1])
 		st_view(X, ., (varname1), name)
 		A[i,1] = mean(X)
 	}

@@ -17,8 +17,8 @@ program uwmean
 		local matcol ""
 	}
 	
-	quietly tabulate `varlist' if `touse', matcell(`A') matrow(`A_row') `matcol'
-	if "`2'"=="" {
+	quietly tabulate `2' `3' if `touse', matcell(`A') matrow(`A_row') `matcol'
+	if "`3'"=="" {
 		mata: labelmatrix1("`2'", "`A'", st_matrix("`A_row'"))
 		mata: st_matrix("`B'", mean_rowvector("`1'", "`2'", st_matrix("`A_row'")))
 		mata: labelmatrix1("`2'", "`B'", st_matrix("`A_row'"))
