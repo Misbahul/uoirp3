@@ -11,7 +11,7 @@ string matrix fillin(string matrix A, real matrix B)
 	
 	for (i=1; i<=rows(A); i++) {
 		for (j=1; i<=cols(A); j++) {
-			if A[i,j]=="" {
+			if (A[i,j]=="") {
 				A[i,j]=C[i,j]
 			}
 		}
