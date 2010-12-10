@@ -28,7 +28,8 @@ program uwmean
 		mata: st_matrix("`B'", mean_matrix("`1'", "`2'", "`3'", st_matrix("`A_row'"), st_matrix("`A_col'")))
 		mata: labelmatrix2("`2'", "`3'", "`B'", st_matrix("`A_row'"), st_matrix("`A_col'"))
 	}
-	// matrix list `A'
+	matrix list `A'
+	matrix list `B'
 	xml_tab `A', sheet("`sheet'_freq") format((SCLR0) (SCCR0 NCCR0)) `options' `append' `replace'
 	xml_tab `B', sheet("`sheet'_mean") `format' `options' append
 	
