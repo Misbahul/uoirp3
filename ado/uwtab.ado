@@ -2,7 +2,7 @@
 
 capture program drop uwtab
 program uwtab
-	syntax varlist(min=1 max=2) [if] [in], [col row] [missing] [sheet(string)] [*]
+	syntax varlist(min=1 max=2) [if] [in], [col row] [missing] [append replace] [sheet(string)] [*]
 	marksample touse, novarlist
 	tempname A A_row A_col B C
 	
@@ -25,7 +25,7 @@ program uwtab
 		mata: labelmatrix2("`1'", "`2'", "`A'", st_matrix("`A_row'"), st_matrix("`A_col'"))
 	}
 	// matrix list `A'
-	xml_tab `A', sheet("`sheet'_freq") format((SCLR0) (SCCR0 NCCR0)) `options'
+	xml_tab `A', sheet("`sheet'_freq") format((SCLR0) (SCCR0 NCCR0)) `options' `append' `replace'
 	
 	if "`col'"=="col" {
 		mata: col_proportion("`A'", "`B'")
