@@ -12,9 +12,9 @@ void labelmatrix1(string scalar varname1, string scalar A_name, real matrix A_ro
 	A = st_matrix(A_name)
 	rowlabels = st_vlmap(st_varvaluelabel(varname1), A_row)
 	rowlabels_stripe = J(rows(A),1,"") , rowlabels
-	rowlabels_stripe_clean = subsstr(rowlabels_stripe, ".", "")
-	rowlabels_stripe_trim = substr(rowlabels_stripe_clean, J(30,2,1), J(30,2,33))
-	st_matrixrowstripe(A_name,rowlabels_stripe)
+	rowlabels_stripe_clean = subinstr(rowlabels_stripe, ".", "")
+	rowlabels_stripe_trim = substr(rowlabels_stripe_clean, J(rows(A),2,1), J(rows(A),2,33))
+	st_matrixrowstripe(A_name,rowlabels_stripe_trim)
 }
 mata mosave labelmatrix1(), dir(ado/) replace
 end
@@ -30,20 +30,20 @@ void labelmatrix2(string scalar varname1, string scalar varname2, string scalar 
 	string matrix collabels
 	string matrix collabels_stripe
 	string matrix collabels_stripe_clean
-	string matrix collabels_strip_trim
+	string matrix collabels_stripe_trim
 	
 	A = st_matrix(A_name)
 	rowlabels = st_vlmap(st_varvaluelabel(varname1), A_row)
 	rowlabels_stripe = J(rows(A),1,"") , rowlabels
-	rowlabels_stripe_clean = subsstr(rowlabels_stripe, ".", "")
-	rowlabels_stripe_trim = substr(rowlabels_stripe_clean, J(30,2,1), J(30,2,33))
-	st_matrixrowstripe(A_name,rowlabels_stripe)
+	rowlabels_stripe_clean = subinstr(rowlabels_stripe, ".", "")
+	rowlabels_stripe_trim = substr(rowlabels_stripe_clean, J(rows(A),2,1), J(rows(A),2,33))
+	st_matrixrowstripe(A_name,rowlabels_stripe_trim)
 	
 	collabels = st_vlmap(st_varvaluelabel(varname2), A_col)
 	collabels_stripe = J(cols(A),1,"") , collabels'
-	collabels_stripe_clean = subsstr(collabels_stripe, ".", "")
-	collabels_stripe_trim = substr(collabels_stripe_clean, J(30,2,1), J(30,2,33))
-	st_matrixcolstripe(A_name,collabels_stripe)
+	collabels_stripe_clean = subinstr(collabels_stripe, ".", "")
+	collabels_stripe_trim = substr(collabels_stripe_clean, J(cols(A),2,1), J(cols(A),2,33))
+	st_matrixcolstripe(A_name,collabels_stripe_trim)
 }
 mata mosave labelmatrix2(), dir(ado/) replace
 end
