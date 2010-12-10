@@ -4,19 +4,21 @@ mata:
 string matrix fillin(string matrix A, real matrix B)
 {
 	string matrix C
+	string matrix D
 	real scalar i
 	real scalar j
 	
 	C = strofreal(B)
+	D = A
 	
 	for (i=1; i<=rows(A); i++) {
-		for (j=1; i<=cols(A); j++) {
+		for (j=1; j<=cols(A); j++) {
 			if (A[i,j]=="") {
-				A[i,j]=C[i,j]
+				D[i,j]=C[i,j]
 			}
 		}
 	}
-	return C
+	return(D)
 }
 mata mosave fillin(), dir(ado/) replace
 end
