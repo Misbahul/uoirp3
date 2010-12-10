@@ -30,3 +30,6 @@ real matrix mean_matrix(string scalar varname1, string scalar varname2, string s
 		}
 	}
 }
+mata mosave mean_matrix(), dri(ado/) replace
+end
+
