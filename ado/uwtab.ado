@@ -6,7 +6,7 @@ program uwtab
 	marksample touse, novarlist
 	tempname A A_row A_col B C
 	
-	tokenize varlist
+	tokenize `varlist'
 	
 	local matcol "matcol(`A_col')"
 	if "`2'"=="" {
