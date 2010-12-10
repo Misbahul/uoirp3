@@ -2,9 +2,13 @@
 
 capture program drop uwtab
 program uwtab
-	syntax varlist(min=1 max=2) [if] [in], [col row] [missing]
+	syntax varlist(min=1 max=2) [if] [in], [col row] [missing] [sheet(string)] [*]
 	marksample touse, novarlist
 	tempname A A_row A_col B C
+	
+	if "`sheet'"=="" {
+		local sheet "Sheet1"
+	}
 	
 	tokenize `varlist'
 	
@@ -20,7 +24,8 @@ program uwtab
 	else {
 		mata: labelmatrix2("`1'", "`2'", "`A'", st_matrix("`A_row'"), st_matrix("`A_col'"))
 	}
-	matrix list `A'
+	// matrix list `A'
+	xml_tab `A', sheet("`sheet'_freq") `options'
 	
 	if "`col'"=="col" {
 		mata: col_proportion("`A'", "`B'")
@@ -30,7 +35,8 @@ program uwtab
 		else {
 			mata: labelmatrix2("`1'", "`2'", "`B'", st_matrix("`A_row'"), st_matrix("`A_col'"))
 		}
-		matrix list `B'
+		// matrix list `B'
+		xml_tab `B', sheet("`sheet'_col") `options' append
 	}
 	
 	if "`row'"=="row" {
@@ -41,7 +47,8 @@ program uwtab
 		else {
 			mata: labelmatrix2("`1'", "`2'", "`C'", st_matrix("`A_row'"), st_matrix("`A_col'"))
 		}
-		matrix list `C'
+		// matrix list `C'
+		xml_tab `C', sheet("`sheet'_row") `options' append
 	}
 	
 	capture matrix drop `A'
