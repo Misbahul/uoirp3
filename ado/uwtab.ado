@@ -25,7 +25,7 @@ program uwtab
 		mata: labelmatrix2("`1'", "`2'", "`A'", st_matrix("`A_row'"), st_matrix("`A_col'"))
 	}
 	// matrix list `A'
-	xml_tab `A', sheet("`sheet'_freq") `options'
+	xml_tab `A', sheet("`sheet'_freq") format((SCLR0) (SCCR0 NCCR0)) `options'
 	
 	if "`col'"=="col" {
 		mata: col_proportion("`A'", "`B'")
@@ -36,7 +36,7 @@ program uwtab
 			mata: labelmatrix2("`1'", "`2'", "`B'", st_matrix("`A_row'"), st_matrix("`A_col'"))
 		}
 		// matrix list `B'
-		xml_tab `B', sheet("`sheet'_col") `options' append
+		xml_tab `B', sheet("`sheet'_col") format((SCLR0) (SCCR0 NCCR1)) `options' append
 	}
 	
 	if "`row'"=="row" {
@@ -48,7 +48,7 @@ program uwtab
 			mata: labelmatrix2("`1'", "`2'", "`C'", st_matrix("`A_row'"), st_matrix("`A_col'"))
 		}
 		// matrix list `C'
-		xml_tab `C', sheet("`sheet'_row") `options' append
+		xml_tab `C', sheet("`sheet'_row") format((SCLR0) (SCCR0 NCCR1)) `options' append
 	}
 	
 	capture matrix drop `A'
