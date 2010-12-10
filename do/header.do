@@ -50,6 +50,7 @@ if "`makeoutput'"=="1" {
 } 
 local makeoutput = 0
 
+clear mata
 set memory 500m
 set matsize 500
 version 10.1

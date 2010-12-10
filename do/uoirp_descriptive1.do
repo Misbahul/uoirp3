@@ -42,7 +42,7 @@ local cat_vars "`cat_vars' used_tongue cont2 cont3 mat1320 mat1720 mat1330 mat17
 local cat_vars "`cat_vars' eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 math_highest"
 local cat_vars "`cat_vars' english_highest french_highest philosophy_highest any_highest"
 
-local cat_vars "imstat"
+// local cat_vars "imstat"
 
 foreach i of varlist cohort `cat_vars' {
 	uwtab `i', col save("`outputdir'step1.xls") replace sheet("`i'")

@@ -1,7 +1,9 @@
 ------------------------------------------------------------------------------------
        log:  /Users/sechilds/uottawa/log/locationspecificglobals.do_uoh1.log
   log type:  text
- opened on:  10 Dec 2010, 07:20:34
+ opened on:  10 Dec 2010, 10:36:02
+
+. clear mata
 
 . set memory 500m
 
