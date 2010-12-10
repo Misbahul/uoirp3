@@ -22,14 +22,15 @@ real matrix mean_matrix(string scalar varname1, string scalar varname2, string s
 	
 	for (i=1; i<=rows(A_row); i++) {
 		for (j=1; j<=cols(A_col); j++) {
-			void st_addvar("byte", name=st_tempname())
+			(void) st_addvar("byte", name=st_tempname())
 			st_view(Y, ., (name))
 			Y = ((Z :== A_row[i,1]) :& (W :== A_col[1,j]))
 			st_view(X, ., (varname1), name)
 			A[i,j] = mean(X)
 		}
 	}
+	return(A)
 }
-mata mosave mean_matrix(), dri(ado/) replace
+mata mosave mean_matrix(), dir(ado/) replace
 end
 
