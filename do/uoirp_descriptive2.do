@@ -49,8 +49,9 @@ local cat_vars "`cat_vars' english_highest french_highest philosophy_highest any
 
 local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
+	local short_i = substr("`i'",1,30)
 	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwmean cgpa `i', save("`outputdir'step3.xls") `myrep' sheet("`i'") format((SCLR0) (SCCR0 NCCR2))
+	uwmean cgpa `i', save("`outputdir'step3.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))
 	local myrep "append"
 } 
 
@@ -59,8 +60,9 @@ foreach i of varlist cohort `cat_vars' {
 */
 local myrep "replace"
 foreach i of varlist `cat_vars' {
+	local short_i = substr("`i'",1,30)
 	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwmean cgpa `i' cohort, save("`outputdir'step4.xls") `myrep' sheet("`i'") format((SCLR0) (SCCR0 NCCR2))
+	uwmean cgpa `i' cohort, save("`outputdir'step4.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))
 	local myrep "append"
 }
 
@@ -77,10 +79,13 @@ label variable uoreturn "Returned to University of Ottawa"
 
 local myrep "replace"
 foreach j of varlist cont2 cont3 uoreturn {
+	local short_j = substr("`j'",1,5)
 	display _newline as text "Outcome variable " as result "`j'" as text "."
-	foreach i of varlist cohort `cat_vars' { 
+	foreach i of varlist cohort `cat_vars' {
+		local short_i = substr("`i'",1,18) 
 		display _newline as text "Processing variable " as result "`i'" as text "."
-		uwtab `i' `j', row save("`outputdir'step5.xls") `myrep' sheet("`i'_`j'")
+		uwtab `i' `j', row save("`outputdir'step5.xls") `myrep' sheet("`short_i'_`short_j'")
+		local myrep "append"
 	} 
 }
 
