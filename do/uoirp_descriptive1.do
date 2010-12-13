@@ -47,7 +47,7 @@ local cat_vars "`cat_vars' english_highest french_highest philosophy_highest any
 local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
 	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwtab `i', col save("`outputdir'step1.xls") `myrep' sheet("`i'")
+	uwtab `i', col save("`outputdir'${dofilename}_step1.xls") `myrep' sheet("`i'")
 	local myrep "append"
 } 
 
@@ -57,7 +57,7 @@ foreach i of varlist cohort `cat_vars' {
 local myrep "replace"
 foreach i of varlist `cat_vars' {
 	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwtab `i' cohort, col row save("`outputdir'step2.xls") `myrep' sheet("`i'")
+	uwtab `i' cohort, col row save("`outputdir'${dofilename}_step2.xls") `myrep' sheet("`i'")
 	local myrep "append"
 }
 
