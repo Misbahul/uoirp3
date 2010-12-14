@@ -44,8 +44,8 @@ label define loclbl 0 "Non-Local" 1 "Local"
 
 // Economic Region
 generate local1 = .
-replace local1 = 1 if econ_region_origin = 3510 // Ottawa
-replace local1 = 1 if econ_region_origin = 2460 // Outaouais
+replace local1 = 1 if econ_region_origin == 3510 // Ottawa
+replace local1 = 1 if econ_region_origin == 2460 // Outaouais
 replace local1 = 0 if econ_region_orgin != 3510 & econ_region_origin != 2460 & econ_region_origin < 99998
 
 label variable local1 "Local Student (by Economic Region)"
@@ -63,7 +63,7 @@ restore
 sort fsa3
 merge fsa3 using "${workdatapath}ottawa_postal_codes.dta", uniqusing _merge(_ottpostalcodes)
 tab _ottpostalcodes
-drop _ottpostalcodes==2 // Codes not in the data
+drop if _ottpostalcodes==2 // Codes not in the data
 recode _ottpostalcodes (1 = 0) (3 = 1)
 rename _ottpostalcodes local2
 
@@ -74,8 +74,8 @@ label values local2 loclbl
 
 // County
 generate local4 = .
-replace local4 = 1 if county = 6 // Ottawa-Carleton Regional Municipality
-replace local4 = 1 if county = 181 // Communaute-Urbaine-de-L'Outaouais
+replace local4 = 1 if county == 6 // Ottawa-Carleton Regional Municipality
+replace local4 = 1 if county == 181 // Communaute-Urbaine-de-L'Outaouais
 replace local4 = 0 if county != 6 & county != 181 & !missing(county)
 
 label variable local4 "Local Student (by County Code)"
