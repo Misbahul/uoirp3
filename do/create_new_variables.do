@@ -46,7 +46,7 @@ label define loclbl 0 "Non-Local" 1 "Local"
 generate local1 = .
 replace local1 = 1 if econ_region_origin == 3510 // Ottawa
 replace local1 = 1 if econ_region_origin == 2460 // Outaouais
-replace local1 = 0 if econ_region_orgin != 3510 & econ_region_origin != 2460 & econ_region_origin < 99998
+replace local1 = 0 if econ_region_origin != 3510 & econ_region_origin != 2460 & econ_region_origin < 99998
 
 label variable local1 "Local Student (by Economic Region)"
 label values local1 loclbl
