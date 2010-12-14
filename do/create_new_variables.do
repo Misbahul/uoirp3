@@ -40,6 +40,43 @@ use "${workdatapath}labeled_retention_data"
 	4) County Code
 */
 
+label define loclbl 0 "Non-Local" 1 "Local"
+
+// Economic Region
+generate local1 = .
+replace local1 = 1 if econ_region_origin = 3510 // Ottawa
+replace local1 = 1 if econ_region_origin = 2460 // Outaouais
+replace local1 = 0 if econ_region_orgin != 3510 & econ_region_origin != 2460 & econ_region_origin < 99998
+
+label variable local1 "Local Student (by Economic Region)"
+label values local1 loclbl
+
+// Postal Code
+generate fsa3 = substr(POSTAL_CD,1,3)
+preserve
+clear
+insheet using "${userdatapath}ottawa_postal_codes.txt", tab nonames
+rename v1 fsa3
+sort fsa3
+save "${workdatapath}ottawa_postal_codes.dta", replace
+restore
+sort fsa3
+merge fsa3 using "${workdatapath}ottawa_postal_codes.dta", uniqusing _merge(_ottpostalcodes)
+tab _ottpostalcodes
+drop _ottpostalcodes==2 // Codes not in the data
+recode _ottpostalcodes (1 = 0) (3 = 1)
+rename _ottpostalcodes local2
+
+label variable local2 "Local Student (by Postal Code)"
+label values local2 loclbl
+
+// School Board -- pending
+
+// County
+
+
+
+
 
 log close
 clear
