@@ -52,7 +52,6 @@ label variable local1 "Local Student (by Economic Region)"
 label values local1 loclbl
 
 // Postal Code
-generate fsa3 = substr(POSTAL_CD,1,3)
 preserve
 clear
 insheet using "${userdatapath}ottawa_postal_codes.txt", tab nonames

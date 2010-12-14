@@ -45,6 +45,7 @@ tabulate apptype, missing
 	then the student is from Québec.
 */
 generate fsa1 = substr(POSTAL_CD,1,1)
+generate fsa3 = substr(POSTAL_CD,1,3)
 generate province = .
 replace province = 10 if fsa1=="A"	// Newfoundland and Labrador
 replace province = 12 if fsa1=="B"	// Nova Soctia
@@ -804,7 +805,8 @@ label variable philosophy_highest "Highest Philosophy Grade"
 label variable any_highest "Highest Grade"
 
 compress province county credential_cd j_credential_cd kind_of_program_cd mother_tongue
-compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd ug_spec_level_cd
+compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd ug_spec_level_cd
+
 compress er_province session_cd cohort gender primary_org_cd cip_2digit cip_4digit prgm7
 compress cip_french_desc cip_english_desc post_cd coop_ind used_tongue cont2 cont3
 compress mat* eng* fra* phi* math_highest english_highest philosophy_highest any_highest
