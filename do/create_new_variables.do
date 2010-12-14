@@ -81,6 +81,24 @@ replace local4 = 0 if county != 6 & county != 181 & !missing(county)
 label variable local4 "Local Student (by County Code)"
 label values local4 loclbl
 
+forvalues i = 1/4 {
+	local locvarname : variable label local`i'
+	display "`locvarname'"
+	tab local`i', missing
+	local start = `i' + 1
+	if `start' < 5 {
+		forvalues j = `start'/4 {
+			local locjname : variable label local`j'
+			display "`locvarname' by `locjname'"
+			tab local`i' local`j'
+		}
+	}
+}
+
+
+
+
+
 
 
 
