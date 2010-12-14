@@ -95,7 +95,39 @@ forvalues i = 1/4 {
 	}
 }
 
+// High School Admission Average
+generate admission_cat = .
+replace admission_cat = 1	if	admission_avg >=	90	&	admission_avg	<=	100		// A+
+replace admission_cat = 2	if	admission_avg >=	85	&	admission_avg	<	90		// A
+replace admission_cat = 3	if	admission_avg >=	80	&	admission_avg	<	85		// A-
+replace admission_cat = 4	if	admission_avg >=	75	&	admission_avg	<	80		// B+
+replace admission_cat = 5	if	admission_avg >=	70	&	admission_avg	<	75		// B
+replace admission_cat = 6	if	admission_avg >=	65	&	admission_avg	<	70		// C+
+replace admission_cat = 7	if	admission_avg >=	60	&	admission_avg	<	65		// C
+replace admission_cat = 8	if	admission_avg >=	55	&	admission_avg	<	60		// D+
+replace admission_cat = 9	if	admission_avg >=	50	&	admission_avg	<	55		// D
+replace admission_cat = 10	if	admission_avg >=	40	&	admission_avg	<	49		// E
+replace admission_cat = 11	if	admission_avg >=	0	&	admission-avg	<	40		// F
 
+label variable admission_cat "Admission Average (Categorical Letter Grade)"
+label values admission_cat grade_codes
+
+// uOttawa GPA
+generate gpa_cat = .
+replace gpa_cat = 1		if	cgpa >=		10	&	cgpa	<=	10	// A+
+replace gpa_cat = 2		if	cgpa >=		9	&	cgpa	<	10	// A
+replace gpa_cat = 3		if	cgpa >=		8	&	cgpa	<	9	// A
+replace gpa_cat = 4		if	cgpa >=		7	&	cgpa	<	8	// B+
+replace gpa_cat = 5		if	cgpa >=		6	&	cgpa	<	7	// B
+replace gpa_cat = 6		if	cgpa >=		5	&	cgpa	<	6	// C+
+replace gpa_cat = 7		if	cgpa >=		4	&	cgpa	<	5	// C
+replace gpa_cat = 8		if	cgpa >=		3	&	cgpa	<	4	// D+
+replace gpa_cat = 9		if	cgpa >=		2	&	cgpa	<	3	// D
+replace gpa_cat = 10	if	cgpa >=		1	&	cgpa	<	2	// E
+replace gpa_cat = 11	if	cgpa >=		0	&	cgpa	<	1	// F
+
+label variable gpa_cat "University GPA (Categorical Letter Grade)"
+label values gpa_cat grade_codes
 
 
 
