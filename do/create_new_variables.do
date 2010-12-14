@@ -73,6 +73,13 @@ label values local2 loclbl
 // School Board -- pending
 
 // County
+generate local4 = .
+replace local4 = 1 if county = 6 // Ottawa-Carleton Regional Municipality
+replace local4 = 1 if county = 181 // Communaute-Urbaine-de-L'Outaouais
+replace local4 = 0 if county != 6 & county != 181 & !missing(county)
+
+label variable local4 "Local Student (by County Code)"
+label values local4 loclbl
 
 
 
