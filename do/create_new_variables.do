@@ -129,11 +129,7 @@ replace gpa_cat = 11	if	cgpa >=		0	&	cgpa	<	1	// F
 label variable gpa_cat "University GPA (Categorical Letter Grade)"
 label values gpa_cat grade_codes
 
-
-
-
-
-
+save "${workdatapath}new_variable_data.dta"
 
 log close
 clear
