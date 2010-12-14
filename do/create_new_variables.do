@@ -1,7 +1,9 @@
-// template.do
+// create_new_variables.do
 set more off
 
 /*
+	10DEC2010: File created based on template.do
+
 	02DEC2010: File copied from L-SLIS files.
 
 	09JUL09: File Created.
@@ -12,7 +14,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "template"
+global dofilename "create_new_variables"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -21,17 +23,23 @@ global dofilename "template"
 	If you want an output directory, keep this file as is.
 	Otherwise, uncomment the local makeoutput = 0 line.
 */
-local makeoutput = 1
-// local makeoutput = 0
+// local makeoutput = 1
+local makeoutput = 0
 include "do/header"
 
 // Sample Command to load the data file.
-// use "${workdatapath}analysis/l${appendcode}_002"
+use "${workdatapath}labeled_retention_data"
 
 /*
-	Your code goes here.
+	The big task of this file is to resolve the local vs. non-local
+	problem. We have multiple ways to do this:
+	
+	1) Economic Region
+	2) Postal Code
+	3) School Board
+	4) County Code
 */
-display _newline as text "Hello World!"
+
 
 log close
 clear
