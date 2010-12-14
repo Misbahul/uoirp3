@@ -106,7 +106,7 @@ replace admission_cat = 7	if	admission_avg >=	60	&	admission_avg	<	65		// C
 replace admission_cat = 8	if	admission_avg >=	55	&	admission_avg	<	60		// D+
 replace admission_cat = 9	if	admission_avg >=	50	&	admission_avg	<	55		// D
 replace admission_cat = 10	if	admission_avg >=	40	&	admission_avg	<	49		// E
-replace admission_cat = 11	if	admission_avg >=	0	&	admission-avg	<	40		// F
+replace admission_cat = 11	if	admission_avg >=	0	&	admission_avg	<	40		// F
 
 label variable admission_cat "Admission Average (Categorical Letter Grade)"
 label values admission_cat grade_codes
