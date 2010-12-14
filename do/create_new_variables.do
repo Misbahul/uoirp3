@@ -72,21 +72,21 @@ label values local2 loclbl
 // School Board -- pending
 
 // County
-generate local4 = .
-replace local4 = 1 if county == 6 // Ottawa-Carleton Regional Municipality
-replace local4 = 1 if county == 181 // Communaute-Urbaine-de-L'Outaouais
-replace local4 = 0 if county != 6 & county != 181 & !missing(county)
+generate local3 = .
+replace local3 = 1 if county == 6 // Ottawa-Carleton Regional Municipality
+replace local3 = 1 if county == 181 // Communaute-Urbaine-de-L'Outaouais
+replace local3 = 0 if county != 6 & county != 181 & !missing(county)
 
-label variable local4 "Local Student (by County Code)"
-label values local4 loclbl
+label variable local3 "Local Student (by County Code)"
+label values local3 loclbl
 
-forvalues i = 1/4 {
+forvalues i = 1/3 {
 	local locvarname : variable label local`i'
 	display "`locvarname'"
 	tab local`i', missing
 	local start = `i' + 1
-	if `start' < 5 {
-		forvalues j = `start'/4 {
+	if `start' < 4 {
+		forvalues j = `start'/3 {
 			local locjname : variable label local`j'
 			display "`locvarname' by `locjname'"
 			tab local`i' local`j'
