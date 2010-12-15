@@ -92,7 +92,7 @@ rename admav_7 admav_C
 rename admav_8 admav_belowC
 rename admav_9 admav_miss
 
-tabulate prgm7, genrate(prgm_) missing
+tabulate prgm7, generate(prgm_) missing
 rename prgm_1 prgm_ed
 rename prgm_2 prgm_vparts
 rename prgm_3 prgm_arts
