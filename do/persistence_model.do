@@ -113,7 +113,9 @@ local basic_controls ""
 forvalues i = 1998/2008 {
 	local basic_controls "`basic_controls' cohort_`i'"
 }
+local bc_dum "`basic_controls' \"
 local basic_controls "`basic_controls' prov_nl prov_pei prov_ns prov_nb prov_qc prov_mb prov_sk prov_ab prov_bc prov_nwt prov_yk prov_oth male"
+local bc_dum "`bc_dum' prov_nl prov_pei prov_ns prov_nb prov_qc prov_mb prov_sk prov_ab prov_bc prov_nwt prov_yk prov_oth"
 local lang1 "ml2_fr ml2_oth"
 local lang2 "tl_fr tl_imm"
 local lang3 "used_fr"
@@ -124,7 +126,7 @@ local prgm_omit "prgm_arts"
 unab prgm : prgm_*
 local prgm : list prgm - prgm_omit
 
-foreach i of varlist cont2 cont3 uoreturn {
+foreach i of varlist cont2 cont3 uoreturn cgpa {
 	regress `i' `basic_controls'
 	forvalues j = 1/3 {
 		regress `i' `basic_controls' `lang`j''
@@ -136,6 +138,27 @@ foreach i of varlist cont2 cont3 uoreturn {
 	regress `i' `basic_controls' `lang1' local1 `admav'
 	regress `i' `basic_controls' `lang1' local1 `prgm'
 	regress `i' `basic_controls' `lang1' local1 `admav' `prgm'	 
+}
+
+foreach i of varlist cont2 cont3 uoreturn {
+	logit `i' `basic_controls'
+	margeff, dummies(`bc_dum') replace
+	forvalues j = 1/3 {
+		logit `i' `basic_controls' `lang`j''
+		margeff, dummies(`bc_dum' \ `lang`j'') replace
+	}
+	forvalues j = 1/3 {
+		logit `i' `basic_controls' `lang1' local`j'
+		margeff, dummies(`bc_dum' \ `lang1') replace
+	}
+	logit `i' `basic_controls' `lang1' local1
+	margeff, dummies(`bc_dum' \ `lang1') replace
+	logit `i' `basic_controls' `lang1' local1 `admav'
+	margeff, dummies(`bc_dum' \ `lang1' \ `admav')
+	logit `i' `basic_controls' `lang1' local1 `prgm'
+	margeff, dummies(`bc_dum' \ `lang1' \ `prgm')
+	logit `i' `basic_controls' `lang1' local1 `admav' `prgm'
+	margeff, dummies(`bc_dum' \ `lang1' \ `admav' \ `prgm')
 }
 
 log close
