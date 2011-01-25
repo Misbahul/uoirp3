@@ -25,6 +25,15 @@ global dofilename "label_institutional_data"
 local makeoutput = 0
 include "do/header"
 
+capture program drop my_encode
+program my_encode
+	syntax varname, generate(varlist) *
+	capture encode `varlist', generate(`generate') `options'
+	if _rc==107 {
+		clonevar `generate' = `varlist'
+	} 
+end
+
 // Sample Command to load the data file.
 use "${workdatapath}initial_retention_data"
 
@@ -103,8 +112,8 @@ tabulate province if !missing(county) & province!=24 & province!=35
 
 // CREDENTIAL_CD
 include do/credential_cd_codes.do
-encode CREDENTIAL_CD, generate(credential_cd) label(credential_cd_codes)
-encode J_CREDENTIAL_CD, generate(j_credential_cd) label(j_credential_cd)
+my_encode CREDENTIAL_CD, generate(credential_cd) label(credential_cd_codes)
+my_encode J_CREDENTIAL_CD, generate(j_credential_cd) label(j_credential_cd)
 include do/credential_cd_en_label.do
 label values credential_cd credential_cd_en_label
 label values j_credential_cd credential_cd_en_label
@@ -124,7 +133,7 @@ tabulate imstat, missing
 
 // KIND_OF_PROGRAM_CD
 include do/kind_of_program_cd_codes.do
-encode KIND_OF_PROGRAM_CD, generate(kind_of_program_cd) label(kind_of_program_cd_codes)
+my_encode KIND_OF_PROGRAM_CD, generate(kind_of_program_cd) label(kind_of_program_cd_codes)
 include do/kind_of_program_cd_en_label.do
 label values kind_of_program_cd kind_of_program_cd_en_label
 
@@ -132,7 +141,7 @@ tabulate kind_of_program_cd, missing
 
 // MOTHER_TOUNGE
 include do/mother_tongue_codes.do
-encode MOTHER_TONGUE, generate(mother_tongue) label(mother_tongue_codes)
+my_encode MOTHER_TONGUE, generate(mother_tongue) label(mother_tongue_codes)
 include do/mother_tongue_en_label.do
 label values mother_tongue mother_tongue_en_label
 
@@ -140,7 +149,7 @@ tabulate mother_tongue, missing
 
 // PRINC_TEACHING_LNG
 include do/princ_teaching_lng_codes.do
-encode PRINC_TEACHING_LNG, generate(princ_teaching_lng) label(princ_teaching_lng_codes)
+my_encode PRINC_TEACHING_LNG, generate(princ_teaching_lng) label(princ_teaching_lng_codes)
 include do/princ_teaching_lng_en_label.do
 label values princ_teaching_lng princ_teaching_lng_en_label
 
@@ -151,7 +160,7 @@ include do/subject_cd_codes.do
 include do/subject_cd_en_label.do
 foreach i of varlist MAIN_SUBJECT1_CD MAIN_SUBJECT2_CD J_MAIN_SUBJECT1_CD /* J_MAIN_SUBJECT2_CD */ {
 	local lower_i = lower("`i'")
-	encode `i', generate(`lower_i') label(subject_cd_codes)
+	my_encode `i', generate(`lower_i') label(subject_cd_codes)
 	label values `lower_i' subject_cd_en_label
 	tabulate `lower_i', missing
 	display _n
@@ -159,7 +168,7 @@ foreach i of varlist MAIN_SUBJECT1_CD MAIN_SUBJECT2_CD J_MAIN_SUBJECT1_CD /* J_M
 
 // UG_SPEC_LEVEL_CD
 include do/ug_spec_level_cd_codes.do
-encode UG_SPEC_LEVEL_CD, generate(ug_spec_level_cd) label(ug_spec_level_cd_codes)
+my_encode UG_SPEC_LEVEL_CD, generate(ug_spec_level_cd) label(ug_spec_level_cd_codes)
 include do/ug_spec_level_cd_en_label.do
 label values ug_spec_level_cd ug_spec_level_cd_en_label
 
@@ -246,7 +255,7 @@ format %td entry_day
 // GENDER
 
 label define gender_codes 0 "F" 1 "H"
-encode GENDER, generate(gender) label(gender_codes)
+my_encode GENDER, generate(gender) label(gender_codes)
 label define gender_en_label 0 "Female" 1 "Male"
 label values gender gender_en_label
 
@@ -649,17 +658,17 @@ recode cip_2digit ///
 	, generate(prgm7)
 tab prgm7, missing
 
-encode CIP_FRENCH_DESC, generate(cip_french_desc)
-encode CIP_ENGLISH_DESC, generate(cip_english_desc)
+my_encode CIP_FRENCH_DESC, generate(cip_french_desc)
+my_encode CIP_ENGLISH_DESC, generate(cip_english_desc)
 
 // POST_CD
-encode POST_CD, generate(post_cd)
+my_encode POST_CD, generate(post_cd)
 
 tabulate post_cd, missing
 
 // COOP_IND
 label define coop_ind_codes 0 "N" 1 "Y"
-encode COOP_IND, generate(coop_ind) label(coop_ind_codes)
+my_encode COOP_IND, generate(coop_ind) label(coop_ind_codes)
 label define coop_ind_en_label 0 "No Co-Op" 1 "Co-Op Program"
 label values coop_ind coop_ind_en_label
 
@@ -667,12 +676,12 @@ tabulate coop_ind
 
 // USED_TONGUE
 label define used_tongue_codes 0 "E" 1 "F"
-encode USED_TONGUE, generate(used_tongue) label(used_tongue_codes)
+my_encode USED_TONGUE, generate(used_tongue) label(used_tongue_codes)
 label define used_tongue_en_label 0 "English" 1 "French"
 label values used_tongue used_tongue_en_label
 
 // CONT2
-encode CONT2, generate(cont2)
+my_encode CONT2, generate(cont2)
 recode cont2 (1 = 1) (. = 0)
 label define cont 0 "Leave" 1 "Continue"
 label values cont2 cont
@@ -680,7 +689,7 @@ label values cont2 cont
 tab cont2, missing
 
 // CONT3
-encode CONT3, generate(cont3)
+my_encode CONT3, generate(cont3)
 recode cont3 (1 = 1) (. = 0)
 label values cont3 cont
 
@@ -709,7 +718,7 @@ label define grade_codes 19 "NS", add
 
 foreach i of varlist MAT1320 MAT1720 MAT1330 MAT1730 MAT1300 MAT1700 ENG1100 ENG1112 FRA1528 FRA1538 FRA1710 PHI1101 PHI1501 {
 	local lower_i = lower("`i'")
-	encode `i', generate(`lower_i') label(grade_codes)
+	my_encode `i', generate(`lower_i') label(grade_codes)
 	tabulate `lower_i', missing
 } 
 
