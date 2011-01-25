@@ -27,7 +27,7 @@ include "do/header"
 
 capture program drop my_encode
 program my_encode
-	syntax varname, generate(varlist) *
+	syntax varname, generate(namelist) *
 	capture encode `varlist', generate(`generate') `options'
 	if _rc==107 {
 		clonevar `generate' = `varlist'
