@@ -30,6 +30,9 @@ include "do/header"
 // Sample Command to load the data file.
 use "${workdatapath}new_variable_data"
 
+label define imstat_en_label 3 "Other Visa", modify
+label define imstat_en_label 4 "Foreign Unknown", modify
+
 /*
 	STEP 1: Initial "Proc Freqs"
 	i.e. Frequencies and Proportions of all the individual variables
