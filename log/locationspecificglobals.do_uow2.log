@@ -1,8 +1,7 @@
---------------------------------------------------------------------------------------------
-      name:  <unnamed>
-       log:  c:\Users\Stephen_2\uottawa\log/locationspecificglobals.do_uow2.log
+--------------------------------------------------------------------------------
+       log:  C:\Users\Stephen_2\uottawa\log/locationspecificglobals.do_uow2.log
   log type:  text
- opened on:  31 Jan 2011, 11:24:39
+ opened on:  31 Jan 2011, 11:50:05
 
 . set memory 500m
 
@@ -68,7 +67,8 @@ Current memory allocation
 
 . 
 . /*
-> User data (Such as the data files for funding formula -- doesn't need to be secure).
+> User data (Such as the data files for funding formula -- doesn't need to be se
+> cure).
 > */
 . // global userdatapath ""
 . global userdatapath `"`root'data\user/"'
