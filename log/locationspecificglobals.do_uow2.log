@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
        log:  C:\Users\Stephen_2\uottawa\log/locationspecificglobals.do_uow2.log
   log type:  text
- opened on:  31 Jan 2011, 11:50:05
+ opened on:  31 Jan 2011, 12:45:29
 
 . set memory 500m
 
@@ -12,9 +12,9 @@ Current memory allocation
     --------------------------------------------------------------------
     set maxvar         5000     max. variables allowed           1.909M
     set memory          500M    max. data space                500.000M
-    set matsize         400     max. RHS vars in models          1.254M
+    set matsize         500     max. RHS vars in models          1.949M
                                                             -----------
-                                                               503.163M
+                                                               503.858M
 
 . set matsize 500
 
