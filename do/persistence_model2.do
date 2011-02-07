@@ -66,7 +66,7 @@ end
 
 capture program drop persistence_model
 program define persistence_model
-	syntax using [if] [in], estdir(string) save(passthru) [replace append] ///
+	syntax varname using [if] [in], estdir(string) save(passthru) [replace append] ///
 		title(passthru) notes(passthru) sheet(passthru)
 	marksample touse
 	tempvar consis_sample
@@ -177,7 +177,7 @@ program define persistence_model
 	local cwidthlist "0 `cwidth_names'"
 	local cwidthcount 1
 	forvalues i = 1/`models' { 
-		persistence_logit cont2 `m`i'' `regions' if `touse' & `consis_sample' `wt', ///
+		persistence_logit `varlist' `m`i'' `regions' if `touse' & `consis_sample' `wt', ///
 			save( "`estdir'`estname`i''.ster") ///
 			dummies( `dummies') estname( `estname`i'') ///
 			regtitle( "`regname`i''")
@@ -269,18 +269,23 @@ forvalues i = 1/`count' {
 	ensuredir "output/`dofilename'/`nick`i''/"
 	
 	forvalues m = 1/`mcount' { 
-		local myreplace "replace"
 		ensuredir "estimates/`dofilename'/`nick`i''/`modelnick`m''/"
 		ensuredir "output/`dofilename'/`nick`i''/`modelnick`m''/"
-		local sysdate = c(current_date)
-		local systime = c(current_time)
-		local timestring "`sysdate' `systime'"
-		persistence_model using "`modelfile`m''", ///
-			estdir( "estimates/`dofilename'/`nick`i''/`modelnick`m''/") ///
-			title( "Regression Output: `modelname`m''") ///
-			notes( Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: `dofilename'.do; Model file: `modelfile`m''; Date ran: `timestring' ) sheet( "`modelnick`m''") ///
-			save( "output/`dofilename'/`nick`i''/`modelnick`m''/${dofilename}_`nick`i''_`modelnick`m''.xls") `myreplace'
-		local myreplace "append" 
+		foreach n of varlist cont2 cont3 uoreturn {
+			local myreplace "replace"
+			ensuredir "estimates/`dofilename'/`nick`i''/`modelnick`m''/`n'/"
+			ensuredir "output/`dofilename'/`nick`i''/`modelnick`m''/`n'/"
+			local sysdate = c(current_date)
+			local systime = c(current_time)
+			local timestring "`sysdate' `systime'"
+			persistence_model `n' using "`modelfile`m''", ///
+				estdir( "estimates/`dofilename'/`nick`i''/`modelnick`m''/`n'/") ///
+				title( "Regression Output: `modelname`m'' (`n')") ///
+				notes( Dependant Variable: `n'; Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: `dofilename'.do; Model file: `modelfile`m''; Date ran: `timestring' ) ///
+				sheet( "`modelnick`m''_`n'") ///
+				save( "output/`dofilename'/`nick`i''/`modelnick`m''/`n'/${dofilename}_`nick`i''_`modelnick`m''_`n'.xls") `myreplace'
+			local myreplace "append" 
+		} 
 	} 	
 } 
 		
