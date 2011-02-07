@@ -7,7 +7,7 @@ hsavg	High School Admission Average
 pgrm	uOttawa Program
 @
 >Gender (Female)
-male	Male	1	0	1	1	1	1
+male	Male	1	0	1	1	1	1	1
 >
 >Cohort (1997)
 cohort_1998	1998	1	1	1	1	1	1	1
