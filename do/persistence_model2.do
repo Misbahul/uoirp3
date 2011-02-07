@@ -184,26 +184,26 @@ program define persistence_model
 		local estlist "`estlist' `estname`i''"
 		local cwidthlist "`cwidthlist', `cwidthcount' `cwidth_reg'"
 		local ++cwidthcount
-		local cwidthlist "`cwidthlist', `cwidthcount' `cwidth_reg'"
-		local ++cwidthcount
-		local cwidthlist "`cwidthlist', `cwidthcount' `cwidth_blank'"
-		local ++cwidthcount
+		// local cwidthlist "`cwidthlist', `cwidthcount' `cwidth_reg'"
+		// local ++cwidthcount
+		// local cwidthlist "`cwidthlist', `cwidthcount' `cwidth_blank'"
+		// local ++cwidthcount
 	} 
 	
 	local mycblanks ""
-	local blankcount = 0
-	local blankincrement = 2
+	// local blankcount = 0
+	// local blankincrement = 2
 	
-	local blanknumbers = `models' - 1
+	// local blanknumbers = `models' - 1
 	
-	forvalues i = 1/`blanknumbers' { 
-		local blankcount = `blankcount' + `blankincrement'
-		local mycblanks "`mycblanks' `blankcount'"
-	} 
+	// forvalues i = 1/`blanknumbers' { 
+		// local blankcount = `blankcount' + `blankincrement'
+		// local mycblanks "`mycblanks' `blankcount'"
+	// } 
 	
 	
 	
-	xml_tab `estlist', `save' `replace' `append' below drop(NoPSE:) ///
+	xml_tab `estlist', `save' `replace' `append' below ///
 		`title' `notes' lines(COL_NAMES 3 LAST_ROW 4) ///
 		rblanks( `rowblank')  ///
 		keep( `keepvars') ///
