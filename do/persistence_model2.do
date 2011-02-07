@@ -5,10 +5,12 @@ clear
 set memory 1000m
 set matsize 1000
 
-local dofilename "persistence_model2"
-include common/do/imm2_macros.do
+global dofilename "persistence_model2"
+// include common/do/imm2_macros.do
+local makeoutput = 1
+include do/header
 
-adopath ++ "ado/"
+// adopath ++ "ado/"
 
 /*
 	If you need to regenerate all the matrix
@@ -22,7 +24,7 @@ adopath ++ "ado/"
 local regenerate ""
 // local regenerate "regenerate"
 
-adopath + "ado/"
+// adopath + "ado/"
 
 capture drop _all
 
@@ -169,7 +171,7 @@ program define access_model
 	}
 	file close myfile
 	
-	include do/access_locals.do
+	// include do/access_locals.do
 	
 	local estlist ""
 	local cwidthlist "0 `cwidth_names'"
