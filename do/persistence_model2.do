@@ -171,14 +171,14 @@ program define persistence_model
 	}
 	file close myfile
 	
-	// include do/access_locals.do
+	include do/persistence_locals.do
 	
 	local estlist ""
 	local cwidthlist "0 `cwidth_names'"
 	local cwidthcount 1
 	forvalues i = 1/`models' { 
-		persistence_logit colluniv `m`i'' `regions' if `touse' & `consis_sample' `wt', ///
-			save( "`estdir'`estname`i''.ster") /* cluster(schoolid) */ ///
+		persistence_logit cont2 `m`i'' `regions' if `touse' & `consis_sample' `wt', ///
+			save( "`estdir'`estname`i''.ster") ///
 			dummies( `dummies') estname( `estname`i'') ///
 			regtitle( "`regname`i''")
 		local estlist "`estlist' `estname`i''"
