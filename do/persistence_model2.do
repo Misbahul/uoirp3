@@ -226,36 +226,6 @@ ensuredir "output/`dofilename'/"
 
 local delimiter=`"`=char(9)'"'		/* " */
 
-// capture file close versionfile
-// file open versionfile using "do/yap_versions_panel.txt", read text
-
-// file read versionfile line
-
-// local count = 0
-
-// while r(eof)==0 { 
-	// if substr( "`line'",1,1)=="#" { 
-		// local comment = substr( "`line'",2,.)
-		// display as text "Comment: " as result "`comment'"
-	// } 
-	// else { 
-		// tokenize `"`macval(line)'"', parse(`"`delimiter'"') /* " */
-		// if "`1'"!="" { 
-			// ensuredir "estimates/`dofilename'/`3'/"
-			// ensuredir "output/`dofilename'/`3'/"
-			
-			// local ++count
-			
-			// local datafile`count' "`1'"
-			// local nick`count' "`3'"
-			// local regionvars`count' "`5'"
-			
-		// } 
-	// } 
-	// file read versionfile line
-// } 
-// file close versionfile
-
 local count = 1	// One version file.
 local datafile1 "${workdatapath}new_variable_data"
 local nick1 "main"
