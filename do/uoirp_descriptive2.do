@@ -74,9 +74,9 @@ foreach i of varlist `cat_vars' {
 		(there are students for whom cont2==0 and cont3==1)
 	uoreturn -- either cont2 or cont3 == 1.
 */
-clonevar uoreturn = cont2
-replace uoreturn = 1 if cont3==1
-label variable uoreturn "Returned to University of Ottawa"
+// clonevar uoreturn = cont2
+// replace uoreturn = 1 if cont3==1
+// label variable uoreturn "Returned to University of Ottawa"
 
 local myrep "replace"
 foreach j of varlist cont2 cont3 uoreturn {
