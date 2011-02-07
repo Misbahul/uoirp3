@@ -1,0 +1,194 @@
+------------------------------------------------------------------------------------
+       log:  /Users/sechilds/uottawa/log/.log
+  log type:  text
+ opened on:   7 Feb 2011, 08:02:58
+
+.         
+. ensuredir "estimates/"
+
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory estimates/ created.
+
+. ensuredir "estimates/`dofilename'/"
+
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory estimates// already exists.
+
+. // ensuredir "estimates/`dofilename'/test_model/"
+. 
+. ensuredir "output/"
+
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory output/ created.
+
+. ensuredir "output/`dofilename'/"
+
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory output// already exists.
+
+. 
+. 
+. local delimiter=`"`=char(9)'"'          /* " */
+
+. 
+. local count = 1 // One version file.
+
+. local datafile1 "${workdatapath}new_variable_data"
+
+. local nick1 "main"
+
+. 
+. // set tracedepth 1
+. // set trace on
+. 
+. capture file close modelsfile
+
+. file open modelsfile using "do/persistence_model2_modellist.txt", read text
+
+. 
+. file read modelsfile line
+
+. 
+. local mcount = 0
+
+. 
+. while r(eof)==0 { 
+  2.         if substr( "`line'",1,1)=="#" { 
+  3.                 local comment = substr( "`line'",2,.)
+  4.                 display as text "Comment: " as result "`comment'"
+  5.         } 
+  6.         else { 
+  7.                 tokenize `"`macval(line)'"', parse(`"`delimiter'"') /* " */
+  8.                 if "`1'"!="" { 
+  9.                         // ensuredir "estimates/`dofilename'/`3'/"
+.                         // ensuredir "output/`dofilename'/`3'/"
+.                         
+.                         local ++mcount
+ 10.                         
+.                         local modelfile`mcount' "`1'"
+ 11.                         local modelnick`mcount' "`3'"
+ 12.                         local modelname`mcount' "`5'"
+ 13.                 } 
+ 14.         } 
+ 15.         file read modelsfile line
+ 16. } 
+Comment: persistence_model2_modellist.txt
+
+. file close modelsfile
+
+. 
+. forvalues i = 1/`count' { 
+  2.         use "`datafile`i''", clear
+  3.         
+.         ensuredir "estimates/`dofilename'/`nick`i''/"
+  4.         ensuredir "output/`dofilename'/`nick`i''/"
+  5.         
+.         forvalues m = 1/`mcount' { 
+  6.                 local myreplace "replace"
+  7.                 ensuredir "estimates/`dofilename'/`nick`i''/`modelnick`m''/"
+  8.                 ensuredir "output/`dofilename'/`nick`i''/`modelnick`m''/"
+  9.                 local sysdate = c(current_date)
+ 10.                 local systime = c(current_time)
+ 11.                 local timestring "`sysdate' `systime'"
+ 12.                 persistence_model using "`modelfile`m''", ///
+>                         estdir( "estimates/`dofilename'/`nick`i''/`modelnick`m''/"
+> ) ///
+>                         title( "Regression Output: `modelname`m''") ///
+>                         notes( Average marginal effects shown., Data file: `datafi
+> le`i'' (`nick`i''), Do file: `dofilename'.do; Model file: `modelfile`m''; Date ran
+> : `timestring' ) sheet( "`modelnick`m''") ///
+>                         save( "output/`dofilename'/`nick`i''/`modelnick`m''/`dofil
+> ename'_`nick`i''_`modelnick`m''.xls") `myreplace'
+ 13.                 local myreplace "append" 
+ 14.         }       
+ 15. } 
+
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory estimates//main/ created.
+
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory output//main/ created.
+
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory estimates//main/base/ created.
+
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory output//main/base/ created.
+Comment: persistence_model2_reg1.txt
+Comment: First set of models - uottawa persistence
+
+. // persistence_locals.do
+. 
+. local cwidth_names 120
+
+. local cwidth_percent 35
+
+. local cwidth_reg 42
+
+. local cwidth_obs 40
+
+. local cwidth_blank 8
+
+. 
+----------------------------Regression----------------------------
+Basic Controls.
+------------------------------------------------------------------
+
+
+Iteration 0:   log likelihood = -16512.471
+Iteration 1:   log likelihood = -16360.007
+Iteration 2:   log likelihood = -16347.405
+Iteration 3:   log likelihood = -16347.365
+Iteration 4:   log likelihood = -16347.365
+
+Logistic regression                               Number of obs   =      44036
+                                                  LR chi2(23)     =     330.21
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -16347.365                       Pseudo R2       =     0.0100
+
+------------------------------------------------------------------------------
+       cont2 |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+        male |  -.2602876   .0292697    -8.89   0.000    -.3176552   -.2029199
+ cohort_1998 |   .1889873   .0877362     2.15   0.031     .0170276     .360947
+ cohort_1999 |   .0442493   .0836891     0.53   0.597    -.1197783    .2082768
+ cohort_2000 |   .2679943   .0875363     3.06   0.002     .0964262    .4395623
+ cohort_2001 |   .1415951   .0839784     1.69   0.092    -.0229996    .3061898
+ cohort_2002 |   .3236864   .0828248     3.91   0.000     .1613527      .48602
+ cohort_2003 |   .3459594   .0774797     4.47   0.000      .194102    .4978169
+ cohort_2004 |   .2875436   .0807957     3.56   0.000     .1291869    .4459002
+ cohort_2005 |   .1795002   .0781653     2.30   0.022      .026299    .3327014
+ cohort_2006 |   .1930508   .0775208     2.49   0.013     .0411128    .3449888
+ cohort_2007 |    .098393   .0757304     1.30   0.194    -.0500359    .2468219
+ cohort_2008 |   .1165644   .0765697     1.52   0.128    -.0335096    .2666383
+     prov_nl |  -.2348146   .3266492    -0.72   0.472    -.8750352    .4054061
+    prov_pei |   -.779113   .2759439    -2.82   0.005    -1.319953    -.238273
+     prov_ns |  -.5079914   .1656993    -3.07   0.002     -.832756   -.1832267
+     prov_nb |  -.6628275    .113147    -5.86   0.000    -.8845915   -.4410635
+     prov_qc |  -.3032273   .0956672    -3.17   0.002    -.4907315   -.1157231
+     prov_mb |  -.7013621   .2261181    -3.10   0.002    -1.144545   -.2581788
+     prov_sk |  -.7904241   .2494755    -3.17   0.002    -1.279387   -.3014612
+     prov_ab |   -.570957   .1815377    -3.15   0.002    -.9267644   -.2151496
+     prov_bc |  -.9959883   .1072867    -9.28   0.000    -1.206266   -.7857102
+     prov_yk |  -1.063929   .5277109    -2.02   0.044    -2.098224    -.029635
+    prov_oth |  -.7346148   .0953167    -7.71   0.000    -.9214321   -.5477974
+       _cons |   1.933844    .064625    29.92   0.000     1.807181    2.060507
+------------------------------------------------------------------------------
+
+-------------------------Marginal Effects-------------------------
+Basic Controls.
+------------------------------------------------------------------
+
+Invalid dummies() option:  not among the regressors
+invalid syntax
+r(198);
+
+end of do-file
+
+r(198);
+
+. log close
+       log:  /Users/sechilds/uottawa/log/.log
+  log type:  text
+ closed on:   7 Feb 2011, 08:03:13
+------------------------------------------------------------------------------------
