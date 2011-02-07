@@ -63,4 +63,3 @@ prgm_sci	Science	1	1	0	0	0	0	1
 prgm_areng	Architecture and Engineering	1	1	0	0	0	0	1
 prgm_health	Health	1	1	0	0	0	0	1
 prgm_oth	Other	1	1	0	0	0	0	1
-\
