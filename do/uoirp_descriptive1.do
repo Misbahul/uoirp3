@@ -52,6 +52,7 @@ local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
 	display _newline as text "Processing variable " as result "`i'" as text "."
 	uwtab `i', col save("`outputdir'${dofilename}_step1.xls") `myrep' sheet("`i'")
+	uwtab `i' if missing(cgpa), col save("`outputdir'${dofilename}_step1.xls") `myrep' sheet("`i'_nogpa")
 	local myrep "append"
 } 
 
@@ -62,6 +63,7 @@ local myrep "replace"
 foreach i of varlist `cat_vars' {
 	display _newline as text "Processing variable " as result "`i'" as text "."
 	uwtab `i' cohort, col row save("`outputdir'${dofilename}_step2.xls") `myrep' sheet("`i'")
+	uwtab `i' cohort if missing(cgpa), col row save("`outputdir'${dofilename}_step2.xls") `myrep' sheet("`i'_nogpa")
 	local myrep "append"
 }
 
