@@ -193,6 +193,8 @@ recode ECON_REGION_ORIGIN 	(1010/1040	= 10) ///
 							(6010		= 60) ///
 							(6110		= 61) ///
 							(6210		= 62) ///
+							(nonmissing = .) ///
+							(missing = .) ///
 							, generate(er_province)
 							
 label values er_province province
