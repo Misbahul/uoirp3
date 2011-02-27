@@ -271,7 +271,7 @@ forvalues i = 1/`count' {
 	forvalues m = 1/`mcount' { 
 		ensuredir "estimates/`dofilename'/`nick`i''/`modelnick`m''/"
 		ensuredir "output/`dofilename'/`nick`i''/`modelnick`m''/"
-		foreach n of varlist cont2 cont3 uoreturn {
+		foreach n of varlist leave2 leave3 leave /* cont2 cont3 uoreturn */ {
 			local myreplace "replace"
 			ensuredir "estimates/`dofilename'/`nick`i''/`modelnick`m''/`n'/"
 			ensuredir "output/`dofilename'/`nick`i''/`modelnick`m''/`n'/"

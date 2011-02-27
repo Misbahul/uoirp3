@@ -199,6 +199,14 @@ clonevar uoreturn = cont2
 replace uoreturn = 1 if cont3==1
 label variable uoreturn "Returned to University of Ottawa"
 
+recode cont2 (1 = 0 "Continue") (0 = 1 "Leave"), generate(leave2)
+recode cont3 (1 = 0 "Continue") (0 = 1 "Leave"), generate(leave3)
+label variable leave2 "Left in Year 2"
+label variable leave3 "left in Year 3"
+clonevar leave = leave2
+label variable leave "Left uOttawa"
+replace leave = 1 if leave3==1
+
 save "${workdatapath}new_variable_data.dta", replace
 
 log close

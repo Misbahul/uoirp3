@@ -33,6 +33,8 @@ local filesuffix ".log"
 local logfilename "`logfilename'${dofilename}`filesuffix'"
 log using "`logfilename'", replace text
 
+shell git describe
+
 /*
 	Setting up output directory
 */ 

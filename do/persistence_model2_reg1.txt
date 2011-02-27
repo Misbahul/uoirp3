@@ -44,10 +44,10 @@ ml2_oth	Other	1	1	0	1	1	1	1
 >Local Student (Non-Local)
 local1	Local	1	0	0	0	1	1	1
 >
->High School Admission Average (A-)
+>High School Admission Average (B+)
 admav_Aplus	A+	1	1	0	0	0	1	1
 admav_A	A	1	1	0	0	0	1	1
-admav_Bplus	B+	1	1	0	0	0	1	1
+admav_Aminus A-	1	1	0	0	0	1	1
 admav_B	B	1	1	0	0	0	1	1
 admav_Cplus	C+	1	1	0	0	0	1	1
 admav_C	C	1	1	0	0	0	1	1
