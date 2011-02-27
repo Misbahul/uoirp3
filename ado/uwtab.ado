@@ -12,9 +12,18 @@ program uwtab
 	
 	tokenize `varlist'
 	
+	quietly count if !missing(`1') & `touse'
+	if r(N)==0 {
+		exit
+	}
+	
 	local matcol "matcol(`A_col')"
 	if "`2'"=="" {
 		local matcol ""
+		quietly count if !missing(`2') & `touse'
+		if r(N)==0 {
+			exit
+		}
 	}
 	
 	quietly tabulate `varlist' if `touse', `missing' matcell(`A') matrow(`A_row') `matcol'
