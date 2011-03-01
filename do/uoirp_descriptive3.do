@@ -55,12 +55,27 @@ local grades "gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 en
 local outfile1 "`outputdir'${dofilename}_grades_by_faculty.xls"
 local outfile2 "`outputdir'${dofilename}_grades_by_program.xls"
 
-
+local myrep "replace"
 foreach i of local grades {
 	local sheet_name = substr("`i'",1,20)
-	uwtab `i' primary_org_cd, col row save(`outfile1') append sheet("`sheet_name'") title("`i' by primary_org_cd")
-	uwtab `i' prgm7, col row save(`outfile2') append sheet("`sheet_name'") title("`i' by prgm7")
+	uwtab `i' primary_org_cd, col row save(`outfile1') `myrep' sheet("`sheet_name'") title("`i' by primary_org_cd")
+	uwtab `i' prgm7, col row save(`outfile2') `myrep' sheet("`sheet_name'") title("`i' by prgm7")
 	// uwtab `i' main_subject1_cd, col row save(`outfile') append sheet("Tab_4c_`i'") title("`i' by main_subject1_cd")
+	local myrep "append"
+}
+
+// GPA distributions by continuier and leaver
+
+local outfile3 "`outputdir'${dofilename}_gpa_by_leave.xls"
+local grades2 "gpa_cat"
+
+local myrep "replace"
+foreach i of varlist cont2 cont3 uoreturn leave2 leave3 leave {
+	foreach j of local grades2 {
+		local sheet_name = substr("`j'_`i'",1,28)
+		uwtab `j' `i', col row save(`outfile3') `myrep' sheet("`sheet_name'") title("`j' by leaving (`i')")
+		local myrep "append"
+	}
 }
 
 log close
