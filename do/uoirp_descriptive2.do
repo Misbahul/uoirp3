@@ -45,7 +45,7 @@ local cat_vars "`cat_vars' mat1320_rel2 mat1720_rel2 mat1330_rel2 mat1730_rel2 m
 local cat_vars "`cat_vars' mat1320_rel3 mat1720_rel3 mat1330_rel3 mat1730_rel3 mat1300_rel3 mat1700_rel3 eng1100_rel3 eng1112_rel3 fra1528_rel3 fra1710_rel3 phil1101_rel3 phil1501_rel3"
 local cat_vars "`cat_vars' math_highest_rel1 math_lowest_rel1 english_highest_rel1 english_lowest_rel1 french_highest_rel1 french_lowest_rel1 philosophy_highest_rel1 philosophy_lowest_rel1 any_highest_rel1 any_lowest_rel1"
 local cat_vars "`cat_vars' math_highest_rel2 math_lowest_rel2 english_highest_rel2 english_lowest_rel2 french_highest_rel2 french_lowest_rel2 philosophy_highest_rel2 philosophy_lowest_rel2 any_highest_rel2 any_lowest_rel2"
-local cat_vars "`cat_vars' math_highest_rel3 math_lowest_rel3 english_highest_rel3 english_lowest_rel3 french_highest_rel3 french_lowest_rel3 philosophy_highest_rel3 philosophy_lowest_rel3 any_highest_rel3 any_lowest_rel3"
+local cat_vars "`cat_vars'"
 local cat_vars "`cat_vars' local1 local2 local3 admission_cat gpa_cat"
 
 // local cat_vars "imstat"
