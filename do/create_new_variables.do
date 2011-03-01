@@ -168,11 +168,11 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	label variable `i'_rel2 "`var_lbl (relative)"
 	
 	generate `i'_rel3 = .
-	replace `i'_rel3 = 1 if (`i'_s - gpa_cat_s) > 1 & !missing(`i'_s) & !missing(gpa_s)
-	replace `i'_rel3 = 2 if (`i'_s - gpa_cat_s) == 1 & !missing(`i'_s) & !missing(gpa_s)
-	replace `i'_rel3 = 3 if (`i'_s - gpa_cat_s) == 0 & !missing(`i'_s) & !missing(gpa_s)
-	replace `i'_rel3 = 4 if (gpa_cat_s - `i'_s) == 1 & !missing(`i'_s) & !missing(gpa_s)
-	replace `i'_rel3 = 5 if (gpa_cat_s - `i'_s) > 1 & !missing(`i'_s) & !missing(gpa_s)
+	replace `i'_rel3 = 1 if (`i'_s - gpa_cat_s) > 1 & !missing(`i'_s) & !missing(gpa_cat_s)
+	replace `i'_rel3 = 2 if (`i'_s - gpa_cat_s) == 1 & !missing(`i'_s) & !missing(gpa_cat_s)
+	replace `i'_rel3 = 3 if (`i'_s - gpa_cat_s) == 0 & !missing(`i'_s) & !missing(gpa_cat_s)
+	replace `i'_rel3 = 4 if (gpa_cat_s - `i'_s) == 1 & !missing(`i'_s) & !missing(gpa_cat_s)
+	replace `i'_rel3 = 5 if (gpa_cat_s - `i'_s) > 1 & !missing(`i'_s) & !missing(gpa_cat_s)
 	label values `i'_rel3 rel3
 	label variable `i'_rel3 "`var_lbl (relative)"
 }
