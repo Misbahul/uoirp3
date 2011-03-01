@@ -33,7 +33,7 @@ local filesuffix ".log"
 local logfilename "`logfilename'${dofilename}`filesuffix'"
 log using "`logfilename'", replace text
 
-shell git describe
+shell git describe --tags
 
 /*
 	Setting up output directory
