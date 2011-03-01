@@ -50,5 +50,13 @@ uwtab main_subject1_cd if prgm7==6 & primary_org_cd==4, col save(`outfile') appe
 uwtab main_subject1_cd if prgm7==7 & primary_org_cd==4, col save(`outfile') append sheet("Tab_3h") title("Subject for Health and Fitness & SCIEN")
 uwtab main_subject1_cd if prgm7==3 & primary_org_cd==5, col save(`outfile') append sheet("Tab_3i") title("Subject for Arts & SSAN")
 
+local grades "gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 math_highest english_highest french_highest philosophy_highest any_highest"
+
+foreach i of local grades {
+	uwtab `i' primary_org_cd, col row save(`outfile') append sheet("Tab_4a_`i'") title("`i' by primary_org_cd")
+	uwtab `i' prgm7, col row save(`outfile') append sheet("Tab_4b_`i'") title("`i' by prgm7")
+	uwtab `i' main_subject1_cd, col row save(`outfile') append sheet("Tab_4c_`i'") title("`i' by main_subject1_cd")
+}
+
 log close
 clear
