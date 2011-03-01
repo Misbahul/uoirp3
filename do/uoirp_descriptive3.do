@@ -34,12 +34,13 @@ use "${workdatapath}new_variable_data"
 local outfile "`outputdir'${dofilename}.xls"
 
 // Credential and main subject.
-uwtab main_subject1_cd credential_cd, col row save(`outfile') replace sheet("Tab_1a")
-uwtab main_subject2_cd credential_cd, col row save(`outfile') append sheet("Tab_1b")
-uwtab j_main_subject1_cd credential_cd, col row save(`outfile') append sheet("Tab_1c")
-uwtab main_subject1_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2a")
-uwtab main_subject2_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2b")
-uwtab j_main_subject1_cd credential_cd, col row save(`outfile') append sheet("Tab_2c")
+uwtab main_subject1_cd credential_cd, col row save(`outfile') replace sheet("Tab_1a") title("main_subject1_cd by credential_cd")
+uwtab main_subject2_cd credential_cd, col row save(`outfile') append sheet("Tab_1b") title("main_subject2_cd by credential_cd")
+uwtab j_main_subject1_cd credential_cd, col row save(`outfile') append sheet("Tab_1c") title("j_main_subject1_cd by credential_cd")
+uwtab main_subject1_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2a") title("main_subject1_cd by ug_spec_level_cd")
+uwtab main_subject2_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2b") title("main_subject2_cd by ug_spec_level_cd")
+uwtab j_main_subject1_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2c") title("main_subject1_cd by ug_spec_level_cd")
+uwtab pgrm7 primary_org_cd, col row save(`outfile') append sheet("Tab_3") title("pgrm7 by primary_org_cd")
 
 log close
 clear
