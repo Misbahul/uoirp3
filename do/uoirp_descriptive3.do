@@ -1,7 +1,10 @@
-// template.do
+// uoirp_descriptive3.do
 set more off
 
 /*
+	01MAR2011: File created based on template.do
+	
+
 	02DEC2010: File copied from L-SLIS files.
 
 	09JUL09: File Created.
@@ -12,7 +15,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "template"
+global dofilename "uoirp_descriptive3"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -28,10 +31,9 @@ include "do/header"
 // Sample Command to load the data file.
 // use "${workdatapath}analysis/l${appendcode}_002"
 
-/*
-	Your code goes here.
-*/
-display _newline as text "Hello World!"
+// Credential and main subject.
+uwtab main_subjec1_cd credential_cd, col row save("`outputdir'${dofilename}") replace sheet("Tab_1")
+
 
 log close
 clear
