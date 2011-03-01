@@ -55,7 +55,7 @@ local grades "gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 en
 foreach i of local grades {
 	uwtab `i' primary_org_cd, col row save(`outfile') append sheet("Tab_4a_`i'") title("`i' by primary_org_cd")
 	uwtab `i' prgm7, col row save(`outfile') append sheet("Tab_4b_`i'") title("`i' by prgm7")
-	uwtab `i' main_subject1_cd, col row save(`outfile') append sheet("Tab_4c_`i'") title("`i' by main_subject1_cd")
+	// uwtab `i' main_subject1_cd, col row save(`outfile') append sheet("Tab_4c_`i'") title("`i' by main_subject1_cd")
 }
 
 log close
