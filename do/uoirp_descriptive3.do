@@ -31,9 +31,15 @@ include "do/header"
 // Sample Command to load the data file.
 use "${workdatapath}new_variable_data"
 
-// Credential and main subject.
-uwtab main_subject1_cd credential_cd, col row save("`outputdir'${dofilename}") replace sheet("Tab_1")
+local outfile "`outputdir'${dofilename}.xls"
 
+// Credential and main subject.
+uwtab main_subject1_cd credential_cd, col row save(`outfile') replace sheet("Tab_1a")
+uwtab main_subject2_cd credential_cd, col row save(`outfile') append sheet("Tab_1b")
+uwtab j_main_subject1_cd credential_cd, col row save(`outfile') append sheet("Tab_1c")
+uwtab main_subject1_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2a")
+uwtab main_subject2_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2b")
+uwtab j_main_subject1_cd credential_cd, col row save(`outfile') append sheet("Tab_2c")
 
 log close
 clear
