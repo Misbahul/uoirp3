@@ -151,7 +151,7 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	local var_lbl : variable label `i'
 	generate `i'_rel1 = .
 	replace `i'_rel1 = 1 if `i' < gpa_cat & !missing(`i') & !missing(gpa_cat)
-	replace `i'_rel1 = 2 if `i' = gpa_cat & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel1 = 2 if `i' == gpa_cat & !missing(`i') & !missing(gpa_cat)
 	replace `i'_rel1 = 3 if `i' > gpa_cat & !missing(`i') & !missing(gpa_cat)
 	label values `i'_rel1 rel1
 	label variable `i'_rel1 "`var_lbl (relative)"
