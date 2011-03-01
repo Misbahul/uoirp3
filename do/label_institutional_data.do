@@ -718,12 +718,25 @@ label define grade_codes 16 "INC", add
 label define grade_codes 17 "S", add
 label define grade_codes 18 "NNR", add
 label define grade_codes 19 "NS", add
+label define grade_codes .a "ABS", add
+label define grade_codes .b "AUD", add
+label define grade_codes .c "DR", add
+label define grade_codes .e "DFR", add
+label define grade_codes .f "INC", add
+label define grade_codes .g "S", add
+label define grade_codes .h "NNR", add
+label define grade_codes .i "NS", add
 
 foreach i of varlist MAT1320 MAT1720 MAT1330 MAT1730 MAT1300 MAT1700 ENG1100 ENG1112 FRA1528 FRA1538 FRA1710 PHI1101 PHI1501 {
 	local lower_i = lower("`i'")
 	my_encode `i', generate(`lower_i') label(grade_codes)
 	tabulate `lower_i', missing
 } 
+
+foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 {
+	recode `i' (12=.a) (13=.b) (14=.c) (15=.e) (16=.f) (17=.g) (18=.h) (19=.i)
+	label values `i' grade_codes
+}
 
 // Highest in each category
 egen math_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
@@ -745,6 +758,27 @@ tabulate philosophy_highest, missing
 egen any_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
 label values any_highest grade_codes
 tabulate any_highest, missing
+
+// Lowest in each category
+egen math_lowest = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
+label values math_lowest grade_codes
+tabulate math_highest, missing
+
+egen english_lowest = rowmax(eng1100 eng1112)
+label values english_lowest grade_codes
+tabulate english_lowest, missing
+
+egen french_lowest = rowmax(fra1528 fra1538 fra1710)
+label values french_lowest grade_codes
+tabulate french_lowest, missing
+
+egen philosophy_lowest = rowmax(phi1101 phi1501)
+label values philosophy_lowest grade_codes
+tabulate philosophy_lowest, missing
+
+egen any_lowest = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
+label values any_lowest grade_codes
+tabulate any_lowest, missing
 
 rename PERSON_ID person_id
 rename ECON_REGION_ORIGIN econ_region_origin
