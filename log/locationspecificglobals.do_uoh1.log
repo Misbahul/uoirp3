@@ -1,109 +1,95 @@
 ------------------------------------------------------------------------------------
        log:  /Users/sechilds/uottawa/log/locationspecificglobals.do_uoh1.log
   log type:  text
- opened on:   1 Mar 2011, 11:51:49
+ opened on:   1 Mar 2011, 12:02:13
 
 . clear mata
 
 . set memory 500m
+no; data in memory would be lost
+r(4);
 
-Current memory allocation
+end of do-file
+r(4);
+.         global datestring "${datestringp}"
+.         global timestring "${timestringp}"
+.         
+.         /*
+>                 CODE NOT TO DISPLAY GRAPHS
+>                 
+>                 There are two global macro definitions below. They can be used
+>                 to determine if graphs will be displayed or not.
+>         */
+.         global nodraw "nodraw"
+.         // global nodraw ""
+.         
+.         /*
+>                 Start with new ado files.
+>         */
+.         capture program drop all
+.         
+.         cd "${projectdirectory}"
+.         
+.         /*
+>                 25SEP08:
+>                 adopath ++ adds a directory to the beginning of the adopath
+>                 (which means that you access user written .ado files before
+>                 others. So, if you accidentally give your .ado file the same
+>                 name as an existing one, it will overwrite it. If this is
+>                 the behaviour you want, I suggest a special directory for it.
+>                 
+>                 I am changing the command to a single + instead of a double,
+>                 which will move this project ado directory to the end
+>                 of the path.
+>                 
+>                 I'm also adding the statautil directory to the adopath. This
+>                 directory will go AFTER the project ado directory in the 
+>                 adopath, so it is possible to overwrite the Stata Utilities
+>                 ado files with custom versions.
+>         */
+.         
+.         adopath + "${projectdirectory}ado/"
+.         adopath + "${statautil}"
+.         discard
+.         capture program drop all
+.         
+.         /*
+>                 Create the working data and output directories.
+>                 If they do not already exist.
+>         */
+.         ensuredir "${workdatapath}"
+.         ensuredir "${outputpath}"
+.         ensuredir "${logpath}"
+.         ensuredir "${manuallogpath}"
+.         
+.         global ransetup = 1
+. } 
+r(4);
 
-                    current                                 memory usage
-    settable          value     description                 (1M = 1024k)
-    --------------------------------------------------------------------
-    set maxvar         5000     max. variables allowed           2.105M
-    set memory          500M    max. data space                500.000M
-    set matsize         500     max. RHS vars in models          1.949M
-                                                            -----------
-                                                               504.054M
+end of do-file
 
-. set matsize 500
+r(4);
 
-Current memory allocation
+. do finacleanup
+file finacleanup.do not found
+r(601);
 
-                    current                                 memory usage
-    settable          value     description                 (1M = 1024k)
-    --------------------------------------------------------------------
-    set maxvar         5000     max. variables allowed           2.105M
-    set memory          500M    max. data space                500.000M
-    set matsize         500     max. RHS vars in models          1.949M
-                                                            -----------
-                                                               504.054M
+. pwd
+/Users/sechilds/uottawa/
 
-. version 10.1
+. do finalcleanup
 
+. * finalcleanup.do
 . 
 . /*
->         **** LOCAL MACROS, DEFINE THEM HERE ****
->         
->         If all your files are going to be in the same
->         directories, it might be advantageous to add
->         a local macro here.
+>         Clear the time and date strings.
 > */
-. // local root "C:\Users\User\Documents\Working/"
-. local root "~/uottawa/"
+. 
+. global ransetup ""
 
 . 
-. /*
->         Code directory (contains do and ado subdirectories)
->         All the files will be run from this directory.
-> */
-. // global projectdirectory "~/Documents/data/"
-. // global projectdirectory "C:\Users\User\Documents\Working\trunk/"
-. global projectdirectory "`root'"
-
-. // global projectdirectory `"`root'trunk/"'
-. 
-. /*
->         Stata Utilities Directory
-> */
-. global statautil "~/Stata-Utilities/"
-
-. 
-. /*
->         Source data (read only -- original data files)
-> */
-. // global sourcedatapath ""
-. global sourcedatapath `"`root'data\source/"'
-
-. 
-. /*
-> User data (Such as the data files for funding formula -- doesn't need to be secure
-> ).
-> */
-. // global userdatapath ""
-. global userdatapath `"`root'data\user/"'
-
-. 
-. /*
->         Working data (read/write, working data files)
-> */
-. // global workdatapath ""
-. global workdatapath `"`root'data\work/"'
-
-. 
-. /*
->         Logs (Both generated by programs and manually)
-> */
-. // global logpath ""
-. global logpath `"`root'data\log/"'
-
-. // global logpath `"`root'log/"'
-. 
-. /*
->         Manual Logs
-> */
-. global manuallogpath `"${logpath}manual/"'
-
-. 
-. /*
->         Output (where charts, etc. go)
-> */
-. // global outputpath ""
-. // global outputpath `"`root'output/"'
-. global outputpath `"`root'data\output/"'
-
-. 
-. 
-. capture log close
+. capture noisily log close
+       log:  /Users/sechilds/uottawa/log/locationspecificglobals.do_uoh1.log
+  log type:  text
+ closed on:   1 Mar 2011, 12:02:26
+------------------------------------------------------------------------------------
