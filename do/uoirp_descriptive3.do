@@ -32,7 +32,7 @@ include "do/header"
 use "${workdatapath}new_variable_data"
 
 // Credential and main subject.
-uwtab main_subjec1_cd credential_cd, col row save("`outputdir'${dofilename}") replace sheet("Tab_1")
+uwtab main_subject1_cd credential_cd, col row save("`outputdir'${dofilename}") replace sheet("Tab_1")
 
 
 log close
