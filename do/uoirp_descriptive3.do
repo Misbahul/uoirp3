@@ -40,7 +40,7 @@ uwtab j_main_subject1_cd credential_cd, col row save(`outfile') append sheet("Ta
 uwtab main_subject1_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2a") title("main_subject1_cd by ug_spec_level_cd")
 uwtab main_subject2_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2b") title("main_subject2_cd by ug_spec_level_cd")
 uwtab j_main_subject1_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2c") title("main_subject1_cd by ug_spec_level_cd")
-uwtab pgrm7 primary_org_cd, col row save(`outfile') append sheet("Tab_3") title("pgrm7 by primary_org_cd")
+uwtab prgm7 primary_org_cd, col row save(`outfile') append sheet("Tab_3") title("prgm7 by primary_org_cd")
 
 log close
 clear
