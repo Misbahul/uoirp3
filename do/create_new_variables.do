@@ -131,7 +131,7 @@ label values gpa_cat grade_codes
 /*
 	Simplified Grade variables -- just letter grades
 */
-foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 {
+foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 english_highest english_lowest math_highest math_lowest french_highest french_lowest philosophy_highest philosophy_lowest any_highest any_lowest {
 	recode `i' (1 2 3 = 1 "A") (4 5 = 2 "B") (6 7 = 3 "C") (8 9 = 4 "D") (10 = 5 "E") (11 = 6 "F"), generate(`i'_s)
 	local var_lbl : variable label `i'
 	label variable `i'_s "`var_lbl (simplified)"
