@@ -16,6 +16,7 @@ clear
 if "`c(os)'"=="Windows" {
 	shell readygit.bat
 }
+shell git add data/output/
 shell git commit -a -m "Command Completed ${datestring} ${timestring}"
 shell git status
 
