@@ -40,6 +40,12 @@ local cat_vars "`cat_vars' used_tongue cont2 cont3 mat1320 mat1720 mat1330 mat17
 local cat_vars "`cat_vars' eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 math_highest"
 local cat_vars "`cat_vars' english_highest french_highest philosophy_highest any_highest"
 local cat_vars "`cat_vars' math_lowest english_lowest french_lowest philosophy_lowest any_lowest"
+local cat_vars "`cat_vars' mat1320_rel1 mat1720_rel1 mat1330_rel1 mat1730_rel1 mat1300_rel1 mat1700_rel1 eng1100_rel1 eng1112_rel1 fra1528_rel1 fra1710_rel1 phil1101_rel1 phil1501_rel1"
+local cat_vars "`cat_vars' mat1320_rel2 mat1720_rel2 mat1330_rel2 mat1730_rel2 mat1300_rel2 mat1700_rel2 eng1100_rel2 eng1112_rel2 fra1528_rel2 fra1710_rel2 phil1101_rel2 phil1501_rel2"
+local cat_vars "`cat_vars' mat1320_rel3 mat1720_rel3 mat1330_rel3 mat1730_rel3 mat1300_rel3 mat1700_rel3 eng1100_rel3 eng1112_rel3 fra1528_rel3 fra1710_rel3 phil1101_rel3 phil1501_rel3"
+local cat_vars "`cat_vars' math_highest_rel1 math_lowest_rel1 english_highest_rel1 english_lowest_rel1 french_highest_rel1 french_lowest_rel1 philosophy_highest_rel1 philosophy_lowest_rel1 any_highest_rel1 any_lowest_rel1"
+local cat_vars "`cat_vars' math_highest_rel2 math_lowest_rel2 english_highest_rel2 english_lowest_rel2 french_highest_rel2 french_lowest_rel2 philosophy_highest_rel2 philosophy_lowest_rel2 any_highest_rel2 any_lowest_rel2"
+local cat_vars "`cat_vars' math_highest_rel3 math_lowest_rel3 english_highest_rel3 english_lowest_rel3 french_highest_rel3 french_lowest_rel3 philosophy_highest_rel3 philosophy_lowest_rel3 any_highest_rel3 any_lowest_rel3"
 local cat_vars "`cat_vars' local1 local2 local3 admission_cat gpa_cat"
 
 // local cat_vars "imstat"

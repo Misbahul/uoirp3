@@ -129,6 +129,58 @@ label variable gpa_cat "University GPA (Categorical Letter Grade)"
 label values gpa_cat grade_codes
 
 /*
+	Simplified Grade variables -- just letter grades
+*/
+foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 {
+	recode `i' (1 2 3 = 1 "A") (4 5 = 2 "B") (6 7 = 3 "C") (8 9 = 4 "D") (10 = 5 "E") (11 = 6 "F"), generate(`i'_s)
+	local var_lbl : variable label `i'
+	label variable `i'_s "`var_lbl (simplified)"
+}
+
+/*
+	Relative grade variable
+	
+	I guess this means relative to their overall grade.
+	i.e gpa_cat
+*/
+
+label define grade_rel1 1 "Higher than GPA" 2 "Same as GPA" 3 "Lower than GPA"
+label define grade_rel2 1 "3+ levels higher" 2 "2 levels higher" 3 "1 level higher" 4 "Same level" 5 "1 level lower" 6 "2 levels lower" 7 "3+ levels lower"
+label define grade_rel3 1 "2+ letters higher" 2 "1 letter higher" 3 "Same letter" 4 "1 letter lower" 5 "2 letters lower"
+foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 english_highest english_lowest math_highest math_lowest french_highest french_lowest philosophy_highest philosophy_lowest any_highest any_lowest {
+	local var_lbl : variable label `i'
+	generate `i'_rel1 = .
+	replace `i'_rel1 = 1 if `i' < gpa_cat & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel1 = 2 if `i' = gpa_cat & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel1 = 3 if `i' > gpa_cat & !missing(`i') & !missing(gpa_cat)
+	label values `i'_rel1 rel1
+	label variable `i'_rel1 "`var_lbl (relative)"
+	
+	generate `i'_rel2 = .
+	replace `i'_rel2 = 1 if (`i' - gpa_cat) > 2 & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel2 = 2 if (`i' - gpa_cat) == 2 & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel2 = 3 if (`i' - gpa_cat) == 1 & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel2 = 4 if (`i' - gpa_cat) == 0 & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel2 = 5 if (gpa_cat - `i') == 1 & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel2 = 6 if (gpa_cat - `i') == 2 & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel2 =76 if (gpa_cat - `i') > 2 & !missing(`i') & !missing(gpa_cat)
+	label values `i'_rel2 rel2
+	label variable `i'_rel2 "`var_lbl (relative)"
+	
+	generate `i'_rel3 = .
+	replace `i'_rel3 = 1 if (`i'_s - gpa_cat_s) > 1 & !missing(`i'_s) & !missing(gpa_s)
+	replace `i'_rel3 = 2 if (`i'_s - gpa_cat_s) == 1 & !missing(`i'_s) & !missing(gpa_s)
+	replace `i'_rel3 = 3 if (`i'_s - gpa_cat_s) == 0 & !missing(`i'_s) & !missing(gpa_s)
+	replace `i'_rel3 = 4 if (gpa_cat_s - `i'_s) == 1 & !missing(`i'_s) & !missing(gpa_s)
+	replace `i'_rel3 = 5 if (gpa_cat_s - `i'_s) > 1 & !missing(`i'_s) & !missing(gpa_s)
+	label values `i'_rel3 rel3
+	label variable `i'_rel3 "`var_lbl (relative)"
+}
+
+
+
+
+/*
 	Regression dummy variables.
 	(moved here from persistence_model.do on 07FEB2011.)
 */
