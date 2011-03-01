@@ -40,7 +40,15 @@ uwtab j_main_subject1_cd credential_cd, col row save(`outfile') append sheet("Ta
 uwtab main_subject1_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2a") title("main_subject1_cd by ug_spec_level_cd")
 uwtab main_subject2_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2b") title("main_subject2_cd by ug_spec_level_cd")
 uwtab j_main_subject1_cd ug_spec_level_cd, col row save(`outfile') append sheet("Tab_2c") title("main_subject1_cd by ug_spec_level_cd")
-uwtab prgm7 primary_org_cd, col row save(`outfile') append sheet("Tab_3") title("prgm7 by primary_org_cd")
+uwtab prgm7 primary_org_cd, col row save(`outfile') append sheet("Tab_3a") title("prgm7 by primary_org_cd")
+uwtab main_subject1_cd if prgm7==3 & primary_org_cd==1, col save(`outfile') append sheet("Tab_3b") title("Subject for Arts & ADMIN")
+uwtab main_subject1_cd if prgm7==5 & primary_org_cd==2, col save(`outfile') append sheet("Tab_3c") title("Subject for Sciences & ARTS")
+uwtab main_subject1_cd if prgm7==6 & primary_org_cd==2, col save(`outfile') append sheet("Tab_3d") title("Subject for Architecture and Engineering & ARTS")
+uwtab main_subject1_cd if prgm7==7 & primary_org_cd==2, col save(`outfile') append sheet("Tab_3d") title("Subject for Health and Fitness & ARTS")
+uwtab main_subject1_cd if prgm7==5 & primary_org_cd==3, col save(`outfile') append sheet("Tab_3e") title("Subject for Sciences & GENIE")
+uwtab main_subject1_cd if prgm7==6 & primary_org_cd==4, col save(`outfile') append sheet("Tab_3f") title("Subject for Architecture and Engineering & SCIEN")
+uwtab main_subject1_cd if prgm7==7 & primary_org_cd==4, col save(`outfile') append sheet("Tab_3g") title("Subject for Health and Fitness & SCIEN")
+uwtab main_subject1_cd if prgm7==3 & primary_org_cd==5, col save(`outfile') append sheet("Tab_3h") title("Subject for Arts & SSAN")
 
 log close
 clear
