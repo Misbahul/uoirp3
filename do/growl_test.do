@@ -35,7 +35,7 @@ include "do/header"
 */
 display _newline as text "Hello World!"
 growl
-growl "Hello World!"
+growl Hello World!
 
 log close
 clear
