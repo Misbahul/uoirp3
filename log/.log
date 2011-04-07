@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------------
        log:  /Users/sechilds/uottawa/log/.log
   log type:  text
- opened on:   7 Apr 2011, 09:51:06
+ opened on:   7 Apr 2011, 09:51:32
 
 .         
 . ensuredir "estimates/"
@@ -38,7 +38,7 @@ Directory output// already exists.
 . local nick1 "main"
 
 . 
-. set tracedepth 2
+. set tracedepth 1
 
 . set trace on
 
@@ -381,7 +381,7 @@ Directory output//main/base/leave2/ already exists.
 - local sysdate = c(current_date)
 - local systime = c(current_time)
 - local timestring "`sysdate' `systime'"
-= local timestring "7 Apr 2011 09:51:06"
+= local timestring "7 Apr 2011 09:51:32"
 - persistence_model `n' using "`modelfile`m''", estdir( "estimates/`dofilename'/`nic
 > k`i''/`modelnick`m''/`n'/") title( "Regression Output: `modelname`m'' (`n')") note
 > s( Dependant Variable: `n'; Average marginal effects shown., Data file: `datafile`
@@ -392,7 +392,7 @@ Directory output//main/base/leave2/ already exists.
 > s//main/base/leave2/") title( "Regression Output: Persistence Model -- Base. (leav
 > e2)") notes( Dependant Variable: leave2; Average marginal effects shown., Data fil
 > e: ~/uottawa/data\work/new_variable_data (main), Do file: .do; Model file: do/pers
-> istence_model2_reg1.txt; Date ran: 7 Apr 2011 09:51:06 ) sheet( "base_leave2") sav
+> istence_model2_reg1.txt; Date ran: 7 Apr 2011 09:51:32 ) sheet( "base_leave2") sav
 > e( "output//main/base/leave2/persistence_model2_main_base_leave2.xls") replace
   ------------------------------------------------------ begin persistence_model ---
   - syntax varname using [if] [in], estdir(string) save(passthru) [replace append] t
@@ -740,34 +740,6 @@ Comment: First set of models - uottawa persistence
   = local allvars " male"
   - label variable `1' `"`3'"'
   = label variable male `"Male"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable male `"Male"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( male) & ""=="consistent"
@@ -1011,34 +983,6 @@ Comment: First set of models - uottawa persistence
   = local allvars " male cohort_1998"
   - label variable `1' `"`3'"'
   = label variable cohort_1998 `"1998"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_1998 `"1998"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_1998) & ""=="consistent"
@@ -1166,34 +1110,6 @@ Comment: First set of models - uottawa persistence
   = local allvars " male cohort_1998 cohort_1999"
   - label variable `1' `"`3'"'
   = label variable cohort_1999 `"1999"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_1999 `"1999"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_1999) & ""=="consistent"
@@ -1321,34 +1237,6 @@ Comment: First set of models - uottawa persistence
   = local allvars " male cohort_1998 cohort_1999 cohort_2000"
   - label variable `1' `"`3'"'
   = label variable cohort_2000 `"2000"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_2000 `"2000"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_2000) & ""=="consistent"
@@ -1476,34 +1364,6 @@ Comment: First set of models - uottawa persistence
   = local allvars " male cohort_1998 cohort_1999 cohort_2000 cohort_2001"
   - label variable `1' `"`3'"'
   = label variable cohort_2001 `"2001"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_2001 `"2001"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_2001) & ""=="consistent"
@@ -1632,34 +1492,6 @@ Comment: First set of models - uottawa persistence
 > "
   - label variable `1' `"`3'"'
   = label variable cohort_2002 `"2002"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_2002 `"2002"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_2002) & ""=="consistent"
@@ -1790,34 +1622,6 @@ Comment: First set of models - uottawa persistence
 >  cohort_2003"
   - label variable `1' `"`3'"'
   = label variable cohort_2003 `"2003"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_2003 `"2003"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_2003) & ""=="consistent"
@@ -1954,34 +1758,6 @@ Comment: First set of models - uottawa persistence
 >  cohort_2003 cohort_2004"
   - label variable `1' `"`3'"'
   = label variable cohort_2004 `"2004"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_2004 `"2004"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_2004) & ""=="consistent"
@@ -2118,34 +1894,6 @@ Comment: First set of models - uottawa persistence
 >  cohort_2003 cohort_2004 cohort_2005"
   - label variable `1' `"`3'"'
   = label variable cohort_2005 `"2005"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_2005 `"2005"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_2005) & ""=="consistent"
@@ -2283,34 +2031,6 @@ Comment: First set of models - uottawa persistence
 >  cohort_2003 cohort_2004 cohort_2005 cohort_2006"
   - label variable `1' `"`3'"'
   = label variable cohort_2006 `"2006"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_2006 `"2006"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_2006) & ""=="consistent"
@@ -2448,34 +2168,6 @@ Comment: First set of models - uottawa persistence
 >  cohort_2003 cohort_2004 cohort_2005 cohort_2006 cohort_2007"
   - label variable `1' `"`3'"'
   = label variable cohort_2007 `"2007"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_2007 `"2007"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_2007) & ""=="consistent"
@@ -2613,34 +2305,6 @@ Comment: First set of models - uottawa persistence
 >  cohort_2003 cohort_2004 cohort_2005 cohort_2006 cohort_2007 cohort_2008"
   - label variable `1' `"`3'"'
   = label variable cohort_2008 `"2008"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable cohort_2008 `"2008"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( cohort_2008) & ""=="consistent"
@@ -2964,34 +2628,6 @@ Comment: First set of models - uottawa persistence
 >  cohort_2003 cohort_2004 cohort_2005 cohort_2006 cohort_2007 cohort_2008 prov_nl"
   - label variable `1' `"`3'"'
   = label variable prov_nl `"Newfoundland and Labrador"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_nl `"Newfoundland and Labrador"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_nl) & ""=="consistent"
@@ -3131,34 +2767,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei"
   - label variable `1' `"`3'"'
   = label variable prov_pei `"Prince Edward Island"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_pei `"Prince Edward Island"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_pei) & ""=="consistent"
@@ -3305,34 +2913,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei prov_ns"
   - label variable `1' `"`3'"'
   = label variable prov_ns `"Nova Scotia"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_ns `"Nova Scotia"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_ns) & ""=="consistent"
@@ -3480,34 +3060,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei prov_ns prov_nb"
   - label variable `1' `"`3'"'
   = label variable prov_nb `"New Brunswick"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_nb `"New Brunswick"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_nb) & ""=="consistent"
@@ -3654,34 +3206,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei prov_ns prov_nb prov_qc"
   - label variable `1' `"`3'"'
   = label variable prov_qc `"Québec"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_qc `"Québec"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_qc) & ""=="consistent"
@@ -3829,34 +3353,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei prov_ns prov_nb prov_qc prov_mb"
   - label variable `1' `"`3'"'
   = label variable prov_mb `"Manitoba"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_mb `"Manitoba"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_mb) & ""=="consistent"
@@ -4004,34 +3500,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei prov_ns prov_nb prov_qc prov_mb prov_sk"
   - label variable `1' `"`3'"'
   = label variable prov_sk `"Saskatchewan"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_sk `"Saskatchewan"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_sk) & ""=="consistent"
@@ -4179,34 +3647,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei prov_ns prov_nb prov_qc prov_mb prov_sk prov_ab"
   - label variable `1' `"`3'"'
   = label variable prov_ab `"Alberta"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_ab `"Alberta"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_ab) & ""=="consistent"
@@ -4355,34 +3795,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei prov_ns prov_nb prov_qc prov_mb prov_sk prov_ab prov_bc"
   - label variable `1' `"`3'"'
   = label variable prov_bc `"British Columbia"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_bc `"British Columbia"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_bc) & ""=="consistent"
@@ -4531,34 +3943,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei prov_ns prov_nb prov_qc prov_mb prov_sk prov_ab prov_bc prov_yk"
   - label variable `1' `"`3'"'
   = label variable prov_yk `"Yukon"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_yk `"Yukon"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_yk) & ""=="consistent"
@@ -4708,34 +4092,6 @@ Comment: First set of models - uottawa persistence
 > rov_pei prov_ns prov_nb prov_qc prov_mb prov_sk prov_ab prov_bc prov_yk prov_oth"
   - label variable `1' `"`3'"'
   = label variable prov_oth `"Other"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable prov_oth `"Other"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( prov_oth) & ""=="consistent"
@@ -5077,34 +4433,6 @@ Comment: First set of models - uottawa persistence
 > l2_fr"
   - label variable `1' `"`3'"'
   = label variable ml2_fr `"French"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable ml2_fr `"French"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( ml2_fr) & ""=="consistent"
@@ -5257,34 +4585,6 @@ Comment: First set of models - uottawa persistence
 > l2_fr ml2_oth"
   - label variable `1' `"`3'"'
   = label variable ml2_oth `"Other"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable ml2_oth `"Other"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( ml2_oth) & ""=="consistent"
@@ -5571,34 +4871,6 @@ Comment: First set of models - uottawa persistence
 > l2_fr ml2_oth local1"
   - label variable `1' `"`3'"'
   = label variable local1 `"Local"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable local1 `"Local"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( local1) & ""=="consistent"
@@ -5874,34 +5146,6 @@ Comment: First set of models - uottawa persistence
 > l2_fr ml2_oth local1 admav_Aplus"
   - label variable `1' `"`3'"'
   = label variable admav_Aplus `"A+"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable admav_Aplus `"A+"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( admav_Aplus) & ""=="consistent"
@@ -6047,34 +5291,6 @@ Comment: First set of models - uottawa persistence
 > l2_fr ml2_oth local1 admav_Aplus admav_A"
   - label variable `1' `"`3'"'
   = label variable admav_A `"A"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable admav_A `"A"'
-    - }
-    ------------------------------------------------------------------ end label ---
   - quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
   = quietly replace __000001 = 0 if missing( admav_A) & ""=="consistent"
@@ -6220,35 +5436,7 @@ Comment: First set of models - uottawa persistence
 > l2_fr ml2_oth local1 admav_Aplus admav_A admav_Aminus A-"
   - label variable `1' `"`3'"'
   = label variable admav_Aminus A- `"1"'
-    ---------------------------------------------------------------- begin label ---
-    - version 10.0
-    - gettoken val : 0
-    - if (strpos("`val'", "val") > 0 ) {
-    = if (strpos("variable", "val") > 0 ) {
-      gettoken val 0 : 0
-      syntax anything [, nofix]
-      if "`fix'" != "" {
-      local fix ", nofix"
-      }
-      gettoken var rest : anything
-      while `"`rest'"' != "" {
-      gettoken lab rest : rest
-      local label "`lab'"
-      }
-      local vlist : list anything - lab
-      if "`lab'" == "." {
-      local lab ""
-      }
-      foreach var of varlist `vlist' {
-      _label `val' `var' `lab' `fix'
-      }
-      }
-    - else {
-    - _label `macval(0)'
-    = _label variable admav_Aminus A- `"1"'
 invalid syntax
-      }
-    ------------------------------------------------------------------ end label ---
     quietly replace `consis_sample' = 0 if missing( `1') & "`consistent'"=="consiste
 > nt"
     if "`5'"=="1" {
@@ -6298,5 +5486,5 @@ r(198);
 . capture noisily log close
        log:  /Users/sechilds/uottawa/log/.log
   log type:  text
- closed on:   7 Apr 2011, 09:51:25
+ closed on:   7 Apr 2011, 09:53:44
 ------------------------------------------------------------------------------------
