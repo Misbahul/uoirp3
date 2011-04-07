@@ -139,7 +139,7 @@ program define persistence_model
 		}
 		if "`line'"!="" {
 			tokenize `"`macval(line)'"', parse(`"`delimiter'"')
-			replace `samp_sel' = 1 if `1' & `samp_sel'
+			replace `samp_sel' = ((`1') & `samp_sel')
 			local myconditions `"`myconditions' `3' (`1')"'
 		}
 		file read myfile line
