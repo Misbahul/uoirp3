@@ -109,8 +109,6 @@ program define persistence_model
 		file read myfile line
 	} 
 	
-	set trace on
-	set tracedepth 2	
 	
 	file read myfile line
 	while substr( "`line'", 1,1) != "@" {
@@ -123,7 +121,7 @@ program define persistence_model
 			local depvar "`1'"
 			local depvar_name `"`3'"'
 		}
-		file read myfile lines
+		file read myfile line
 	}
 	
 	local mynotes `"notes( Dependant Variable: `depvar_name' (`depvar'); `notes')"'
