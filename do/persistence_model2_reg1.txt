@@ -1,12 +1,12 @@
-#persistence_model2_reg1.txt
-#First set of models - uottawa persistence
+#persistence_model2_reg1_leave2.txt
+#First set of models - uottawa persistence - Leave in second year.
 basic	Basic Controls
 lang	Language Controls
 local	Local Students
 hsavg	High School Admission Average
 pgrm	uOttawa Program
 @
-leave2
+leave2	Leave in Second Year
 @
 >Gender (Female)
 male	Male	1	0	1	1	1	1	1

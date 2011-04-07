@@ -1,2 +1,2 @@
 #persistence_model2_modellist.txt
-do/persistence_model2_reg1.txt	base	Persistence Model -- Base.
+do/persistence_model2_reg1_leave2.txt	base_leave2	Persistence Model -- Base -- Year 2
