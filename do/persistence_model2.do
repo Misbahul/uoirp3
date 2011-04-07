@@ -317,7 +317,7 @@ forvalues i = 1/`count' {
 		persistence_model using "`modelfile`m''", ///
 			estdir( "estimates/`dofilename'/`nick`i''/`modelnick`m''/") ///
 			title( "Regression Output: `modelname`m''") ///
-			notes( Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: `dofilename'.do; Model file: `modelfile`m''; Date ran: `timestring' ) ///
+			notes( Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: ${dofilename}.do, Model file: `modelfile`m''; Date ran: `timestring' ) ///
 			sheet( "`modelnick`m''_`n'") ///
 			save( "output/`dofilename'/`nick`i''/`modelnick`m''/${dofilename}_`nick`i''_`modelnick`m''.xls") `myreplace'
 		local myreplace "append" 
