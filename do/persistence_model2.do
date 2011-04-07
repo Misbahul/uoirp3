@@ -70,8 +70,10 @@ program define persistence_model
 		title(passthru) notes(string) sheet(passthru)
 	marksample touse
 	tempvar consis_sample
+	tempvar samp_sel
 	
 	quietly generate `consis_sample' = 1
+	quietly generate `samp_sel' = 1
 	
 	local delimiter=`"`=char(9)'"'		/* " */
 	
@@ -111,7 +113,8 @@ program define persistence_model
 	
 	
 	file read myfile line
-	while substr( "`line'", 1,1) != "@" {
+	local depvar ""
+	while "`depvar'" == "" {
 		if substr( "`line'", 1, 1) == "#" { 
 			local comment = substr( "`line'", 2, .)
 			display as text "Comment: " as result "`comment'"
@@ -123,8 +126,30 @@ program define persistence_model
 		}
 		file read myfile line
 	}
+	/*
+		We start the sample selections variable out as one, but
+		if there are any conditions, then they will be ANDed
+		with the existing variable.
+	*/
+	local myconditions ""
+	while substr( "`line'", 1,1) != "@" {
+		if substr( "`line'", 1, 1) == "#" { 
+			local comment = substr( "`line'", 2, .)
+			display as text "Comment: " as result "`comment'"
+		}
+		if "`line'"!="" {
+			tokenize `"`macval(line)'"', parse(`"`delimiter'"')
+			replace `samp_sel' = 1 if `1' & `samp_sel'
+			local myconditions `"`myconditions' `3' (`1')"'
+		}
+		file read myfile line
+	} 
+
+	if "`myconditions'"!=""
+		local myconditions `", Sample: `myconditions'"'
+	} 
 	
-	local mynotes `"notes( Dependant Variable: `depvar_name' (`depvar'); `notes')"'
+	local mynotes `"notes( Dependant Variable: `depvar_name' (`depvar')`myconditions', `notes')"'
 	
 	local dummies ""
 	forvalues i = 1/`models' { 
@@ -194,7 +219,7 @@ program define persistence_model
 	local cwidthlist "0 `cwidth_names'"
 	local cwidthcount 1
 	forvalues i = 1/`models' { 
-		persistence_logit `depvar' `m`i'' `regions' if `touse' & `consis_sample' `wt', ///
+		persistence_logit `depvar' `m`i'' `regions' if `touse' & `consis_sample' & `samp_sel' `wt', ///
 			save( "`estdir'`estname`i''.ster") ///
 			dummies( `dummies') estname( `estname`i'') ///
 			regtitle( "`regname`i''")
