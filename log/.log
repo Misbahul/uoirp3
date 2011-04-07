@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------------
        log:  /Users/sechilds/uottawa/log/.log
   log type:  text
- opened on:   7 Apr 2011, 09:50:07
+ opened on:   7 Apr 2011, 09:51:06
 
 .         
 . ensuredir "estimates/"
@@ -38,7 +38,7 @@ Directory output// already exists.
 . local nick1 "main"
 
 . 
-. set tracedepth 3
+. set tracedepth 2
 
 . set trace on
 
@@ -381,7 +381,7 @@ Directory output//main/base/leave2/ already exists.
 - local sysdate = c(current_date)
 - local systime = c(current_time)
 - local timestring "`sysdate' `systime'"
-= local timestring "7 Apr 2011 09:50:07"
+= local timestring "7 Apr 2011 09:51:06"
 - persistence_model `n' using "`modelfile`m''", estdir( "estimates/`dofilename'/`nic
 > k`i''/`modelnick`m''/`n'/") title( "Regression Output: `modelname`m'' (`n')") note
 > s( Dependant Variable: `n'; Average marginal effects shown., Data file: `datafile`
@@ -392,7 +392,7 @@ Directory output//main/base/leave2/ already exists.
 > s//main/base/leave2/") title( "Regression Output: Persistence Model -- Base. (leav
 > e2)") notes( Dependant Variable: leave2; Average marginal effects shown., Data fil
 > e: ~/uottawa/data\work/new_variable_data (main), Do file: .do; Model file: do/pers
-> istence_model2_reg1.txt; Date ran: 7 Apr 2011 09:50:07 ) sheet( "base_leave2") sav
+> istence_model2_reg1.txt; Date ran: 7 Apr 2011 09:51:06 ) sheet( "base_leave2") sav
 > e( "output//main/base/leave2/persistence_model2_main_base_leave2.xls") replace
   ------------------------------------------------------ begin persistence_model ---
   - syntax varname using [if] [in], estdir(string) save(passthru) [replace append] t
@@ -6298,5 +6298,5 @@ r(198);
 . capture noisily log close
        log:  /Users/sechilds/uottawa/log/.log
   log type:  text
- closed on:   7 Apr 2011, 09:50:59
+ closed on:   7 Apr 2011, 09:51:25
 ------------------------------------------------------------------------------------
