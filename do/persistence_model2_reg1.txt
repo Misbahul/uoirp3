@@ -6,6 +6,8 @@ local	Local Students
 hsavg	High School Admission Average
 pgrm	uOttawa Program
 @
+leave2
+@
 >Gender (Female)
 male	Male	1	0	1	1	1	1	1
 >

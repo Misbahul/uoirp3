@@ -67,7 +67,7 @@ end
 capture program drop persistence_model
 program define persistence_model
 	syntax varname using [if] [in], estdir(string) save(passthru) [replace append] ///
-		title(passthru) notes(passthru) sheet(passthru)
+		title(passthru) notes(string) sheet(passthru)
 	marksample touse
 	tempvar consis_sample
 	
@@ -108,6 +108,21 @@ program define persistence_model
 		} 
 		file read myfile line
 	} 
+	
+	file read myfile line
+	while substr( "`line'", 1,1) != "@" {
+		if substr( "`line'", 1, 1) == "#" { 
+			local comment = substr( "`line'", 2, .)
+			display as text "Comment: " as result "`comment'"
+		}
+		if "`line'"!="" {
+			tokenize `"`macval(line)'"', parse(`"`delimiter'"')
+			local depvar "`1'"
+			local depvar_name `"`3'"'
+		}
+	}
+	
+	local mynotes `"notes( Dependant Variable: `depvar_name' (`depvar'); `notes')"'
 	
 	local dummies ""
 	forvalues i = 1/`models' { 
@@ -177,7 +192,7 @@ program define persistence_model
 	local cwidthlist "0 `cwidth_names'"
 	local cwidthcount 1
 	forvalues i = 1/`models' { 
-		persistence_logit `varlist' `m`i'' `regions' if `touse' & `consis_sample' `wt', ///
+		persistence_logit `depvar' `m`i'' `regions' if `touse' & `consis_sample' `wt', ///
 			save( "`estdir'`estname`i''.ster") ///
 			dummies( `dummies') estname( `estname`i'') ///
 			regtitle( "`regname`i''")
@@ -204,7 +219,7 @@ program define persistence_model
 	
 	
 	xml_tab `estlist', `save' `replace' `append' below ///
-		`title' `notes' lines(COL_NAMES 3 LAST_ROW 4) ///
+		`title' `mynotes' lines(COL_NAMES 3 LAST_ROW 4) ///
 		rblanks( `rowblank')  ///
 		keep( `keepvars') ///
 		`sheet' cblanks( `mycblanks') font( "Arial" 8) stats(N) ///
@@ -278,7 +293,7 @@ forvalues i = 1/`count' {
 			persistence_model `n' using "`modelfile`m''", ///
 				estdir( "estimates/`dofilename'/`nick`i''/`modelnick`m''/`n'/") ///
 				title( "Regression Output: `modelname`m'' (`n')") ///
-				notes( Dependant Variable: `n'; Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: `dofilename'.do; Model file: `modelfile`m''; Date ran: `timestring' ) ///
+				notes( Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: `dofilename'.do; Model file: `modelfile`m''; Date ran: `timestring' ) ///
 				sheet( "`modelnick`m''_`n'") ///
 				save( "output/`dofilename'/`nick`i''/`modelnick`m''/`n'/${dofilename}_`nick`i''_`modelnick`m''_`n'.xls") `myreplace'
 			local myreplace "append" 
