@@ -230,7 +230,7 @@ local count = 1	// One version file.
 local datafile1 "${workdatapath}new_variable_data"
 local nick1 "main"
 
-set tracedepth 3
+set tracedepth 2
 set trace on
 
 capture file close modelsfile
