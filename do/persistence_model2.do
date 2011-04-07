@@ -230,8 +230,8 @@ local count = 1	// One version file.
 local datafile1 "${workdatapath}new_variable_data"
 local nick1 "main"
 
-// set tracedepth 3
-// set trace on
+set tracedepth 3
+set trace on
 
 capture file close modelsfile
 file open modelsfile using "do/persistence_model2_modellist.txt", read text
