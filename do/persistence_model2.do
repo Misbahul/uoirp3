@@ -66,7 +66,7 @@ end
 
 capture program drop persistence_model
 program define persistence_model
-	syntax varname using [if] [in], estdir(string) save(passthru) [replace append] ///
+	syntax using [if] [in], estdir(string) save(passthru) [replace append] ///
 		title(passthru) notes(string) sheet(passthru)
 	marksample touse
 	tempvar consis_sample
@@ -283,21 +283,17 @@ forvalues i = 1/`count' {
 	forvalues m = 1/`mcount' { 
 		ensuredir "estimates/`dofilename'/`nick`i''/`modelnick`m''/"
 		ensuredir "output/`dofilename'/`nick`i''/`modelnick`m''/"
-		foreach n of varlist leave2 leave3 leave /* cont2 cont3 uoreturn */ {
-			local myreplace "replace"
-			ensuredir "estimates/`dofilename'/`nick`i''/`modelnick`m''/`n'/"
-			ensuredir "output/`dofilename'/`nick`i''/`modelnick`m''/`n'/"
-			local sysdate = c(current_date)
-			local systime = c(current_time)
-			local timestring "`sysdate' `systime'"
-			persistence_model `n' using "`modelfile`m''", ///
-				estdir( "estimates/`dofilename'/`nick`i''/`modelnick`m''/`n'/") ///
-				title( "Regression Output: `modelname`m'' (`n')") ///
-				notes( Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: `dofilename'.do; Model file: `modelfile`m''; Date ran: `timestring' ) ///
-				sheet( "`modelnick`m''_`n'") ///
-				save( "output/`dofilename'/`nick`i''/`modelnick`m''/`n'/${dofilename}_`nick`i''_`modelnick`m''_`n'.xls") `myreplace'
-			local myreplace "append" 
-		} 
+		local myreplace "replace"
+		local sysdate = c(current_date)
+		local systime = c(current_time)
+		local timestring "`sysdate' `systime'"
+		persistence_model using "`modelfile`m''", ///
+			estdir( "estimates/`dofilename'/`nick`i''/`modelnick`m''/") ///
+			title( "Regression Output: `modelname`m''") ///
+			notes( Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: `dofilename'.do; Model file: `modelfile`m''; Date ran: `timestring' ) ///
+			sheet( "`modelnick`m''_`n'") ///
+			save( "output/`dofilename'/`nick`i''/`modelnick`m''/${dofilename}_`nick`i''_`modelnick`m''.xls") `myreplace'
+		local myreplace "append" 
 	} 	
 } 
 		
