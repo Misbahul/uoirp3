@@ -145,7 +145,7 @@ program define persistence_model
 		file read myfile line
 	} 
 
-	if "`myconditions'"!=""
+	if "`myconditions'"!="" {
 		local myconditions `", Sample: `myconditions'"'
 	} 
 	
