@@ -1,7 +1,10 @@
 #persistence_model2_modellist.txt
 do/persistence_model2_reg1_leave2.txt	base_leave2	Persistence Model -- Base -- Year 2
 do/persistence_model2_reg1_leave2_female.txt	base_leave2_female	Persistence Model -- Base -- Year 2 -- Females
+do/persistence_model2_reg1_leave2_male.txt	base_leave2_male	Persistence Model -- Base -- Year 2 -- Males
 do/persistence_model2_reg1_leave3.txt	base_leave3	Persistence Model -- Base -- Year 3
+do/persistence_model2_reg1_leave3_female.txt	base_leave3_female	Persistence Model -- Base -- Year 3 -- Females
+do/persistence_model2_reg1_leave3_male.txt	base_leave3_male	Persistence Model -- Base -- Year 3 -- Males
 do/persistence_model2_reg1_leave.txt	base_leave	Persistence Model -- Base -- Year 2 or 3
 do/persistence_model2_reg1_leave3_cond.txt	base_leave3_cond	Persistence Model -- Base -- Year 3 (cond Y2)
 

@@ -259,6 +259,22 @@ clonevar leave = leave2
 label variable leave "Left uOttawa"
 replace leave = 1 if leave3==1
 
+// Faculty
+tabulate primary_org_cd, generate(faculty_)
+rename faculty_1 faculty_admin
+label faculty_admin "Admin"
+rename faculty_2 faculty_arts
+label faculty_arts "Arts"
+rename faculty_3 faculty_genie
+label faculty_genie "Engineering"
+rename faculty_4 faculty_scien
+label faculty_scien "Science"
+rename faculty_5 faculty_ssan
+label faculty_ssan "Health Sciences"
+rename faculty_6 faculty_ssoc
+label faculty_ssoc "Social Sciences"
+
+
 save "${workdatapath}new_variable_data.dta", replace
 
 log close
