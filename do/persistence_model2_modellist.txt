@@ -9,4 +9,6 @@ do/persistence_model2_reg1_leave.txt	base_leave	Persistence Model -- Base -- Yea
 do/persistence_model2_reg1_leave_female.txt	base_leave_female	Persistence Model -- Base -- Year 2 or 3 -- Females
 do/persistence_model2_reg1_leave_male.txt	base_leave_male	Persistence Model -- Base -- Year 2 or 3 -- Males
 do/persistence_model2_reg1_leave3_cond.txt	base_leave3_cond	Persistence Model -- Base -- Year 3 (cond Y2)
+do/persistence_model2_reg1_leave3_cond_female.txt	base_leave3_cond_female	Persistence Model -- Base -- Year 3 (cond Y2) -- Female
+do/persistence_model2_reg1_leave3_cond_male.txt	base_leave3_cond_male	Persistence Model -- Base -- Year 3 (cond Y2) -- Male
 
