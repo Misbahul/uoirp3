@@ -1,4 +1,4 @@
-#persistence_model2_reg1_leave3.txt
+#persistence_model2_reg2_leave3.txt
 #First set of models - uottawa persistence - Leave in third year.
 basic	Basic Controls
 lang	Language Controls
@@ -56,11 +56,9 @@ admav_belowC	Below C	1	1	0	0	0	1	1
 admav_miss	Missing	1	1	0	0	0	1	1
 \
 >
->uOttawa Program (Arts)
-prgm_ed	Education	1	1	0	0	0	0	1
-prgm_vparts	Visual and Performing Arts	1	1	0	0	0	0	1
-prgm_biz	Business	1	1	0	0	0	0	1
-prgm_sci	Science	1	1	0	0	0	0	1
-prgm_areng	Architecture and Engineering	1	1	0	0	0	0	1
-prgm_health	Health	1	1	0	0	0	0	1
-prgm_oth	Other	1	1	0	0	0	0	1
+>uOttawa Faculty (Arts)
+faculty_admin	Administration	1	1	0	0	0	0	1
+faculty_genie	Engineering	1	1	0	0	0	0	1
+faculty_scien	Science	1	1	0	0	0	0	1
+faculty_ssan	Health Sciences	1	1	0	0	0	0	1
+faculty_ssoc	Social Science	1	1	0	0	0	0	1

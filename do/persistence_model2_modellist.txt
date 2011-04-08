@@ -11,4 +11,16 @@ do/persistence_model2_reg1_leave_male.txt	base_leave_male	Persistence Model -- B
 do/persistence_model2_reg1_leave3_cond.txt	base_leave3_cond	Persistence Model -- Base -- Year 3 (cond Y2)
 do/persistence_model2_reg1_leave3_cond_female.txt	base_leave3_cond_female	Persistence Model -- Base -- Year 3 (cond Y2) -- Female
 do/persistence_model2_reg1_leave3_cond_male.txt	base_leave3_cond_male	Persistence Model -- Base -- Year 3 (cond Y2) -- Male
+do/persistence_model2_reg2_leave2.txt	faculty_leave2	Persistence Model -- Faculty -- Year 2
+do/persistence_model2_reg2_leave2_female.txt	faculty_leave2_female	Persistence Model -- Faculty -- Year 2 -- Females
+do/persistence_model2_reg2_leave2_male.txt	faculty_leave2_male	Persistence Model -- Faculty -- Year 2 -- Males
+do/persistence_model2_reg2_leave3.txt	faculty_leave3	Persistence Model -- Faculty -- Year 3
+do/persistence_model2_reg2_leave3_female.txt	faculty_leave3_female	Persistence Model -- Faculty -- Year 3 -- Females
+do/persistence_model2_reg2_leave3_male.txt	faculty_leave3_male	Persistence Model -- Faculty -- Year 3 -- Males
+do/persistence_model2_reg2_leave.txt	faculty_leave	Persistence Model -- Faculty -- Year 2 or 3
+do/persistence_model2_reg2_leave_female.txt	faculty_leave_female	Persistence Model -- Faculty -- Year 2 or 3 -- Females
+do/persistence_model2_reg2_leave_male.txt	faculty_leave_male	Persistence Model -- Faculty -- Year 2 or 3 -- Males
+do/persistence_model2_reg2_leave3_cond.txt	faculty_leave3_cond	Persistence Model -- Faculty -- Year 3 (cond Y2)
+do/persistence_model2_reg2_leave3_cond_female.txt	faculty_leave3_cond_female	Persistence Model -- Faculty -- Year 3 (cond Y2) -- Female
+do/persistence_model2_reg2_leave3_cond_male.txt	faculty_leave3_cond_male	Persistence Model -- Faculty -- Year 3 (cond Y2) -- Male
 
