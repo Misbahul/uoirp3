@@ -347,6 +347,22 @@ label variable faculty_ssan "Health Sciences"
 rename faculty_6 faculty_ssoc
 label variable faculty_ssoc "Social Sciences"
 
+recode age (15/17 = 1 "Below 18") (18 = 2 "18") (19 = 3 "19") (20/22 = 4 "20-22") (23/26 = 5 "23-26") (27/max = 6 "27 and above"), generate(agecat)
+label variable agecat "Entry Age (categorical)"
+rename agecat_1 agecat_17
+label variable agecat_17 "Entry Age Below 18"
+rename agecat_2 agecat_18
+label variable agecat_18 "Entry Age 18"
+rename agecat_3 agecat_19
+label variable agecat_19 "Entry Age 19"
+rename agecat_4 agecat_22
+label variable agecat_22 "Entry Age 20-22"
+rename agecat_5 agecat_26
+label variable agecat_26 "Entry Age 23-26"
+rename agecat_6 agecat_27
+label variable agecat_27 "Entry Age 27 and above"
+
+
 
 save "${workdatapath}new_variable_data.dta", replace
 
