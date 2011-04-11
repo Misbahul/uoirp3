@@ -236,7 +236,41 @@ rename admav_6 admav_Cplus
 rename admav_7 admav_C
 rename admav_8 admav_belowC
 rename admav_9 admav_miss
+label variable admavAplus "Admission Average A+"
+label variable admavA "Admission Average A"
+label variable admavAminus "Admission Average A-"
+label variable admavBplus "Admission Average B+"
+label variable admavB "Admission Average B"
+label variable admavCplus "Admission Average C+"
+label variable admavC "Admission Average C"
+label variable admavbelowC "Admission Average Below C"
+label variable admavmiss "Admission Average Missing"
 
+foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 english_highest english_lowest math_highest math_lowest french_highest french_lowest philosophy_highest philosophy_lowest any_highest any_lowest {
+	local var_lbl : variable label `i'
+	recode `i' (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(`i'_dum)
+	label values `i'_dum admav
+	tabulate `i'_dum, generate(`i'_dum_)
+	rename `i'_dum_1 `i'_dum_Aplus
+	rename `i'_dum_2 `i'_dum_A
+	rename `i'_dum_3 `i'_dum_Aminus
+	rename `i'_dum_4 `i'_dum_Bplus
+	rename `i'_dum_5 `i'_dum_B
+	rename `i'_dum_6 `i'_dum_Cplus
+	rename `i'_dum_7 `i'_dum_C
+	rename `i'_dum_8 `i'_dum_belowC
+	rename `i'_dum_9 `i'_dum_miss
+	label variable `i'_dum_Aplus "`var_lbl' A+"
+	label variable `i'_dum_A "`var_lbl' A"
+	label variable `i'_dum_Aminus "`var_lbl' A-"
+	label variable `i'_dum_Bplus "`var_lbl' B+"
+	label variable `i'_dum_B "`var_lbl' B"
+	label variable `i'_dum_Cplus "`var_lbl' C+"
+	label variable `i'_dum_C "`var_lbl' C"
+	label variable `i'_dum_belowC "`var_lbl' Below C"
+	label variable `i'_dum_miss "`var_lbl' Missing"
+} 
+	
 tabulate prgm7, generate(prgm_) missing
 rename prgm_1 prgm_ed
 rename prgm_2 prgm_vparts
