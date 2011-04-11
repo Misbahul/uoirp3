@@ -236,15 +236,15 @@ rename admav_6 admav_Cplus
 rename admav_7 admav_C
 rename admav_8 admav_belowC
 rename admav_9 admav_miss
-label variable admavAplus "Admission Average A+"
-label variable admavA "Admission Average A"
-label variable admavAminus "Admission Average A-"
-label variable admavBplus "Admission Average B+"
-label variable admavB "Admission Average B"
-label variable admavCplus "Admission Average C+"
-label variable admavC "Admission Average C"
-label variable admavbelowC "Admission Average Below C"
-label variable admavmiss "Admission Average Missing"
+label variable admav_Aplus "Admission Average A+"
+label variable admav_A "Admission Average A"
+label variable admav_Aminus "Admission Average A-"
+label variable admav_Bplus "Admission Average B+"
+label variable admav_B "Admission Average B"
+label variable admav_Cplus "Admission Average C+"
+label variable admav_C "Admission Average C"
+label variable admav_belowC "Admission Average Below C"
+label variable admav_miss "Admission Average Missing"
 
 foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 english_highest english_lowest math_highest math_lowest french_highest french_lowest philosophy_highest philosophy_lowest any_highest any_lowest {
 	local var_lbl : variable label `i'
