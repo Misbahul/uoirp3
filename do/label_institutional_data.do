@@ -849,6 +849,11 @@ label variable english_highest "Highest English Grade"
 label variable french_highest "Highest French Grade"
 label variable philosophy_highest "Highest Philosophy Grade"
 label variable any_highest "Highest Grade"
+label variable math_lowest "Lowest Math Grade"
+label variable english_lowest "Lowest English Grade"
+label variable french_lowest "Lowest French Grade"
+label variable philosophy_lowest "Lowest Philosophy Grade"
+label variable any_lowest "Lowest Grade"
 
 compress province county credential_cd j_credential_cd kind_of_program_cd mother_tongue
 compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd ug_spec_level_cd
