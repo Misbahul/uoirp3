@@ -1,4 +1,4 @@
-#persistence_model2_reg5_mat1320.txt
+#persistence_model2_reg5_math_lowest.txt
 #First set of models - uottawa persistence - Leave in either second or third year.
 grade	Controls and Specific Grade Only
 fa_grade	Controls, Faculty, Specific Grade
@@ -78,12 +78,12 @@ gpa_cat_dum_belowC	Below C	1	1	0	0	0	0	1	1	1	1
 gpa_cat_dum_miss	Missing	1	1	0	0	0	0	1	1	1	1
 \
 >
->MAT 1320 Grade (B+)
-mat1320_dum_Aplus	A+	1	1	1	1	1	1	1	1	1	1
-mat1320_dum_A	A	1	1	1	1	1	1	1	1	1	1
-mat1320_dum_Aminus	A-	1	1	1	1	1	1	1	1	1	1
-mat1320_dum_B	B	1	1	1	1	1	1	1	1	1	1
-mat1320_dum_Cplus	C+	1	1	1	1	1	1	1	1	1	1
-mat1320_dum_C	C	1	1	1	1	1	1	1	1	1	1
-mat1320_dum_belowC	Below C	1	1	1	1	1	1	1	1	1	1
-mat1320_dum_miss	Missing	1	1	1	1	1	1	1	1	1	1
+>Lowest MAT Grade (B+)
+math_highest_dum_Aplus	A+	1	1	1	1	1	1	1	1	1	1
+math_highest_dum_A	A	1	1	1	1	1	1	1	1	1	1
+math_highest_dum_Aminus	A-	1	1	1	1	1	1	1	1	1	1
+math_highest_dum_B	B	1	1	1	1	1	1	1	1	1	1
+math_highest_dum_Cplus	C+	1	1	1	1	1	1	1	1	1	1
+math_highest_dum_C	C	1	1	1	1	1	1	1	1	1	1
+math_highest_dum_belowC	Below C	1	1	1	1	1	1	1	1	1	1
+math_highest_dum_miss	Missing	1	1	1	1	1	1	1	1	1	1
