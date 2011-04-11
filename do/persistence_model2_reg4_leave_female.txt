@@ -9,7 +9,7 @@ hsgpa	Admission Average and GPA
 pgrm	uOttawa Program
 @
 leave	Leave in Second or Third Year
-male=0	Female Students Only
+male==0	Female Students Only
 @
 >Cohort (1997)
 cohort_1998	1998	1	1	1	1	1	1	1	1	1

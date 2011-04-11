@@ -10,7 +10,7 @@ hs_gpa_grade	Controls, Admission Average, uOttawa GPA, Specific Grade
 fa_hs_gpa_grade	Controls, Faculty, Admission Average, uOttawa GPA, Specific Grade
 @
 leave	Leave in Second or Third Year
-male=0	Female Students Only
+male==0	Female Students Only
 @
 >Cohort (1997)
 cohort_1998	1998	1	1	1	1	1	1	1	1	1	1
