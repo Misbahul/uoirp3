@@ -270,6 +270,45 @@ foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng
 	label variable `i'_dum_belowC "`var_lbl' Below C"
 	label variable `i'_dum_miss "`var_lbl' Missing"
 } 
+
+foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 english_highest english_lowest math_highest math_lowest french_highest french_lowest philosophy_highest philosophy_lowest any_highest any_lowest {
+	local var_lbl : variable label `i'
+	tabulate `i'_rel1, generate(`i'_rel1_)
+	rename `i'_rel1_1 `i'_rel1_higher
+	rename `i'_rel1_2 `i'_rel1_same
+	rename `i'_rel1_3 `i'_rel1_lower
+	label variable `i'_rel1_higher "`var_lbl Higher than GPA"
+	label variable `i'_rel1_same "`var_lbl' Same as GPA"
+	label variable `i'_rel1_lower "`var_lbl' Lower than GPA"
+	
+	tabulate `i'_rel2, generate(`i'_rel2_)
+	rename `i'_rel2_1 `i'_rel2_3higher
+	rename `i'_rel2_2 `i'_rel2_2higher
+	rename `i'_rel2_3 `i'_rel2_1higher
+	rename `i'_rel2_4 `i'_rel2_same
+	rename `i'_rel2_5 `i'_rel2_1lower
+	rename `i'_rel2_6 `i'_rel2_2lower
+	rename `i'_rel2_7 `i'_rel2_3lower
+	label variable `i'_rel2_3higher "`var_lbl 3 Levels Higher than GPA"
+	label variable `i'_rel2_2higher "`var_lbl 2 Levels Higher than GPA"
+	label variable `i'_rel2_1higher "`var_lbl 1 Level Higher than GPA"
+	label variable `i'_rel2_same "`var_lbl' Same as GPA"
+	label variable `i'_rel2_1lower "`var_lbl' 1 Level Lower than GPA"
+	label variable `i'_rel2_2lower "`var_lbl' 2 Levels Lower than GPA"
+	label variable `i'_rel2_3lower "`var_lbl' 3 Levels Lower than GPA"
+	
+	tabulate `i'_rel3, generate(`i'_rel3_)
+	rename `i'_rel3_1 `i'_rel3_2higher
+	rename `i'_rel3_2 `i'_rel3_1higher
+	rename `i'_rel3_3 `i'_rel3_same
+	rename `i'_rel3_4 `i'_rel3_1lower
+	rename `i'_rel3_5 `i'_rel3_2lower
+	label variable `i'_rel3_2higher "`var_lbl 2 Levels Higher than GPA"
+	label variable `i'_rel3_1higher "`var_lbl 1 Level Higher than GPA"
+	label variable `i'_rel3_same "`var_lbl' Same as GPA"
+	label variable `i'_rel3_1lower "`var_lbl' 1 Level Lower than GPA"
+	label variable `i'_rel3_2lower "`var_lbl' 2 Levels Lower than GPA"
+}
 	
 tabulate prgm7, generate(prgm_) missing
 rename prgm_1 prgm_ed
