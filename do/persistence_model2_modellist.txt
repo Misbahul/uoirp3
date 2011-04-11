@@ -29,3 +29,69 @@ do/persistence_model2_reg3_leave_male.txt	age_leave_male	Persistence Model -- Ag
 do/persistence_model2_reg4_leave.txt	gpa_leave	Persistence Model -- uOttawa GPA -- Year 2 or 3
 do/persistence_model2_reg4_leave_female.txt	gpa_leave_female	Persistence Model -- uOttawa GPA -- Year 2 or 3 -- Females
 do/persistence_model2_reg4_leave_male.txt	gpa_leave_male	Persistence Model -- uOttawa GPA -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_mat1320.txt	mat1320	Persistence Model -- MAT1320 Grade -- Year 2 or 3
+do/persistence_model2_reg5_mat1320_female.txt	mat1320_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_mat1320_male.txt	mat1320_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_mat1720.txt	mat1720	Persistence Model -- MAT1720 Grade -- Year 2 or 3
+do/persistence_model2_reg5_mat1720_female.txt	mat1720_female	Persistence Model -- MAT1720 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_mat1720_male.txt	mat1720_male	Persistence Model -- MAT1720 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_mat1330.txt	mat1330	Persistence Model -- MAT1330 Grade -- Year 2 or 3
+do/persistence_model2_reg5_mat1330_female.txt	mat1330_female	Persistence Model -- MAT1330 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_mat1330_male.txt	mat1330_male	Persistence Model -- MAT1330 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_mat1730.txt	mat1730	Persistence Model -- MAT1730 Grade -- Year 2 or 3
+do/persistence_model2_reg5_mat1730_female.txt	mat1730_female	Persistence Model -- MAT1730 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_mat1730_male.txt	mat1730_male	Persistence Model -- MAT1730 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_mat1300.txt	mat1300	Persistence Model -- MAT1300 Grade -- Year 2 or 3
+do/persistence_model2_reg5_mat1300_female.txt	mat1300_female	Persistence Model -- MAT1300 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_mat1300_male.txt	mat1300_male	Persistence Model -- MAT1300 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_mat1700.txt	mat1700	Persistence Model -- MAT1700 Grade -- Year 2 or 3
+do/persistence_model2_reg5_mat1700_female.txt	mat1700_female	Persistence Model -- MAT1700 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_mat1700_male.txt	mat1700_male	Persistence Model -- MAT1700 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_eng1100.txt	eng1100	Persistence Model -- ENG1100 Grade -- Year 2 or 3
+do/persistence_model2_reg5_eng1100_female.txt	eng1100_female	Persistence Model -- ENG1100 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_eng1100_male.txt	eng1100_male	Persistence Model -- ENG1100 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_eng1112.txt	eng1112	Persistence Model -- ENG1112 Grade -- Year 2 or 3
+do/persistence_model2_reg5_eng1112_female.txt	eng1112_female	Persistence Model -- ENG1112 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_eng1112_male.txt	eng1112_male	Persistence Model -- ENG1112 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_fra1528.txt	fra1528	Persistence Model -- FRA1528 Grade -- Year 2 or 3
+do/persistence_model2_reg5_fra1528_female.txt	fra1528_female	Persistence Model -- FRA1528 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_fra1528_male.txt	fra1528_male	Persistence Model -- FRA1528 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_fra1538.txt	fra1538	Persistence Model -- FRA1538 Grade -- Year 2 or 3
+do/persistence_model2_reg5_fra1538_female.txt	fra1538_female	Persistence Model -- FRA1538 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_fra1538_male.txt	fra1538_male	Persistence Model -- FRA1538 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_fra1710.txt	fra1710	Persistence Model -- FRA1710 Grade -- Year 2 or 3
+do/persistence_model2_reg5_fra1710_female.txt	fra1710_female	Persistence Model -- FRA1710 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_fra1710_male.txt	fra1710_male	Persistence Model -- FRA1710 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_phi1101.txt	phi1101	Persistence Model -- PHI1101 Grade -- Year 2 or 3
+do/persistence_model2_reg5_phi1101_female.txt	phi1101_female	Persistence Model -- PHI1101 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_phi1101_male.txt	phi1101_male	Persistence Model -- PHI1101 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_phi1501.txt	phi1501	Persistence Model -- PHI1501 Grade -- Year 2 or 3
+do/persistence_model2_reg5_phi1501_female.txt	phi1501_female	Persistence Model -- PHI1501 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_phi1501_male.txt	phi1501_male	Persistence Model -- PHI1501 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_english_highest.txt	english_highest	Persistence Model -- Highest ENG Grade -- Year 2 or 3
+do/persistence_model2_reg5_english_highest_female.txt	english_highest_female	Persistence Model -- Highest ENG Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_english_highest_male.txt	english_highest_male	Persistence Model -- Highest END Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_english_lowest.txt	english_lowest	Persistence Model -- Lowest ENG Grade -- Year 2 or 3
+do/persistence_model2_reg5_english_lowest_female.txt	english_lowest_female	Persistence Model -- Lowest ENG Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_english_lowest_male.txt	english_lowest_male	Persistence Model -- Lowest ENG Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_math_highest.txt	math_highest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
+do/persistence_model2_reg5_math_highest_female.txt	math_highest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_math_highest_male.txt	math_highest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_math_lowest.txt	math_lowest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
+do/persistence_model2_reg5_math_lowest_female.txt	math_lowest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_math_lowest_male.txt	math_lowest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_french_highest.txt	french_highest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
+do/persistence_model2_reg5_franch_highest_female.txt	french_highest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_french_highest_male.txt	french_highest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_philosophy_highest.txt	philosophy_highest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
+do/persistence_model2_reg5_philosophy_highest_female.txt	philosophy_highest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_philosophy_highest_male.txt	philosophy_highest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_philosophy_lowest.txt	philosophy_lowest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
+do/persistence_model2_reg5_philosophy_lowest_female.txt	philosophy_lowest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_philosophy_lowest_male.txt	philosophy_lowest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_any_highest.txt	any_highest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
+do/persistence_model2_reg5_any_highest_female.txt	any_highest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_any_highest_male.txt	any_highest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_any_lowest.txt	any_lowest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
+do/persistence_model2_reg5_any_lowest_female.txt	any_lowest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_any_lowest_male.txt	any_lowest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
