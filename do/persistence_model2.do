@@ -149,7 +149,7 @@ program define persistence_model
 		local myconditions `", Sample: `myconditions'"'
 	} 
 	
-	local mynotes `"notes( Dependant Variable: `depvar_name' (`depvar')`myconditions', `notes')"'
+	// local mynotes `"notes( Dependant Variable: `depvar_name' (`depvar')`myconditions', `notes')"'
 	
 	local dummies ""
 	forvalues i = 1/`models' { 
@@ -216,6 +216,7 @@ program define persistence_model
 	include do/persistence_locals.do
 	
 	local estlist ""
+	local estfilelist ""
 	local cwidthlist "0 `cwidth_names'"
 	local cwidthcount 1
 	forvalues i = 1/`models' { 
@@ -224,6 +225,10 @@ program define persistence_model
 			dummies( `dummies') estname( `estname`i'') ///
 			regtitle( "`regname`i''")
 		local estlist "`estlist' `estname`i''"
+		quietly estimates describe using "`estdir'`estname`i''.ster"
+		local esttimestamp : display %tc r(datetime)
+		local esttitle "`r(title)'"
+		local estfilelist `"`estfilelist', `esttitle' (`estdir'`estname`i''.ster) `esttimestamp'"'
 		local cwidthlist "`cwidthlist', `cwidthcount' `cwidth_reg'"
 		local ++cwidthcount
 		// local cwidthlist "`cwidthlist', `cwidthcount' `cwidth_reg'"
@@ -243,7 +248,7 @@ program define persistence_model
 		// local mycblanks "`mycblanks' `blankcount'"
 	// } 
 	
-	
+	local mynotes `"notes( Dependant Variable: `depvar_name' (`depvar')`myconditions', `notes', `estfilelist')"'
 	
 	xml_tab `estlist', `save' `replace' `append' below ///
 		`title' `mynotes' lines(COL_NAMES 3 LAST_ROW 4) ///
