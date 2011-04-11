@@ -74,24 +74,27 @@ do/persistence_model2_reg5_english_highest_male.txt	english_highest_male	Persist
 do/persistence_model2_reg5_english_lowest.txt	english_lowest	Persistence Model -- Lowest ENG Grade -- Year 2 or 3
 do/persistence_model2_reg5_english_lowest_female.txt	english_lowest_female	Persistence Model -- Lowest ENG Grade-- Year 2 or 3 -- Females
 do/persistence_model2_reg5_english_lowest_male.txt	english_lowest_male	Persistence Model -- Lowest ENG Grade -- Year 2 or 3 -- Males
-do/persistence_model2_reg5_math_highest.txt	math_highest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
-do/persistence_model2_reg5_math_highest_female.txt	math_highest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
-do/persistence_model2_reg5_math_highest_male.txt	math_highest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
-do/persistence_model2_reg5_math_lowest.txt	math_lowest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
-do/persistence_model2_reg5_math_lowest_female.txt	math_lowest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
-do/persistence_model2_reg5_math_lowest_male.txt	math_lowest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
-do/persistence_model2_reg5_french_highest.txt	french_highest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
-do/persistence_model2_reg5_franch_highest_female.txt	french_highest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
-do/persistence_model2_reg5_french_highest_male.txt	french_highest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
-do/persistence_model2_reg5_philosophy_highest.txt	philosophy_highest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
-do/persistence_model2_reg5_philosophy_highest_female.txt	philosophy_highest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
-do/persistence_model2_reg5_philosophy_highest_male.txt	philosophy_highest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
-do/persistence_model2_reg5_philosophy_lowest.txt	philosophy_lowest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
-do/persistence_model2_reg5_philosophy_lowest_female.txt	philosophy_lowest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
-do/persistence_model2_reg5_philosophy_lowest_male.txt	philosophy_lowest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
-do/persistence_model2_reg5_any_highest.txt	any_highest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
-do/persistence_model2_reg5_any_highest_female.txt	any_highest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
-do/persistence_model2_reg5_any_highest_male.txt	any_highest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
-do/persistence_model2_reg5_any_lowest.txt	any_lowest	Persistence Model -- MAT1320 Grade -- Year 2 or 3
-do/persistence_model2_reg5_any_lowest_female.txt	any_lowest_female	Persistence Model -- MAT1320 Grade-- Year 2 or 3 -- Females
-do/persistence_model2_reg5_any_lowest_male.txt	any_lowest_male	Persistence Model -- MAT1320 Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_math_highest.txt	math_highest	Persistence Model -- Highest MAT Grade -- Year 2 or 3
+do/persistence_model2_reg5_math_highest_female.txt	math_highest_female	Persistence Model -- Highest MAT Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_math_highest_male.txt	math_highest_male	Persistence Model -- Highest MAT Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_math_lowest.txt	math_lowest	Persistence Model -- Lowest MAT Grade -- Year 2 or 3
+do/persistence_model2_reg5_math_lowest_female.txt	math_lowest_female	Persistence Model -- Lowest MAT Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_math_lowest_male.txt	math_lowest_male	Persistence Model -- Lowest MAT Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_french_highest.txt	french_highest	Persistence Model -- Highest FRA Grade -- Year 2 or 3
+do/persistence_model2_reg5_franch_highest_female.txt	french_highest_female	Persistence Model -- Highest FRA Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_french_highest_male.txt	french_highest_male	Persistence Model -- Highest FRA Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_french_lowest.txt	french_lowest	Persistence Model -- Lowest FRA Grade -- Year 2 or 3
+do/persistence_model2_reg5_franch_lowest_female.txt	french_lowest_female	Persistence Model -- Lowest FRA Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_french_lowest_male.txt	french_lowest_male	Persistence Model -- Lowest FRA Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_philosophy_highest.txt	philosophy_highest	Persistence Model -- Highest PHI Grade -- Year 2 or 3
+do/persistence_model2_reg5_philosophy_highest_female.txt	philosophy_highest_female	Persistence Model -- Highest PHI Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_philosophy_highest_male.txt	philosophy_highest_male	Persistence Model -- Highest PHI Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_philosophy_lowest.txt	philosophy_lowest	Persistence Model -- Lowest PHI Grade -- Year 2 or 3
+do/persistence_model2_reg5_philosophy_lowest_female.txt	philosophy_lowest_female	Persistence Model -- Lowest PHI Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_philosophy_lowest_male.txt	philosophy_lowest_male	Persistence Model -- Lowest PHI Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_any_highest.txt	any_highest	Persistence Model -- Highest Grade -- Year 2 or 3
+do/persistence_model2_reg5_any_highest_female.txt	any_highest_female	Persistence Model -- Highest Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_any_highest_male.txt	any_highest_male	Persistence Model -- Highest Grade -- Year 2 or 3 -- Males
+do/persistence_model2_reg5_any_lowest.txt	any_lowest	Persistence Model -- Lowest Grade -- Year 2 or 3
+do/persistence_model2_reg5_any_lowest_female.txt	any_lowest_female	Persistence Model -- Lowest Grade-- Year 2 or 3 -- Females
+do/persistence_model2_reg5_any_lowest_male.txt	any_lowest_male	Persistence Model -- Lowest Grade -- Year 2 or 3 -- Males
