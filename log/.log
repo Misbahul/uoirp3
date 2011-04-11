@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------------
        log:  /Users/sechilds/uottawa/log/.log
   log type:  text
- opened on:  11 Apr 2011, 10:02:20
+ opened on:  11 Apr 2011, 17:40:01
 
 .         
 . ensuredir "estimates/"
@@ -1107,10 +1107,34 @@ File loaded.
 note: results saved to output//main/faculty_leave3_cond_male/persistence_model2_main
 > _faculty_leave3_cond_male.xls
 
-.                 
-.         
-. log close
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory estimates//main/age_leave/ created.
+
+Running $Id: ensuredir.ado 1394 2010-01-27 14:50:32Z mesa $
+Directory output//main/age_leave/ created.
+Comment: persistence_model2_reg3_leave.txt
+Comment: First set of models - uottawa persistence - Leave in either second or third
+>  year.
+variable agecat_17 not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. do finalcleanup
+
+. * finalcleanup.do
+. 
+. /*
+>         Clear the time and date strings.
+> */
+. 
+. global ransetup ""
+
+. 
+. capture noisily log close
        log:  /Users/sechilds/uottawa/log/.log
   log type:  text
- closed on:  11 Apr 2011, 10:03:04
+ closed on:  11 Apr 2011, 17:42:08
 ------------------------------------------------------------------------------------
