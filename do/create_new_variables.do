@@ -154,7 +154,7 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	replace `i'_rel1 = 2 if `i' == gpa_cat & !missing(`i') & !missing(gpa_cat)
 	replace `i'_rel1 = 3 if `i' > gpa_cat & !missing(`i') & !missing(gpa_cat)
 	label values `i'_rel1 grade_rel1
-	label variable `i'_rel1 "`var_lbl (relative)"
+	label variable `i'_rel1 "`var_lbl' (relative)"
 	
 	generate `i'_rel2 = .
 	replace `i'_rel2 = 1 if (`i' - gpa_cat) > 2 & !missing(`i') & !missing(gpa_cat)
@@ -163,9 +163,9 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	replace `i'_rel2 = 4 if (`i' - gpa_cat) == 0 & !missing(`i') & !missing(gpa_cat)
 	replace `i'_rel2 = 5 if (gpa_cat - `i') == 1 & !missing(`i') & !missing(gpa_cat)
 	replace `i'_rel2 = 6 if (gpa_cat - `i') == 2 & !missing(`i') & !missing(gpa_cat)
-	replace `i'_rel2 =76 if (gpa_cat - `i') > 2 & !missing(`i') & !missing(gpa_cat)
+	replace `i'_rel2 = 7 if (gpa_cat - `i') > 2 & !missing(`i') & !missing(gpa_cat)
 	label values `i'_rel2 grade_rel2
-	label variable `i'_rel2 "`var_lbl (relative)"
+	label variable `i'_rel2 "`var_lbl' (relative)"
 	
 	generate `i'_rel3 = .
 	replace `i'_rel3 = 1 if (`i'_s - gpa_cat_s) > 1 & !missing(`i'_s) & !missing(gpa_cat_s)
@@ -174,7 +174,7 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	replace `i'_rel3 = 4 if (gpa_cat_s - `i'_s) == 1 & !missing(`i'_s) & !missing(gpa_cat_s)
 	replace `i'_rel3 = 5 if (gpa_cat_s - `i'_s) > 1 & !missing(`i'_s) & !missing(gpa_cat_s)
 	label values `i'_rel3 grade_rel3
-	label variable `i'_rel3 "`var_lbl (relative)"
+	label variable `i'_rel3 "`var_lbl' (relative)"
 }
 
 
