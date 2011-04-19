@@ -17,6 +17,7 @@ void labelmatrix1(string scalar varname1, string scalar A_name, real matrix A_ro
 	rowlabels_stripe_clean = subinstr(rowlabels_stripe, ".", "")
 	rowlabels_stripe_clean = subinstr(rowlabels_stripe_clean, ":", "")
 	rowlabels_stripe_clean = subinstr(rowlabels_stripe_clean, "-", "_")
+	rowlabels_stripe_clean = subinstr(rowlabels_stripe_clean, " ", "_")
 	rowlabels_stripe_trim = substr(rowlabels_stripe_clean, J(rows(A),2,1), J(rows(A),2,33))
 	st_matrixrowstripe(A_name,rowlabels_stripe_trim)
 }
