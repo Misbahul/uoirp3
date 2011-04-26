@@ -114,5 +114,8 @@ if "${outputpath}"=="" {
 	global outputpath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'output`c(dirsep)'"
 }
 file write `myfile' `"local outputpath ${outputpath}"' _newline
+file write `myfile' _newline _newline
+
+file close `myfile'
 
 
