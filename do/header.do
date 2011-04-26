@@ -50,7 +50,7 @@ if "`makeoutput'"=="1" {
 } 
 local makeoutput = 0
 
-clear matrix
+capture clear matrix
 clear mata
 set memory 750m
 set matsize 1000
