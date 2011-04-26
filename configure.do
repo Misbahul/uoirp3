@@ -49,7 +49,7 @@ global statautil ""
 while "${statautil}"=="" {
 	display _newline as text "Stata Utilities Directory:" _newline _request(statautil)
 }
-file write `myfile' `"local projectdirectory "${statautil}""' _newline
+file write `myfile' `"local statautil "${statautil}""' _newline
 
 display _newline _newline
 display as text "*** Data Path ***"
@@ -59,7 +59,7 @@ display _newline as text "Data directory (${projectdirectory}`c(dirsep)'data`c(d
 if "${datapath}"=="" {
 	global datapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'"
 }
-file write `myfile' `"local ${datapath}"' _newline
+file write `myfile' `"local datapath ${datapath}"' _newline
 
 display _newline _newline
 display as text "*** Source Data Path ***"
@@ -68,7 +68,7 @@ display _newline as text "Source Data directory (${projectdirectory}`c(dirsep)'d
 if "${sourcedatapath}"=="" {
 	global sourcedatapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'source`c(dirsep)'"
 }
-file write `myfile' `"local ${sourcedatapath}"' _newline
+file write `myfile' `"local sourcedatapath ${sourcedatapath}"' _newline
 
 display _newline _newline
 display as text "*** Work Data Path ***"
@@ -77,23 +77,42 @@ display _newline as text "Work Data directory (${projectdirectory}`c(dirsep)'dat
 if "${workdatapath}"=="" {
 	global workdatapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'work`c(dirsep)'"
 }
-file write `myfile' `"local ${workdatapath}"' _newline
+file write `myfile' `"local workdatapath ${workdatapath}"' _newline
 
 display _newline _newline
 display as text "*** User Data Path ***"
 display as text "Additional files created by the user."
-display _newline as text "User Data directory (${projectdirectory}`c(dirsep)'user`c(dirsep)'work`c(dirsep)'):" _newline _request(userdatapath)
+display _newline as text "User Data directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'user`c(dirsep)'):" _newline _request(userdatapath)
 if "${userdatapath}"=="" {
 	global userdatapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'user`c(dirsep)'"
 }
-file write `myfile' `"local ${userdatapath}"' _newline
+file write `myfile' `"local userdatapath ${userdatapath}"' _newline
 
 display _newline _newline
 display as text "*** Log Path ***"
 display as text "Directory for storing Stata logs."
-display _newline as text "Log paths (${projectdirectory}`c(dirsep)'user`c(dirsep)'log`c(dirsep)'):" _newline _request(logdatapath)
+display _newline as text "Log paths (${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'):" _newline _request(logdatapath)
 if "${logdatapath}"=="" {
 	global logdatapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'log`c(dirsep)'"
 }
-file write `myfile' `"local ${logdatapath}"' _newline
+file write `myfile' `"local logpath ${logdatapath}"' _newline
+
+display _newline _newline
+display as text "*** Manual Log Path ***"
+display as text "Directory for storing Stata manual logs."
+display _newline as text "Log paths (${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'manual`c(dirsep)'):" _newline _request(manuallogpath)
+if "${manuallogpath}"=="" {
+	global manuallogpath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'log`c(dirsep)'manual`c(dirsep)'"
+}
+file write `myfile' `"local manuallogpath ${manuallogpath}"' _newline
+
+display _newline _newline
+display as text "*** Output Path ***"
+display as text "Generated output will be created here."
+display _newline as text "Output directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'output`c(dirsep)'):" _newline _request(outputpath)
+if "${outputpath}"=="" {
+	global outputpath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'output`c(dirsep)'"
+}
+file write `myfile' `"local outputpath ${outputpath}"' _newline
+
 
