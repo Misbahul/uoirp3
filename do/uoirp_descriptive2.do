@@ -16,7 +16,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "uoirp_descriptive2"
+local dofilename "uoirp_descriptive2"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -27,10 +27,10 @@ global dofilename "uoirp_descriptive2"
 */
 local makeoutput = 1
 // local makeoutput = 0
-include "do/header"
+include do/header.do
 
 // Sample Command to load the data file.
-use "${workdatapath}new_variable_data"
+use "`workdatapath'new_variable_data"
 
 
 local cat_vars "imstat econ_region_origin apptype province credential_cd kind_of_program_cd"
@@ -59,7 +59,7 @@ local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
 	local short_i = substr("`i'",1,30)
 	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwmean cgpa `i', save("`outputdir'${dofilename}_step3.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))
+	uwmean cgpa `i', save("`outputdir'`dofilename'_step3.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))
 	local myrep "append"
 } 
 
@@ -70,7 +70,7 @@ local myrep "replace"
 foreach i of varlist `cat_vars' {
 	local short_i = substr("`i'",1,30)
 	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwmean cgpa `i' cohort, save("`outputdir'${dofilename}_step4.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))
+	uwmean cgpa `i' cohort, save("`outputdir'`dofilename'_step4.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))
 	local myrep "append"
 }
 
@@ -92,10 +92,9 @@ foreach j of varlist cont2 cont3 uoreturn {
 	foreach i of varlist cohort `cat_vars' {
 		local short_i = substr("`i'",1,18) 
 		display _newline as text "Processing variable " as result "`i'" as text "."
-		uwtab `i' `j', row save("`outputdir'${dofilename}_step5.xls") `myrep' sheet("`short_i'_`short_j'")
+		uwtab `i' `j', row save("`outputdir'`dofilename'_step5.xls") `myrep' sheet("`short_i'_`short_j'")
 		local myrep "append"
 	} 
 }
 
-log close
-clear
+include do/footer.do

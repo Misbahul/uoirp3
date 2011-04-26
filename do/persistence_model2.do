@@ -2,15 +2,10 @@
 
 set more off
 clear
-set memory 1000m
-set matsize 1000
 
-global dofilename "persistence_model2"
+local dofilename "persistence_model2"
 // include common/do/imm2_macros.do
 local makeoutput = 1
-include do/header
-
-// adopath ++ "ado/"
 
 /*
 	If you need to regenerate all the matrix
@@ -259,7 +254,7 @@ program define persistence_model
 		format((SCLR0) (SCCB0 `colformats' NCCR0))
 end
 
-	
+include do/header.do	
 capture log close
 log using "log/`dofilename'.log", replace text
 	
@@ -274,7 +269,7 @@ ensuredir "output/`dofilename'/"
 local delimiter=`"`=char(9)'"'		/* " */
 
 local count = 1	// One version file.
-local datafile1 "${workdatapath}new_variable_data"
+local datafile1 "`workdatapath'new_variable_data"
 local nick1 "main"
 
 capture file close modelsfile
@@ -329,18 +324,6 @@ forvalues i = 1/`count' {
 	} 	
 } 
 		
-	
-log close
-clear
 
-
-
-
-
-
-
-
-
-
-
+include do/footer.do	
 

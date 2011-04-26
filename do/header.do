@@ -5,8 +5,6 @@ include do/locals.do
 cd "`projectdirectory'"
 adopath + "`projectdirectory'ado/"
 adopath + "`statautil'"
-discard
-capture program drop all
 ensuredir "`workdatapath'"
 ensuredir "`outputpath'"
 ensuredir "`logpath'"
@@ -54,6 +52,6 @@ local makeoutput = 0
 
 clear matrix
 clear mata
-set memory 500m
-set matsize 500
+set memory 750m
+set matsize 1000
 version 10.1

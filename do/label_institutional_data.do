@@ -12,7 +12,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "label_institutional_data"
+local dofilename "label_institutional_data"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -23,7 +23,7 @@ global dofilename "label_institutional_data"
 */
 // local makeoutput = 1
 local makeoutput = 0
-include "do/header"
+include do/header.do
 
 capture program drop my_encode
 program my_encode
@@ -35,7 +35,7 @@ program my_encode
 end
 
 // Sample Command to load the data file.
-use "${workdatapath}initial_retention_data"
+use "`workdatapath'initial_retention_data"
 
 // APPTYPE
 include do/apptype_codes.do
@@ -903,7 +903,7 @@ drop CONT3
 
 describe, fullnames
 
-save "${workdatapath}labeled_retention_data", replace
+save "`workdatapath'labeled_retention_data", replace
 
-log close
-clear
+include do/footer.do
+

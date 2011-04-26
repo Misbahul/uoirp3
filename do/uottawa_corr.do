@@ -12,7 +12,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "uottawa_corr"
+local dofilename "uottawa_corr"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -23,12 +23,11 @@ global dofilename "uottawa_corr"
 */
 // local makeoutput = 1
 local makeoutput = 0
-include "do/header"
+include do/header.do
 
 // Sample Command to load the data file.
-use "${workdatapath}new_variable_data"
+use "`workdatapath'new_variable_data"
 
 pwcorr , obs sig
 
-log close
-clear
+include do/footer.do

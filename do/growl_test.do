@@ -14,7 +14,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "growl_test"
+local dofilename "growl_test"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -25,7 +25,7 @@ global dofilename "growl_test"
 */
 // local makeoutput = 1
 local makeoutput = 0
-include "do/header"
+include do/header.do
 
 // Sample Command to load the data file.
 // use "${workdatapath}analysis/l${appendcode}_002"
@@ -37,5 +37,4 @@ display _newline as text "Hello World!"
 growl
 growl Hello World!
 
-log close
-clear
+include do/footer.do

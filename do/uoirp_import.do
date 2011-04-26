@@ -14,7 +14,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "uoirp_import"
+local dofilename "uoirp_import"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -25,7 +25,7 @@ global dofilename "uoirp_import"
 */
 // local makeoutput = 1
 local makeoutput = 0
-include "do/header"
+include do/header.do
 
 /*
 	Import the data from the spreadsheet.
@@ -35,9 +35,8 @@ include "do/header"
 	names = first row of the data is the variable names
 */
 
-insheet using "${sourcedatapath}Retention_Data_v2_31JAN2011.txt", tab clear case names
+insheet using "`sourcedatapath'Retention_Data_v2_31JAN2011.txt", tab clear case names
 
-save "${workdatapath}initial_retention_data.dta", replace
+save "`workdatapath'initial_retention_data.dta", replace
 
-log close
-clear
+include do/footer.do

@@ -14,7 +14,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "uoirp_descriptive1"
+local dofilename "uoirp_descriptive1"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -25,10 +25,10 @@ global dofilename "uoirp_descriptive1"
 */
 local makeoutput = 1
 // local makeoutput = 0
-include "do\header"
+include do\header.do
 
 // Sample Command to load the data file.
-use "${workdatapath}new_variable_data"
+use "`workdatapath'new_variable_data"
 
 label define imstat_en_label 3 "Other Visa", modify
 label define imstat_en_label 4 "Foreign Unknown", modify
@@ -58,8 +58,8 @@ local cat_vars "`cat_vars' local1 local2 local3 admission_cat gpa_cat"
 local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
 	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwtab `i', col save("`outputdir'${dofilename}_step1.xls") `myrep' sheet("`i'")
-	uwtab `i' if missing(cgpa), col save("`outputdir'${dofilename}_step1.xls") `myrep' sheet("`i'_nogpa")
+	uwtab `i', col save("`outputdir'`dofilename'_step1.xls") `myrep' sheet("`i'")
+	uwtab `i' if missing(cgpa), col save("`outputdir'`dofilename'_step1.xls") `myrep' sheet("`i'_nogpa")
 	local myrep "append"
 } 
 
@@ -69,10 +69,9 @@ foreach i of varlist cohort `cat_vars' {
 local myrep "replace"
 foreach i of varlist `cat_vars' {
 	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwtab `i' cohort, col row save("`outputdir'${dofilename}_step2.xls") `myrep' sheet("`i'")
-	uwtab `i' cohort if missing(cgpa), col row save("`outputdir'${dofilename}_step2.xls") `myrep' sheet("`i'_nogpa")
+	uwtab `i' cohort, col row save("`outputdir'`dofilename'_step2.xls") `myrep' sheet("`i'")
+	uwtab `i' cohort if missing(cgpa), col row save("`outputdir'`dofilename'_step2.xls") `myrep' sheet("`i'_nogpa")
 	local myrep "append"
 }
 
-log close
-clear
+include do/footer.do

@@ -1,5 +1,4 @@
 // create_new_variables.do
-set more off
 
 /*
 	10DEC2010: File created based on template.do
@@ -14,7 +13,7 @@ set more off
 	Change the name here to reflect the new name of the do file.
 	Stata will use this name in all the logs, etc.
 */
-global dofilename "create_new_variables"
+local dofilename "create_new_variables"
 
 /*
 	header.do, which is called here, will log all the results of
@@ -28,7 +27,7 @@ local makeoutput = 0
 include "do/header"
 
 // Sample Command to load the data file.
-use "${workdatapath}labeled_retention_data"
+use "`workdatapath'labeled_retention_data"
 
 /*
 	The big task of this file is to resolve the local vs. non-local
@@ -54,13 +53,13 @@ label values local1 loclbl
 // Postal Code
 preserve
 clear
-insheet using "${userdatapath}ottawa_postal_codes.txt", tab nonames
+insheet using "`userdatapath'ottawa_postal_codes.txt", tab nonames
 rename v1 fsa3
 sort fsa3
-save "${workdatapath}ottawa_postal_codes.dta", replace
+save "`workdatapath'ottawa_postal_codes.dta", replace
 restore
 sort fsa3
-merge fsa3 using "${workdatapath}ottawa_postal_codes.dta", uniqusing _merge(_ottpostalcodes)
+merge fsa3 using "`workdatapath'ottawa_postal_codes.dta", uniqusing _merge(_ottpostalcodes)
 tab _ottpostalcodes
 drop if _ottpostalcodes==2 // Codes not in the data
 recode _ottpostalcodes (1 = 0) (3 = 1)
@@ -365,7 +364,7 @@ label variable agecat_27 "Entry Age 27 and above"
 
 
 
-save "${workdatapath}new_variable_data.dta", replace
+save "`workdatapath'new_variable_data.dta", replace
 
-log close
-clear
+include do/footer.do
+
