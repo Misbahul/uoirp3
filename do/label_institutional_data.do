@@ -263,7 +263,7 @@ label values gender gender_en_label
 
 // BIRTH_DT
 
-generate long birth_dt = date(BIRTH_DT, "MD19Y")
+generate long birth_dt = date(BIRTH_DT, "`bdate_format'")
 format birth_dt %td
 
 generate birth_year = yofd(birth_dt)
