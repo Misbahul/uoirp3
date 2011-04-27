@@ -1,9 +1,13 @@
-// persistence_model2.do
+// persistence_model.do
+
+/*
+	26APR2011: File renamed from persistence_model2.do.
+*/
 
 set more off
 clear
 
-local dofilename "persistence_model2"
+local dofilename "persistence_model"
 // include common/do/imm2_macros.do
 local makeoutput = 1
 
@@ -270,7 +274,7 @@ local datafile1 "`workdatapath'new_variable_data"
 local nick1 "main"
 
 capture file close modelsfile
-file open modelsfile using "do/persistence_model2_modellist.txt", read text
+file open modelsfile using "do/persistence_modellist.txt", read text
 
 file read modelsfile line
 
