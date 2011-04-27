@@ -59,17 +59,16 @@ program configure_paths
 	display as text "Logs and results will be generated here as well."
 	display _newline as text "Data directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'):" _newline _request(datapath)
 	if "${datapath}"=="" {
-		global datapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'"
+		global datapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'"
 	}
-	file write `myfile' `"local datapath "'
-	file write `myfile' "${datapath}" _newline
+	file write `myfile' `"local datapath "${datapath}""' _newline
 
 	display _newline _newline
 	display as text "*** Source Data Path ***"
 	display as text "Original source data."
 	display _newline as text "Source Data directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'source`c(dirsep)'):" _newline _request(sourcedatapath)
 	if "${sourcedatapath}"=="" {
-		global sourcedatapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'source`c(dirsep)'"
+		global sourcedatapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'source`c(dirsep)'"
 	}
 	file write `myfile' `"local sourcedatapath "${sourcedatapath}""' _newline
 
@@ -78,7 +77,7 @@ program configure_paths
 	display as text "Working data files."
 	display _newline as text "Work Data directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'work`c(dirsep)'):" _newline _request(workdatapath)
 	if "${workdatapath}"=="" {
-		global workdatapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'work`c(dirsep)'"
+		global workdatapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'work`c(dirsep)'"
 	}
 	file write `myfile' `"local workdatapath "${workdatapath}""' _newline
 
@@ -87,7 +86,7 @@ program configure_paths
 	display as text "Additional files created by the user."
 	display _newline as text "User Data directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'user`c(dirsep)'):" _newline _request(userdatapath)
 	if "${userdatapath}"=="" {
-		global userdatapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'user`c(dirsep)'"
+		global userdatapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'user`c(dirsep)'"
 	}
 	file write `myfile' `"local userdatapath "${userdatapath}""' _newline
 
@@ -96,7 +95,7 @@ program configure_paths
 	display as text "Directory for storing Stata logs."
 	display _newline as text "Log paths (${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'):" _newline _request(logdatapath)
 	if "${logdatapath}"=="" {
-		global logdatapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'log`c(dirsep)'"
+		global logdatapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'"
 	}
 	file write `myfile' `"local logpath "${logdatapath}""' _newline
 
@@ -105,7 +104,7 @@ program configure_paths
 	display as text "Directory for storing Stata manual logs."
 	display _newline as text "Log paths (${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'manual`c(dirsep)'):" _newline _request(manuallogpath)
 	if "${manuallogpath}"=="" {
-		global manuallogpath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'log`c(dirsep)'manual`c(dirsep)'"
+		global manuallogpath "${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'manual`c(dirsep)'"
 	}
 	file write `myfile' `"local manuallogpath "${manuallogpath}""' _newline
 
@@ -114,7 +113,7 @@ program configure_paths
 	display as text "Generated output will be created here."
 	display _newline as text "Output directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'output`c(dirsep)'):" _newline _request(outputpath)
 	if "${outputpath}"=="" {
-		global outputpath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'output`c(dirsep)'"
+		global outputpath "${projectdirectory}`c(dirsep)'data`c(dirsep)'output`c(dirsep)'"
 	}
 	file write `myfile' `"local outputpath "${outputpath}""' _newline
 	file write `myfile' _newline _newline
