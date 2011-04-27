@@ -784,6 +784,7 @@ rename PERSON_ID person_id
 rename ECON_REGION_ORIGIN econ_region_origin
 rename POSTAL_CD postal_cd
 rename ADMISSION_AVG admission_avg
+capture clonevar CGPA = SGPA
 rename CGPA cgpa
 rename CIP_CD cip_cd
 rename YEAR_OF_STUDY year_of_study
