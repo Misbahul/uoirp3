@@ -3,3 +3,13 @@ Administrative Data.
 
 08APR2011: This repository is private because it includes the actual data, 
 	logs and estimates. I can't really put that out to the public yet.
+	
+26APR2011: Changed the configuration step by getting rid of the need to run
+	setup.do and finalcleanup.do each time. Now all that code is executed in
+	the header.do and footer.do files. Simply include them at the beginning of
+	each program.
+	
+	To configure the programs directories, simply run the configure.do program, which
+	will create a user_locals.do file. This file is ignored by git, but will be
+	included in every program that includes the header file. This is where the directories can
+	be specified.
