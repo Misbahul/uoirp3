@@ -35,7 +35,7 @@ include do/header.do
 	names = first row of the data is the variable names
 */
 
-insheet using "`sourcedatapath'Retention_Data_v2_31JAN2011.txt", tab clear case names
+insheet using "`originaldatafile'", tab clear case names
 
 save "`workdatapath'initial_retention_data.dta", replace
 
