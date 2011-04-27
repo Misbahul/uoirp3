@@ -262,9 +262,6 @@ ensuredir "estimates/"
 ensuredir "estimates/`dofilename'/"
 // ensuredir "estimates/`dofilename'/test_model/"
 
-ensuredir "output/"
-ensuredir "output/`dofilename'/"
-
 
 local delimiter=`"`=char(9)'"'		/* " */
 
@@ -305,11 +302,11 @@ forvalues i = 1/`count' {
 	use "`datafile`i''", clear
 	
 	ensuredir "estimates/`dofilename'/`nick`i''/"
-	ensuredir "output/`dofilename'/`nick`i''/"
+	ensuredir "`outputdir'/`nick`i''/"
 	
 	forvalues m = 1/`mcount' { 
 		ensuredir "estimates/`dofilename'/`nick`i''/`modelnick`m''/"
-		ensuredir "output/`dofilename'/`nick`i''/`modelnick`m''/"
+		ensuredir "`outputdir'/`nick`i''/`modelnick`m''/"
 		local myreplace "replace"
 		local sysdate = c(current_date)
 		local systime = c(current_time)
@@ -319,7 +316,7 @@ forvalues i = 1/`count' {
 			title( "Regression Output: `modelname`m''") ///
 			notes( Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: ${dofilename}.do, Model file: `modelfile`m''; Date ran: `timestring' ) ///
 			sheet( "`modelnick`m''_`n'") ///
-			save( "output/`dofilename'/`nick`i''/`modelnick`m''/${dofilename}_`nick`i''_`modelnick`m''.xls") `myreplace'
+			save( "`outputdir'/`nick`i''/`modelnick`m''/${dofilename}_`nick`i''_`modelnick`m''.xls") `myreplace'
 		local myreplace "append" 
 	} 	
 } 
