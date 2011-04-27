@@ -1,3 +1,10 @@
+Project: University of Ottawa Retention
+Dataset: University of Ottawa Administrative Data
+Education Policy Research Initiative
+
+Notes:
+* Please read the configuration.txt file for detailed instructions in setting up these files.
+
 02DEC2010: Directory created to process the University of Ottawa
 Administrative Data.
 
