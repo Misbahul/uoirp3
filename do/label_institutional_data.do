@@ -780,10 +780,22 @@ egen any_lowest = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100
 label values any_lowest grade_codes
 tabulate any_lowest, missing
 
+// Admission Average
+rename ADMISSION_AVG admission_avg
+capture confirm numeric format admission_avg
+if _rc {
+	// admission average is not numeric -- convert.
+	replace admission_avg = "" if substr(admission_avg,1,2)=="NA"
+	replace admission_avg = "" if substr(admission_avg,1,3)=="N\A"
+	replace admission_avg = "" if substr(admission_avg,1,3)=="N/A"
+	replace admission_avg = "" if substr(admission_avg,1,3)=="N.A"
+	replace admission_avg = "" if substr(admission_avg,1,3)=="ADM"
+	destring admission_avg, replace ignore("%") float
+}
+
 rename PERSON_ID person_id
 rename ECON_REGION_ORIGIN econ_region_origin
 rename POSTAL_CD postal_cd
-rename ADMISSION_AVG admission_avg
 capture clonevar CGPA = SGPA
 rename CGPA cgpa
 rename CIP_CD cip_cd
