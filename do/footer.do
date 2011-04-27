@@ -11,10 +11,10 @@ if "`c(os)'"=="Windows" {
 shell git add data/output/
 shell git add data/log/
 if "`dofilename'"=="" {
-	shell git commit -m "Command Completed `datestring' `timestring'"
+	shell git commit -m "Ran footer.do manually. (Likely due to an error)."
 }
 else {
-	shell git commit -m "Successfully ran `dofilename'.do at `datestring' `timestring'"
+	shell git commit -m "Successfully ran `dofilename'.do at `timestring' on `datestring'."
 }
 shell git status
 
