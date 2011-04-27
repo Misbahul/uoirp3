@@ -10,6 +10,7 @@ if "`c(os)'"=="Windows" {
 }
 shell git add data/output/
 shell git add data/log/
+shell git add data/work/
 if "`dofilename'"=="" {
 	shell git commit -m "Ran footer.do manually. (Likely due to an error)."
 }
