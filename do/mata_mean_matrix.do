@@ -1,5 +1,6 @@
 // mata_mean_matrix.do
 
+capture mata mata drop mean_matrix()
 mata:
 real matrix mean_matrix(string scalar varname1, string scalar varname2, string scalar varname3, real matrix A_row, real matrix A_col)
 {

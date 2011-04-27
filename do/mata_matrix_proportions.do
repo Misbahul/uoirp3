@@ -1,5 +1,6 @@
 // mata_matrix_proportions.do
 
+capture mata mata drop col_proportion()
 mata:
 void col_proportion(string scalar freq_matrix, string scalar prop_matrix)
 {
@@ -11,6 +12,7 @@ void col_proportion(string scalar freq_matrix, string scalar prop_matrix)
 mata mosave col_proportion(), dir(ado/) replace
 end
 
+capture mata mata drop row_proportion()
 mata:
 void row_proportion(string scalar freq_matrix, string scalar prop_matrix)
 {

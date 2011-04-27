@@ -1,5 +1,6 @@
 // mata_mean_rowvector.do
 
+capture mata mata drop mean_rowvector()
 mata:
 real matrix mean_rowvector(string scalar varname1, string scalar varname2, real matrix A_row)
 {

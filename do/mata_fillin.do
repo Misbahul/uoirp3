@@ -1,5 +1,6 @@
 // mata_fillin.do
 
+capture mata mata drop fillin()
 mata:
 string matrix fillin(string matrix A, real matrix B)
 {

@@ -1,5 +1,6 @@
 // mata_labelmatrix.do
 
+capture mata mata drop labelmatrix1()
 mata:
 void labelmatrix1(string scalar varname1, string scalar A_name, real matrix A_row)
 {
@@ -24,6 +25,7 @@ void labelmatrix1(string scalar varname1, string scalar A_name, real matrix A_ro
 mata mosave labelmatrix1(), dir(ado/) replace
 end
 
+capture mata mata drop labelmatrix2()
 mata:
 void labelmatrix2(string scalar varname1, string scalar varname2, string scalar A_name, real matrix A_row, real matrix A_col)
 {
