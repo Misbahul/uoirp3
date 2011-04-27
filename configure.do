@@ -61,7 +61,8 @@ program configure_paths
 	if "${datapath}"=="" {
 		global datapath "\`projectdirectory\'`c(dirsep)'data`c(dirsep)'"
 	}
-	file write `myfile' `"local datapath "${datapath}""' _newline
+	file write `myfile' `"local datapath "'
+	file write `myfile' "${datapath}" _newline
 
 	display _newline _newline
 	display as text "*** Source Data Path ***"
