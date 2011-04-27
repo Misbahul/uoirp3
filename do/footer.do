@@ -10,7 +10,12 @@ if "`c(os)'"=="Windows" {
 }
 shell git add data/output/
 shell git add data/log/
-shell git commit -m "Command Completed `datestring' `timestring'"
+if "`dofilename'"=="" {
+	shell git commit -m "Command Completed `datestring' `timestring'"
+}
+else {
+	shell git commit -m "Successfully ran `dofilename'.do at `datestring' `timestring'"
+}
 shell git status
 
 
