@@ -38,9 +38,12 @@ program configure_paths
 	display _newline _newline
 	display as text "*** Project Directory ***"
 	display as text "Please enter the location where the project files are stored, or hit enter to put them in the current directory."
-	display _newline as text "Project Directory (`currdir'):" _newline _request(projectdirectory)
+	display _newline as text "Project Directory (`currdir'`c(dirsep)'):" _newline _request(projectdirectory)
 	if "${projectdirectory}"=="" {
-		global projectdirectory "`currdir'"
+		global projectdirectory "`currdir'`c(dirsep)'"
+	}
+	if substr( "${projectdirectory}",-1,1)!="/" & substr( "${projectdirectory}",-1,1)!="\" {
+		global projectdirectory "${projectdirectory}`c(dirsep)'"
 	}
 	file write `myfile' `"local projectdirectory "${projectdirectory}""' _newline
 
