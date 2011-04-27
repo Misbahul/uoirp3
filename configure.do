@@ -60,63 +60,63 @@ program configure_paths
 	display as text "*** Data Path ***"
 	display as text "All the data these do file use and generate will do into this directory."
 	display as text "Logs and results will be generated here as well."
-	display _newline as text "Data directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'):" _newline _request(datapath)
+	display _newline as text "Data directory (${projectdirectory}data`c(dirsep)'):" _newline _request(datapath)
 	if "${datapath}"=="" {
-		global datapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'"
+		global datapath "${projectdirectory}data`c(dirsep)'"
 	}
 	file write `myfile' `"local datapath "${datapath}""' _newline
 
 	display _newline _newline
 	display as text "*** Source Data Path ***"
 	display as text "Original source data."
-	display _newline as text "Source Data directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'source`c(dirsep)'):" _newline _request(sourcedatapath)
+	display _newline as text "Source Data directory (${projectdirectory}data`c(dirsep)'source`c(dirsep)'):" _newline _request(sourcedatapath)
 	if "${sourcedatapath}"=="" {
-		global sourcedatapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'source`c(dirsep)'"
+		global sourcedatapath "${projectdirectory}data`c(dirsep)'source`c(dirsep)'"
 	}
 	file write `myfile' `"local sourcedatapath "${sourcedatapath}""' _newline
 
 	display _newline _newline
 	display as text "*** Work Data Path ***"
 	display as text "Working data files."
-	display _newline as text "Work Data directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'work`c(dirsep)'):" _newline _request(workdatapath)
+	display _newline as text "Work Data directory (${projectdirectory}data`c(dirsep)'work`c(dirsep)'):" _newline _request(workdatapath)
 	if "${workdatapath}"=="" {
-		global workdatapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'work`c(dirsep)'"
+		global workdatapath "${projectdirectory}data`c(dirsep)'work`c(dirsep)'"
 	}
 	file write `myfile' `"local workdatapath "${workdatapath}""' _newline
 
 	display _newline _newline
 	display as text "*** User Data Path ***"
 	display as text "Additional files created by the user."
-	display _newline as text "User Data directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'user`c(dirsep)'):" _newline _request(userdatapath)
+	display _newline as text "User Data directory (${projectdirectory}data`c(dirsep)'user`c(dirsep)'):" _newline _request(userdatapath)
 	if "${userdatapath}"=="" {
-		global userdatapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'user`c(dirsep)'"
+		global userdatapath "${projectdirectory}data`c(dirsep)'user`c(dirsep)'"
 	}
 	file write `myfile' `"local userdatapath "${userdatapath}""' _newline
 
 	display _newline _newline
 	display as text "*** Log Path ***"
 	display as text "Directory for storing Stata logs."
-	display _newline as text "Log paths (${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'):" _newline _request(logdatapath)
+	display _newline as text "Log paths (${projectdirectory}data`c(dirsep)'log`c(dirsep)'):" _newline _request(logdatapath)
 	if "${logdatapath}"=="" {
-		global logdatapath "${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'"
+		global logdatapath "${projectdirectory}data`c(dirsep)'log`c(dirsep)'"
 	}
 	file write `myfile' `"local logpath "${logdatapath}""' _newline
 
 	display _newline _newline
 	display as text "*** Manual Log Path ***"
 	display as text "Directory for storing Stata manual logs."
-	display _newline as text "Log paths (${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'manual`c(dirsep)'):" _newline _request(manuallogpath)
+	display _newline as text "Log paths (${projectdirectory}data`c(dirsep)'log`c(dirsep)'manual`c(dirsep)'):" _newline _request(manuallogpath)
 	if "${manuallogpath}"=="" {
-		global manuallogpath "${projectdirectory}`c(dirsep)'data`c(dirsep)'log`c(dirsep)'manual`c(dirsep)'"
+		global manuallogpath "${projectdirectory}data`c(dirsep)'log`c(dirsep)'manual`c(dirsep)'"
 	}
 	file write `myfile' `"local manuallogpath "${manuallogpath}""' _newline
 
 	display _newline _newline
 	display as text "*** Output Path ***"
 	display as text "Generated output will be created here."
-	display _newline as text "Output directory (${projectdirectory}`c(dirsep)'data`c(dirsep)'output`c(dirsep)'):" _newline _request(outputpath)
+	display _newline as text "Output directory (${projectdirectory}data`c(dirsep)'output`c(dirsep)'):" _newline _request(outputpath)
 	if "${outputpath}"=="" {
-		global outputpath "${projectdirectory}`c(dirsep)'data`c(dirsep)'output`c(dirsep)'"
+		global outputpath "${projectdirectory}data`c(dirsep)'output`c(dirsep)'"
 	}
 	file write `myfile' `"local outputpath "${outputpath}""' _newline
 	file write `myfile' _newline _newline
