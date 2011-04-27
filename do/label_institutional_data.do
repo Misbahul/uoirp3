@@ -213,6 +213,7 @@ label define SESSION_CD 20059 "September 2005", add
 label define SESSION_CD 20069 "September 2006", add
 label define SESSION_CD 20079 "September 2007", add
 label define SESSION_CD 20089 "September 2008", add
+label define SESSION_CD 20099 "September 2009", add
 
 label values SESSION_CD SESSION_CD
 
@@ -228,6 +229,7 @@ recode SESSION_CD	(19979 =	1 "September 1997") ///
 					(20069 =	10 "September 2006") ///
 					(20079 =	11 "September 2007") ///
 					(20089 =	12 "September 2008") ///
+					(20099 =	13 "September 2009") ///
 					, generate(session_cd)
 
 recode COHORT		(1997 =	1 "1997") ///
@@ -242,6 +244,7 @@ recode COHORT		(1997 =	1 "1997") ///
 					(2006 =	10 "2006") ///
 					(2007 =	11 "2007") ///
 					(2008 =	12 "2008") ///
+					(2009 = 13 "2009") ///
 					, generate(cohort)
 					
 compare session_cd cohort
