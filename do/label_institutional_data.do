@@ -843,7 +843,7 @@ label variable cip_cd "CIP Code (6 Digit)"
 label variable cip_2digit "CIP Code (2 Digit)"
 label variable cip_4digit "CIP Code (4 Digit)"
 label variable prgm7 "Program (7 Categories)"
-label variable cip_french_desc "Program (French Description)"
+capture label variable cip_french_desc "Program (French Description)"
 label variable cip_english_desc "Program (English Description)"
 label variable post_cd "Post Code (related to program)"
 label variable coop_ind "Co-Op Program"
@@ -878,7 +878,8 @@ compress province county credential_cd j_credential_cd kind_of_program_cd mother
 compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd ug_spec_level_cd
 
 compress er_province session_cd cohort gender primary_org_cd cip_2digit cip_4digit prgm7
-compress cip_french_desc cip_english_desc post_cd coop_ind used_tongue cont2 cont3
+capture compress  cip_french_desc
+compress cip_english_desc post_cd coop_ind used_tongue cont2 cont3
 compress mat* eng* fra* phi* math_highest english_highest philosophy_highest any_highest
 compress year_of_study
 
