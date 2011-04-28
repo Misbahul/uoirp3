@@ -217,6 +217,10 @@ label define SESSION_CD 20099 "September 2009", add
 
 label values SESSION_CD SESSION_CD
 
+tostring SESSION_CD, generate(SESSION_CD_STR)
+generate session_date = ym(real(substr(SESSION_CD_STR,1,4)),real(substr(SESSION_CD_STR,5,1)))
+format %tm session_date
+
 recode SESSION_CD	(19979 =	1 "September 1997") ///
 					(19989 =	2 "September 1998") ///
 					(19999 =	3 "September 1999") ///
@@ -739,6 +743,13 @@ foreach i of varlist MAT1320 MAT1720 MAT1330 MAT1730 MAT1300 MAT1700 ENG1100 ENG
 	tabulate `lower_i', missing
 } 
 
+foreach i of varlist MAT1320 MAT1720 MAT1330 MAT1730 MAT1300 MAT1700 ENG1100 ENG1112 FRA1528 FRA1538 FRA1710 PHI1101 PHI1501 {
+	local lower_i = lower("`i'")
+	tostring `i'_SESSION, replace
+	generate `lower_i'_session = ym(real(substr(`i'_SESSION,1,4)),real(substr(`i'_SESSION,5,1)))
+	format %tm `lower_i'_session
+}
+
 foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 {
 	recode `i' (12=.a) (13=.b) (14=.c) (15=.e) (16=.f) (17=.g) (18=.h) (19=.i)
 	label values `i' grade_codes
@@ -806,6 +817,12 @@ capture clonevar CGPA = SGPA
 rename CGPA cgpa
 rename CIP_CD cip_cd
 rename YEAR_OF_STUDY year_of_study
+rename SESSION_1_AWARDS session_1_awards
+rename GOV_GRANT_SESSION_1 gov_grant_session_1
+rename GOV_LOAN_SESSION_1 gov_loan_session_1
+rename SESSION_2_AWARDS session_2_awards
+rename GOV_GRANT_SESSION_2 gov_grant_session_2
+rename GOV_LOAN_SESSION_2 gov_loan_session_2
 
 label variable person_id "Personal Identifier"
 label variable imstat "Immigration Status"
@@ -829,6 +846,7 @@ label variable j_main_subject1_cd "Main Subject 1 (J)"
 label variable ug_spec_level_cd "University Specific Level Code"
 label variable er_province "Province (from Economic Region)"
 label variable session_cd "Session"
+label variable session_date "Session date"
 label variable cohort "Cohort"
 label variable entry_month "Month of University Entry"
 label variable entry_day "Day of University Entry"
@@ -873,6 +891,25 @@ label variable english_lowest "Lowest English Grade"
 label variable french_lowest "Lowest French Grade"
 label variable philosophy_lowest "Lowest Philosophy Grade"
 label variable any_lowest "Lowest Grade"
+label variable mat1320_session "MAT1320 Session"
+label variable mat1720_session "MAT1720 Session"
+label variable mat1330_session "MAT1330 Session"
+label variable mat1730_session "MAT1730 Session"
+label variable mat1300_session "MAT1300 Session"
+label variable mat1700_session "MAT1700 Session"
+label variable eng1100_session "ENG1100 Session"
+label variable eng1112_session "ENG1112 Session"
+label variable fra1528_session "FRA1528 Session"
+label variable fra1538_session "FRA1538 Session"
+label variable fra1710_session "FRA1710 Session"
+label variable phi1101_session "PHI1101 Session"
+label variable phi1501_session "PHI1501 Session"
+label variable session_1_awards "Session 1 Awards"
+label variable gov_grant_session_1 "Session 1 Government Grant"
+label variable gov_loan_session_1 "Session 1 Government Loan"
+label variable session_2_awards "Session 2 Awards"
+label variable gov_grant_session_2 "Session 2 Government Grant"
+label variable gov_loan_session_2 "Session 2 Government Loan"
 
 compress province county credential_cd j_credential_cd kind_of_program_cd mother_tongue
 compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd ug_spec_level_cd
@@ -881,7 +918,7 @@ compress er_province session_cd cohort gender primary_org_cd cip_2digit cip_4dig
 capture compress  cip_french_desc
 compress cip_english_desc post_cd coop_ind used_tongue cont2 cont3
 compress mat* eng* fra* phi* math_highest english_highest philosophy_highest any_highest
-compress year_of_study
+compress year_of_study session_*_awards gov_grant_session_* gov_loan_session_*
 
 drop SESSION_CD
 drop COHORT
@@ -921,6 +958,13 @@ drop PHI1501
 drop CONT2
 drop CONT3
 capture drop SGPA
+drop MAT*_SESSION
+drop ENG*_SESSION
+drop FRA*_SESSION
+drop PHI*_SESSION
+drop SESSION_*_AWARDS
+drop GOV_GRANT_SESSION_*
+drop GOV_LOAN_SESSION_*
 
 describe, fullnames
 
