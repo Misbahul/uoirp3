@@ -7,7 +7,8 @@ include do/user_locals.do
 	by the university of Ottawa are stored in.
 */
 local originaldatafile_31jan2011 "`sourcedatapath'Retention_Data_v2_31JAN2011.txt"
-local originaldatafile "`sourcedatapath'Retention_Data_v4_April_2011.txt"
+local originaldatafile_27apr2011 "`sourcedatapath'Retention_Data_v4_April_2011.txt"
+local originaldatafile "`sourcedatapath'Retention_Data_v4_April_2011_nofrench_28APR2011.txt"
 
 /*
 	Birthdate format.
