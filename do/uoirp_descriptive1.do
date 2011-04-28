@@ -53,8 +53,6 @@ local cat_vars "`cat_vars' math_highest_rel2 math_lowest_rel2 english_highest_re
 local cat_vars "`cat_vars' math_highest_rel3 math_lowest_rel3 english_highest_rel3 english_lowest_rel3 french_highest_rel3 french_lowest_rel3 philosophy_highest_rel3 philosophy_lowest_rel3 any_highest_rel3 any_lowest_rel3"
 local cat_vars "`cat_vars' local1 local2 local3 admission_cat gpa_cat"
 
-// local cat_vars "imstat"
-
 local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
 	display _newline as text "Processing variable " as result "`i'" as text "."
