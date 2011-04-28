@@ -785,7 +785,7 @@ tabulate any_lowest, missing
 
 // Admission Average
 rename ADMISSION_AVG admission_avg
-capture confirm numeric format admission_avg
+capture confirm numeric variable admission_avg
 if _rc {
 	// admission average is not numeric -- convert.
 	replace admission_avg = "" if substr(admission_avg,1,2)=="NA"
