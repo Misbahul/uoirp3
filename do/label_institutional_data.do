@@ -663,7 +663,10 @@ recode cip_2digit ///
 	, generate(prgm7)
 tab prgm7, missing
 
-my_encode CIP_FRENCH_DESC, generate(cip_french_desc)
+capture confirm variable CIP_FRENCH_DESC
+if !_rc {
+	my_encode CIP_FRENCH_DESC, generate(cip_french_desc)
+}
 my_encode CIP_ENGLISH_DESC, generate(cip_english_desc)
 
 // POST_CD
@@ -895,7 +898,7 @@ drop J_MAIN_SUBJECT1_CD
 drop J_MAIN_SUBJECT2_CD
 drop UG_SPEC_LEVEL_CD
 drop PRIMARY_ORG_CD
-drop CIP_FRENCH_DESC
+capture drop CIP_FRENCH_DESC
 drop CIP_ENGLISH_DESC
 drop COOP_IND
 drop PRINC_TEACHING_LNG
