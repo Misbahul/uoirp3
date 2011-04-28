@@ -1,0 +1,63 @@
+#persistence_model2_reg2_leave_female.txt
+#First set of models - uottawa persistence - Leave in either second or third year -- Female Students Only.
+basic	Basic Controls
+lang	Language Controls
+local	Local Students
+hsavg	High School Admission Average
+pgrm	uOttawa Program
+@
+leave	Leave in Second or Third Year
+male==0	Female Students Only
+@
+>Cohort (1997)
+cohort_1998	1998	1	1	1	1	1	1	1
+cohort_1999	1999	1	1	1	1	1	1	1
+cohort_2000	2000	1	1	1	1	1	1	1
+cohort_2001	2001	1	1	1	1	1	1	1
+cohort_2002	2002	1	1	1	1	1	1	1
+cohort_2003	2003	1	1	1	1	1	1	1
+cohort_2004	2004	1	1	1	1	1	1	1
+cohort_2005	2005	1	1	1	1	1	1	1
+cohort_2006	2006	1	1	1	1	1	1	1
+cohort_2007	2007	1	1	1	1	1	1	1
+\
+>
+>Province (Ontario)
+prov_nl	Newfoundland and Labrador	1	1	1	1	1	1	1
+prov_pei	Prince Edward Island	1	1	1	1	1	1	1
+prov_ns	Nova Scotia	1	1	1	1	1	1	1
+prov_nb	New Brunswick	1	1	1	1	1	1	1
+prov_qc	Québec	1	1	1	1	1	1	1
+prov_mb	Manitoba	1	1	1	1	1	1	1
+prov_sk	Saskatchewan	1	1	1	1	1	1	1
+prov_ab	Alberta	1	1	1	1	1	1	1
+prov_bc	British Columbia	1	1	1	1	1	1	1
+prov_yk	Yukon	1	1	1	1	1	1	1
+prov_oth	Other	1	1	1	1	1	1	1
+\
+>
+>Language (English)
+ml2_fr	French	1	1	0	1	1	1	1
+ml2_oth	Other	1	1	0	1	1	1	1
+\
+>Local Student (Non-Local)
+local1	Local	1	0	0	0	1	1	1
+>
+>High School Admission Average (B+)
+admav_Aplus	A+	1	1	0	0	0	1	1
+admav_A	A	1	1	0	0	0	1	1
+admav_Aminus	A-	1	1	0	0	0	1	1
+admav_B	B	1	1	0	0	0	1	1
+admav_Cplus	C+	1	1	0	0	0	1	1
+admav_C	C	1	1	0	0	0	1	1
+admav_belowC	Below C	1	1	0	0	0	1	1
+admav_miss	Missing	1	1	0	0	0	1	1
+\
+>
+>uOttawa Faculty (Arts)
+faculty_admin	Administration	1	1	0	0	0	0	1
+faculty_genie	Engineering	1	1	0	0	0	0	1
+faculty_scien	Science	1	1	0	0	0	0	1
+faculty_ssan	Health Sciences	1	1	0	0	0	0	1
+faculty_ssoc	Social Science	1	1	0	0	0	0	1
+
