@@ -52,7 +52,7 @@ void labelmatrix2(string scalar varname1, string scalar varname2, string scalar 
 	st_matrixrowstripe(A_name,rowlabels_stripe_trim)
 	
 	collabels = st_vlmap(st_varvaluelabel(varname2), A_col)
-	collabels_filled = fillin(collabels, A_col)
+	collabels_filled = fillin(collabels', A_col)
 	collabels_stripe = J(cols(A),1,"") , collabels_filled
 	collabels_stripe_clean = subinstr(collabels_stripe, ".", "")
 	collabels_stripe_clean = subinstr(collabels_stripe_clean, ":", "")
