@@ -98,3 +98,7 @@ do/persistence_model_reg5_any_highest_male.txt	any_highest_male	Persistence Mode
 do/persistence_model_reg5_any_lowest.txt	any_lowest	Persistence Model -- Lowest Grade -- Year 2 or 3
 do/persistence_model_reg5_any_lowest_female.txt	any_lowest_female	Persistence Model -- Lowest Grade-- Year 2 or 3 -- Females
 do/persistence_model_reg5_any_lowest_male.txt	any_lowest_male	Persistence Model -- Lowest Grade -- Year 2 or 3 -- Males
+do/persistence_model_reg6_leave.txt	aid1	Persistence Model -- Aid Effects
+do/persistence_model_reg6_leave_female.txt	aid1_female	Persistence Model -- Aid Effects -- Females
+do/persistence_model_reg6_leave_male.txt	aid1_male	Persistence Model -- Aid Effects -- Males
+
