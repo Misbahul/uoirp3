@@ -185,7 +185,7 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 */
 
 tabulate cohort, generate(cohort_)
-forvalues i = 1/12 {
+forvalues i = 1/13 {
 	local y = `i' + 1996
 	rename cohort_`i' cohort_`y'
 	label variable cohort_`y' "`y' Cohort"

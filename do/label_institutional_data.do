@@ -699,7 +699,7 @@ tab cont2, missing
 // CONT3
 my_encode CONT3, generate(cont3)
 recode cont3 (1 = 1) (. = 0)
-replace cont3 = . if cohort==12 // 2008 observations don't have cont3 yet.
+replace cont3 = . if cohort==13 // 2009 observations don't have cont3 yet.
 label values cont3 cont
 
 tab cont3, missing
@@ -920,6 +920,7 @@ drop PHI1101
 drop PHI1501
 drop CONT2
 drop CONT3
+capture drop SGPA
 
 describe, fullnames
 
