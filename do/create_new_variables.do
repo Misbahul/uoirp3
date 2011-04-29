@@ -369,7 +369,7 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	drop `i'_relsession
 	rename `i'_relsession2 `i'_relsession
 	label values `i'_relsession relsession
-	label variable "`i' session (terms relative to cohort)"
+	label variable `i'_relsession "`i' session (terms relative to cohort)"
 } 
 
 forvalues j = 1/2 {
