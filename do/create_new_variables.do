@@ -372,7 +372,7 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	label variable `i'_relsession "`i' session (terms relative to cohort)"
 } 
 
-foreach i of varlist session_*_awards gov_grant_session_* gov_loan_session_* {
+foreach i of varlist session_*_awards gov_grant_s* gov_loan_s* {
 	local varlbl : variable label `i'
 	recode `i' (1/999.99 = 1 "Below 1 000") (1000/1999.99 = 2 "1 000-2 000") (2000/3999.99 = 3 "2 000-4 000") (4000/5999.99 = 4 "4 000-6 000") (6000/9999.99 = 5 "6 000-10 000") (10000/max = 6 "10 000 and up") (missing = 0 "No Award"), generate(`i'_cat)
 	tabulate `i'_cat, generate(`i'_cat_)
