@@ -365,7 +365,9 @@ label variable agecat_27 "Entry Age 27 and above"
 label define relsession 1 "Fall Y1" 2 "Winter Y1" 3 "Spring Y1" 4 "Fall Y2" 5 "Winter Y2" 6 "Spring Y2" 7 "Y3 and later"
 foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 {
 	generate `i'_relsession = `i'_session - session_date
-	recode `i'_relsession (0 = 1) (1/4 = 2) (5/8 = 3) (9/12 = 4) (13/16 = 5) (17/20 = 6) (21/max = 7) (missing = .), replace
+	recode `i'_relsession (0 = 1) (1/4 = 2) (5/8 = 3) (9/12 = 4) (13/16 = 5) (17/20 = 6) (21/max = 7) (missing = .), generate(`i'_relsession2)
+	drop `i'_relsession
+	rename `i'_relsession2 `i'_relsession
 	label values `i'_relsession relsession
 	label variable "`i' session (terms relative to cohort)"
 } 
