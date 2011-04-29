@@ -823,7 +823,7 @@ rename GOV_LOAN_SESSION_1 gov_loan_session_1
 rename SESSION_2_AWARDS session_2_awards
 rename GOV_GRANT_SESSION_2 gov_grant_session_2
 rename GOV_LOAN_SESSION_2 gov_loan_session_2
-rename PROVINCE province
+rename PROVINCE new_province
 
 label variable person_id "Personal Identifier"
 label variable imstat "Immigration Status"
@@ -911,7 +911,7 @@ label variable gov_loan_session_1 "Session 1 Government Loan"
 label variable session_2_awards "Session 2 Awards"
 label variable gov_grant_session_2 "Session 2 Government Grant"
 label variable gov_loan_session_2 "Session 2 Government Loan"
-label variable province "Province (String)"
+label variable new_province "Province (String)"
 
 compress province county credential_cd j_credential_cd kind_of_program_cd mother_tongue
 compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd ug_spec_level_cd
