@@ -818,11 +818,11 @@ rename CGPA cgpa
 rename CIP_CD cip_cd
 rename YEAR_OF_STUDY year_of_study
 rename SESSION_1_AWARDS session_1_awards
-rename GOV_GRANT_SESSION_1 gov_grant_session_1
-rename GOV_LOAN_SESSION_1 gov_loan_session_1
+rename GOV_GRANT_SESSION_1 gov_grant_s1
+rename GOV_LOAN_SESSION_1 gov_loan_s1
 rename SESSION_2_AWARDS session_2_awards
-rename GOV_GRANT_SESSION_2 gov_grant_session_2
-rename GOV_LOAN_SESSION_2 gov_loan_session_2
+rename GOV_GRANT_SESSION_2 gov_grant_s2
+rename GOV_LOAN_SESSION_2 gov_loan_s2
 rename PROVINCE new_province
 
 label variable person_id "Personal Identifier"
@@ -906,11 +906,11 @@ label variable fra1710_session "FRA1710 Session"
 label variable phi1101_session "PHI1101 Session"
 label variable phi1501_session "PHI1501 Session"
 label variable session_1_awards "Session 1 Awards"
-label variable gov_grant_session_1 "Session 1 Government Grant"
-label variable gov_loan_session_1 "Session 1 Government Loan"
+label variable gov_grant_s1 "Session 1 Government Grant"
+label variable gov_loan_s1 "Session 1 Government Loan"
 label variable session_2_awards "Session 2 Awards"
-label variable gov_grant_session_2 "Session 2 Government Grant"
-label variable gov_loan_session_2 "Session 2 Government Loan"
+label variable gov_grant_s2 "Session 2 Government Grant"
+label variable gov_loan_s2 "Session 2 Government Loan"
 label variable new_province "Province (String)"
 
 compress province county credential_cd j_credential_cd kind_of_program_cd mother_tongue
