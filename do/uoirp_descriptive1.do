@@ -59,8 +59,8 @@ local cat_vars "`cat_vars' mat1320_relsession mat1720_relsession mat1330_relsess
 local cat_vars "`cat_vars' mat1700_relsession eng1100_relsession eng1112_relsession fra1528_relsession fra1538_relsession"
 local cat_vars "`cat_vars' fra1710_relsession phi1101_relsession phi1501_relsession"
 local cat_vars "`cat_vars' session_1_awards_cat session_2_awards_cat"
-local cat_vars "`cat_vars' gov_grant_session_1_cat gov_loan_session_1_cat"
-local cat_vars "`cat_vars' gov_grant_session_2_cat gov_loan_session_2_cat"
+local cat_vars "`cat_vars' gov_grant_s1_cat gov_loan_s1_cat"
+local cat_vars "`cat_vars' gov_grant_s2_cat gov_loan_s2_cat"
 
 local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
