@@ -382,14 +382,14 @@ foreach i of varlist session_*_awards gov_grant_session_* gov_loan_session_* {
 	rename `i'_cat_4 `i'_cat_4000
 	rename `i'_cat_5 `i'_cat_6000
 	rename `i'_cat_6 `i'_cat_10000
-	rename `i'_cat_7 `i'_cat_max
+	capture rename `i'_cat_7 `i'_cat_max
 	label variable `i'_cat_noaward "varlbl' No Award"
 	label variable `i'_cat_1000 "`varlbl' Below 1 000"
 	label variable `i'_cat_2000 "`varlbl' 1 000 to 2 000"
 	label variable `i'_cat_4000 "`varlbl' 2 000 to 4 000"
 	label variable `i'_cat_6000 "`varlbl' 4 000 to 6 000"
 	label variable `i'_cat_10000 "`varlbl' 6 000 to 10 000"
-	label variable `i'_cat_max "`varlbl' 10 000 and up"
+	capture label variable `i'_cat_max "`varlbl' 10 000 and up"
 }
 set trace off
 
