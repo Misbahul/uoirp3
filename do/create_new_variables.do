@@ -372,26 +372,25 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	label variable `i'_relsession "`i' session (terms relative to cohort)"
 } 
 
-forvalues j = 1/2 {
-	foreach i of varlist session_`j'_awards gov_grant_session_`j' gov_loan_session_`j' {
-		local varlbl : variable label `i'
-		recode `i' (missing = 0 "No Award") (1/1000 = 1 "Below 1 000") (1000/2000 = 2 "1 000-2 000") (2000/4000 = 3 "2 000-4 000") (4000/6000 = 4 "4 000-6 000") (6000/10000 = 5 "6 000-10 000") (10000/max = 6 "10 000 and up"), generate(`i'_cat)
-		tabulate `i'_cat, generate(`i'_cat_)
-		rename `i'_cat_1 `i'_cat_noaward
-		rename `i'_cat_2 `i'_cat_1000
-		rename `i'_cat_3 `i'_cat_2000
-		rename `i'_cat_4 `i'_cat_4000
-		rename `i'_cat_5 `i'_cat_6000
-		rename `i'_cat_6 `i'_cat_10000
-		rename `i'_cat_7 `i'_cat_max
-		label variable `i'_cat_noaward "varlbl' No Award"
-		label variable `i'_cat_1000 "`varlbl' Below 1 000"
-		label variable `i'_cat_2000 "`varlbl' 1 000 to 2 000"
-		label variable `i'_cat_4000 "`varlbl' 2 000 to 4 000"
-		label variable `i'_cat_6000 "`varlbl' 4 000 to 6 000"
-		label variable `i'_cat_10000 "`varlbl' 6 000 to 10 000"
-		label variable `i'_cat_max "`varlbl' 10 000 and up"
-	}
+
+foreach i of varlist session_*_awards gov_grant_session_* gov_loan_session_* {
+	local varlbl : variable label `i'
+	recode `i' (missing = 0 "No Award") (1/1000 = 1 "Below 1 000") (1000/2000 = 2 "1 000-2 000") (2000/4000 = 3 "2 000-4 000") (4000/6000 = 4 "4 000-6 000") (6000/10000 = 5 "6 000-10 000") (10000/max = 6 "10 000 and up"), generate(`i'_cat)
+	tabulate `i'_cat, generate(`i'_cat_)
+	rename `i'_cat_1 `i'_cat_noaward
+	rename `i'_cat_2 `i'_cat_1000
+	rename `i'_cat_3 `i'_cat_2000
+	rename `i'_cat_4 `i'_cat_4000
+	rename `i'_cat_5 `i'_cat_6000
+	rename `i'_cat_6 `i'_cat_10000
+	rename `i'_cat_7 `i'_cat_max
+	label variable `i'_cat_noaward "varlbl' No Award"
+	label variable `i'_cat_1000 "`varlbl' Below 1 000"
+	label variable `i'_cat_2000 "`varlbl' 1 000 to 2 000"
+	label variable `i'_cat_4000 "`varlbl' 2 000 to 4 000"
+	label variable `i'_cat_6000 "`varlbl' 4 000 to 6 000"
+	label variable `i'_cat_10000 "`varlbl' 6 000 to 10 000"
+	label variable `i'_cat_max "`varlbl' 10 000 and up"
 }
 
 save "`workdatapath'new_variable_data.dta", replace
