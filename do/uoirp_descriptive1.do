@@ -56,7 +56,7 @@ local cat_vars "`cat_vars' mat1320_session mat1720_session mat1330_session mat17
 local cat_vars "`cat_vars' mat1700_session eng1100_session eng1112_session fra1528_session fra1538_session"
 local cat_vars "`cat_vars' fra1710_session phi1101_session phi1501_session"
 local cat_vars "`cat_vars' mat1320_relsession mat1720_relsession mat1330_relsession mat1730_relsession mat1300_relsession"
-local cat_vars "`cat_vars' mat1700_relsession eng_1100_relsession eng1112_relsession fra1528_relsession fra1538_relsession"
+local cat_vars "`cat_vars' mat1700_relsession eng1100_relsession eng1112_relsession fra1528_relsession fra1538_relsession"
 local cat_vars "`cat_vars' fra1710_relsession phi1101_relsession phi1501_relsession"
 local cat_vars "`cat_vars' session_1_awards_cat session_2_awards_cat"
 local cat_vars "`cat_vars' gov_grant_session_1_cat gov_loan_session_1_cat"
