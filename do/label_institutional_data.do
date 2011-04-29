@@ -964,9 +964,6 @@ drop MAT*_SESSION
 drop ENG*_SESSION
 drop FRA*_SESSION
 drop PHI*_SESSION
-drop SESSION_*_AWARDS
-drop GOV_GRANT_SESSION_*
-drop GOV_LOAN_SESSION_*
 
 describe, fullnames
 
