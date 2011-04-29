@@ -920,7 +920,7 @@ compress er_province session_cd cohort gender primary_org_cd cip_2digit cip_4dig
 capture compress  cip_french_desc
 compress cip_english_desc post_cd coop_ind used_tongue cont2 cont3
 compress mat* eng* fra* phi* math_highest english_highest philosophy_highest any_highest
-compress year_of_study session_*_awards gov_grant_session_* gov_loan_session_*
+compress year_of_study session_*_awards gov_grant_s* gov_loan_s*
 
 drop SESSION_CD
 drop COHORT
