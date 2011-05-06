@@ -66,7 +66,7 @@ local cat_vars "`cat_vars' gov_grant_s2_cat gov_loan_s2_cat"
 	I'm going to use the univeristy GPA scores over the categories included here.
 */
 
-/*
+
 local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
 	local short_i = substr("`i'",1,30)
@@ -76,12 +76,12 @@ foreach i of varlist cohort `cat_vars' {
 	uwmean cgpa `i', save("`outputdir'`dofilename'_step3.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2)) title( "Mean GPA by `var_out'")
 	local myrep "append"
 } 
-*/
+
 
 /*
 	STEP 4: Grade outcomes by cohort
 */
-/*
+
 local myrep "replace"
 foreach i of varlist `cat_vars' {
 	local short_i = substr("`i'",1,30)
@@ -91,7 +91,7 @@ foreach i of varlist `cat_vars' {
 	uwmean cgpa `i' cohort, save("`outputdir'`dofilename'_step4.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))  title( "Mean GPA by Cohort by `var_out'")
 	local myrep "append"
 }
-*/
+
 
 /*
 	STEP 5: Retention outcomes.
