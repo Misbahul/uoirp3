@@ -66,6 +66,7 @@ local cat_vars "`cat_vars' gov_grant_s2_cat gov_loan_s2_cat"
 	I'm going to use the univeristy GPA scores over the categories included here.
 */
 
+/*
 local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
 	local short_i = substr("`i'",1,30)
@@ -75,10 +76,12 @@ foreach i of varlist cohort `cat_vars' {
 	uwmean cgpa `i', save("`outputdir'`dofilename'_step3.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2)) title( "Mean GPA by `var_out'")
 	local myrep "append"
 } 
+*/
 
 /*
 	STEP 4: Grade outcomes by cohort
 */
+/*
 local myrep "replace"
 foreach i of varlist `cat_vars' {
 	local short_i = substr("`i'",1,30)
@@ -88,6 +91,7 @@ foreach i of varlist `cat_vars' {
 	uwmean cgpa `i' cohort, save("`outputdir'`dofilename'_step4.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))  title( "Mean GPA by Cohort by `var_out'")
 	local myrep "append"
 }
+*/
 
 /*
 	STEP 5: Retention outcomes.
@@ -96,9 +100,10 @@ foreach i of varlist `cat_vars' {
 	leave -- either leave2 or leave3 == 1
 */
 
-local myrep "replace"
+
 foreach j of varlist leave2 leave3 leave {
-	local short_j = substr("`j'",1,5)
+	local myrep "replace"
+	local short_j = substr("`j'",1,7)
 	local outcome_lbl : variable label `j'
 	local outcome_out "`outcome_lbl' (`j')"
 	display _newline as text "Outcome variable " as result "`outcome_out'" as text "."
@@ -107,7 +112,7 @@ foreach j of varlist leave2 leave3 leave {
 		local var_lbl : variable label `i'
 		local var_out "`var_lbl' (`i')"
 		display _newline as text "Processing variable " as result "`var_out'" as text "."
-		uwtab `i' `j', row save("`outputdir'`dofilename'_step5.xls") `myrep' sheet("`short_i'_`short_j'") title( "`outcome_out' by `var_out'")
+		uwtab `i' `j', row save("`outputdir'`dofilename'_step5_`short_j'.xls") `myrep' sheet("`short_i'") title( "`outcome_out' by `var_out'")
 		local myrep "append"
 	} 
 }
