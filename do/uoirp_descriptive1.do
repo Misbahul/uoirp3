@@ -63,10 +63,13 @@ local cat_vars "`cat_vars' gov_grant_s1_cat gov_loan_s1_cat"
 local cat_vars "`cat_vars' gov_grant_s2_cat gov_loan_s2_cat"
 
 local myrep "replace"
-foreach i of varlist cohort `cat_vars' {
-	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwtab `i', col save("`outputdir'`dofilename'_step1.xls") `myrep' sheet("`i'")
-	uwtab `i' if missing(cgpa), col save("`outputdir'`dofilename'_step1.xls") `myrep' sheet("`i'_nogpa")
+foreach i of varlist cohort `cat_vars' { 
+	local short_i = substr("`i'",1,30)
+	local var_lbl : variable label `i'
+	local var_out "`var_lbl' (`i')"
+	display _newline as text "Processing variable " as result "`var_out'" as text "."
+	uwtab `i', col save("`outputdir'`dofilename'_step1.xls") `myrep' sheet("`short_i'") title( "`var_out'")
+	uwtab `i' if missing(cgpa), col save("`outputdir'`dofilename'_step1.xls") `myrep' sheet("`short_i'_nogpa") title( "`var_out' (Missing GPA)")
 	local myrep "append"
 } 
 
@@ -75,9 +78,12 @@ foreach i of varlist cohort `cat_vars' {
 */
 local myrep "replace"
 foreach i of varlist `cat_vars' {
-	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwtab `i' cohort, col row save("`outputdir'`dofilename'_step2.xls") `myrep' sheet("`i'")
-	uwtab `i' cohort if missing(cgpa), col row save("`outputdir'`dofilename'_step2.xls") `myrep' sheet("`i'_nogpa")
+	local short_i = substr("`i'",1,30)
+	local var_lbl : variable label `i'
+	local var_out "`var_lbl' (`i')"
+	display _newline as text "Processing variable " as result "`var_out'" as text "."
+	uwtab `i' cohort, col row save("`outputdir'`dofilename'_step2.xls") `myrep' sheet("`short_i'") title( "`var_out' by cohort")
+	uwtab `i' cohort if missing(cgpa), col row save("`outputdir'`dofilename'_step2.xls") `myrep' sheet("`short_i'_nogpa") title( "`var_out' bycohort (Missing GPA)")
 	local myrep "append"
 }
 

@@ -69,8 +69,10 @@ local cat_vars "`cat_vars' gov_grant_s2_cat gov_loan_s2_cat"
 local myrep "replace"
 foreach i of varlist cohort `cat_vars' {
 	local short_i = substr("`i'",1,30)
-	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwmean cgpa `i', save("`outputdir'`dofilename'_step3.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))
+	local var_lbl : variable label `i'
+	local var_out "`var_lbl' (`i')"
+	display _newline as text "Processing variable " as result "`var_out'" as text "."
+	uwmean cgpa `i', save("`outputdir'`dofilename'_step3.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2)) title( "Mean GPA by `var_out'")
 	local myrep "append"
 } 
 
@@ -80,30 +82,32 @@ foreach i of varlist cohort `cat_vars' {
 local myrep "replace"
 foreach i of varlist `cat_vars' {
 	local short_i = substr("`i'",1,30)
-	display _newline as text "Processing variable " as result "`i'" as text "."
-	uwmean cgpa `i' cohort, save("`outputdir'`dofilename'_step4.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))
+	local var_lbl : variable label `i'
+	local var_out "`var_lbl' (`i')"
+	display _newline as text "Processing variable " as result "`var_out'" as text "."
+	uwmean cgpa `i' cohort, save("`outputdir'`dofilename'_step4.xls") `myrep' sheet("`short_i'") format((SCLR0) (SCCR0 NCCR2))  title( "Mean GPA by Cohort by `var_out'")
 	local myrep "append"
 }
 
 /*
 	STEP 5: Retention outcomes.
-	cont2 -- continue until second year
-	cont3 -- continue until third year
-		(there are students for whom cont2==0 and cont3==1)
-	uoreturn -- either cont2 or cont3 == 1.
+	leave2 -- leave before second year
+	leave3 -- leave before third year
+	leave -- either leave2 or leave3 == 1
 */
-// clonevar uoreturn = cont2
-// replace uoreturn = 1 if cont3==1
-// label variable uoreturn "Returned to University of Ottawa"
 
 local myrep "replace"
-foreach j of varlist cont2 cont3 uoreturn {
+foreach j of varlist leave2 leave3 leave {
 	local short_j = substr("`j'",1,5)
-	display _newline as text "Outcome variable " as result "`j'" as text "."
+	local outcome_lbl : variable label `j'
+	local outcome_out "`outcome_lbl' (`j')"
+	display _newline as text "Outcome variable " as result "`outcome_out'" as text "."
 	foreach i of varlist cohort `cat_vars' {
 		local short_i = substr("`i'",1,18) 
-		display _newline as text "Processing variable " as result "`i'" as text "."
-		uwtab `i' `j', row save("`outputdir'`dofilename'_step5.xls") `myrep' sheet("`short_i'_`short_j'")
+		local var_lbl : variable label `i'
+		local var_out "`var_lbl' (`i')"
+		display _newline as text "Processing variable " as result "`var_out'" as text "."
+		uwtab `i' `j', row save("`outputdir'`dofilename'_step5.xls") `myrep' sheet("`short_i'_`short_j'") title( "`outcome_out' by `var_out'")
 		local myrep "append"
 	} 
 }
