@@ -8,6 +8,7 @@ gpa_grade	Controls, uOttawa GPA, Specific Grade
 fa_gpa_grade	Controls, Faculty, uOttawa GPA, Specific Grade
 hs_gpa_grade	Controls, Admission Average, uOttawa GPA, Specific Grade
 fa_hs_gpa_grade	Controls, Faculty, Admission Average, uOttawa GPA, Specific Grade
+consistent
 @
 leave	Leave in Second or Third Year
 male=1	Male Students Only
