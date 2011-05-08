@@ -431,6 +431,32 @@ foreach i in _fall _y1 {
 	egen any_lowest`i' = rowmax(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i')
 	label values any_lowest`i' grade_codes
 	tabulate any_lowest`i', missing
+	
+	foreach j of varlist mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i' english_highest`i' english_lowest`i' math_highest`i' math_lowest`i' french_highest`i' french_lowest`i' philosophy_highest`i' philosophy_lowest`i' any_highest`i' any_lowest`i' {
+		local var_lbl : variable label `i'
+		recode `i' (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(`i'_dum)
+		label values `i'_dum admav
+		tabulate `i'_dum, generate(`i'_dum_)
+		rename `i'_dum_1 `i'_dum_Aplus
+		rename `i'_dum_2 `i'_dum_A
+		rename `i'_dum_3 `i'_dum_Aminus
+		rename `i'_dum_4 `i'_dum_Bplus
+		rename `i'_dum_5 `i'_dum_B
+		rename `i'_dum_6 `i'_dum_Cplus
+		rename `i'_dum_7 `i'_dum_C
+		rename `i'_dum_8 `i'_dum_belowC
+		rename `i'_dum_9 `i'_dum_miss
+		label variable `i'_dum_Aplus "`var_lbl' A+"
+		label variable `i'_dum_A "`var_lbl' A"
+		label variable `i'_dum_Aminus "`var_lbl' A-"
+		label variable `i'_dum_Bplus "`var_lbl' B+"
+		label variable `i'_dum_B "`var_lbl' B"
+		label variable `i'_dum_Cplus "`var_lbl' C+"
+		label variable `i'_dum_C "`var_lbl' C"
+		label variable `i'_dum_belowC "`var_lbl' Below C"
+		label variable `i'_dum_miss "`var_lbl' Missing"
+	}
+	
 }
 
 foreach i of varlist session_*_awards gov_grant_s* gov_loan_s* {
