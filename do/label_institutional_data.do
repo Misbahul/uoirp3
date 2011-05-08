@@ -793,9 +793,9 @@ egen french_lowest = rowmax(fra1528 fra1538 fra1710)
 label values french_lowest grade_codes
 tabulate french_lowest, missing
 
-egen philosophy_lowest = rowmax(phi1101 phi1501)
-label values philosophy_lowest grade_codes
-tabulate philosophy_lowest, missing
+egen phil_lowest = rowmax(phi1101 phi1501)
+label values phil_lowest grade_codes
+tabulate phil_lowest, missing
 
 egen enfr_lowest = rowmin(eng1100 eng1112 fra1528 fra1538 fra1710)
 label values enfr_lowest grade_codes
@@ -898,7 +898,7 @@ label variable any_highest "Highest Grade"
 label variable math_lowest "Lowest Math Grade"
 label variable english_lowest "Lowest English Grade"
 label variable french_lowest "Lowest French Grade"
-label variable philosophy_lowest "Lowest Philosophy Grade"
+label variable phil_lowest "Lowest Philosophy Grade"
 label variable any_lowest "Lowest Grade"
 label variable mat1320_session "MAT1320 Session"
 label variable mat1720_session "MAT1720 Session"
