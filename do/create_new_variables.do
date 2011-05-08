@@ -276,7 +276,7 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	rename `i'_rel1_1 `i'_rel1_higher
 	rename `i'_rel1_2 `i'_rel1_same
 	rename `i'_rel1_3 `i'_rel1_lower
-	label variable `i'_rel1_higher "`var_lbl Higher than GPA"
+	label variable `i'_rel1_higher "`var_lbl' Higher than GPA"
 	label variable `i'_rel1_same "`var_lbl' Same as GPA"
 	label variable `i'_rel1_lower "`var_lbl' Lower than GPA"
 	
@@ -321,6 +321,7 @@ rename prgm_8 prgm_oth
 
 clonevar uoreturn = cont2
 replace uoreturn = 1 if cont3==1
+replace uoreturn = . if missing(cont3)
 label variable uoreturn "Returned to University of Ottawa"
 
 recode cont2 (1 = 0 "Continue") (0 = 1 "Leave"), generate(leave2)
@@ -330,6 +331,7 @@ label variable leave3 "left in Year 3"
 clonevar leave = leave2
 label variable leave "Left uOttawa"
 replace leave = 1 if leave3==1
+replace leave = . if missing(leave3)
 
 // Faculty
 tabulate primary_org_cd, generate(faculty_)
@@ -371,6 +373,65 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	label values `i'_relsession relsession
 	label variable `i'_relsession "`i' session (terms relative to cohort)"
 } 
+
+foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 {
+	clonevar `i'_fall = `i'
+	clonevar `i'_y1 = `i'
+	replace `i'_fall = .x if `i'_relsession > 1
+	replace `i'_y1 = .x if `i'_relsession > 3
+}
+
+foreach i in _fall _y1 {
+	// Highest in each category
+	egen math_highest`i' = rowmin(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i')
+	label values math_highest`i' grade_codes
+	tabulate math_highest`i', missing
+
+	egen english_highest`i' = rowmin(eng1100`i' eng1112`i')
+	label values english_highest`i' grade_codes
+	tabulate english_highest`i', missing
+
+	egen french_highest`i' = rowmin(fra1528`i' fra1538`i' fra1710`i')
+	label values french_highest`i' grade_codes
+	tabulate french_highest`i', missing
+
+	egen philosophy_highest`i' = rowmin(phi1101`i' phi1501`i')
+	label values philosophy_highest`i' grade_codes
+	tabulate philosophy_highest`i', missing
+
+	egen enfr_highest`i' = rowmax(eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i')
+	label values enfr_highest`i' grade_codes
+	tabulate enfr_highest`i', missing
+
+	egen any_highest`i' = rowmin(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i')
+	label values any_highest`i' grade_codes
+	tabulate any_highest`i', missing
+
+	// Lowest in each category
+	egen math_lowest`i' = rowmax(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i')
+	label values math_lowest`i' grade_codes
+	tabulate math_highest`i', missing
+
+	egen english_lowest`i' = rowmax(eng1100`i' eng1112`i')
+	label values english_lowest`i' grade_codes
+	tabulate english_lowest`i', missing
+
+	egen french_lowest = rowmax(fra1528`i' fra1538`i' fra1710`i')
+	label values french_lowest`i' grade_codes
+	tabulate french_lowest`i', missing
+
+	egen philosophy_lowest`i' = rowmax(phi1101`i' phi1501`i')
+	label values philosophy_lowest`i' grade_codes
+	tabulate philosophy_lowest`i', missing
+
+	egen enfr_lowest`i' = rowmin(eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i')
+	label values enfr_lowest`i' grade_codes
+	tabulate enfr_lowest`i', missing
+
+	egen any_lowest`i' = rowmax(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i')
+	label values any_lowest`i' grade_codes
+	tabulate any_lowest`i', missing
+}
 
 foreach i of varlist session_*_awards gov_grant_s* gov_loan_s* {
 	local varlbl : variable label `i'
