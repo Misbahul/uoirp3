@@ -433,28 +433,28 @@ foreach i in _fall _y1 {
 	tabulate any_lowest`i', missing
 	
 	foreach j of varlist mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i' english_highest`i' english_lowest`i' math_highest`i' math_lowest`i' french_highest`i' french_lowest`i' philosophy_highest`i' philosophy_lowest`i' any_highest`i' any_lowest`i' {
-		local var_lbl : variable label `i'
-		recode `i' (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(`i'_dum)
-		label values `i'_dum admav
-		tabulate `i'_dum, generate(`i'_dum_)
-		rename `i'_dum_1 `i'_dum_Aplus
-		rename `i'_dum_2 `i'_dum_A
-		rename `i'_dum_3 `i'_dum_Aminus
-		rename `i'_dum_4 `i'_dum_Bplus
-		rename `i'_dum_5 `i'_dum_B
-		rename `i'_dum_6 `i'_dum_Cplus
-		rename `i'_dum_7 `i'_dum_C
-		rename `i'_dum_8 `i'_dum_belowC
-		rename `i'_dum_9 `i'_dum_miss
-		label variable `i'_dum_Aplus "`var_lbl' A+"
-		label variable `i'_dum_A "`var_lbl' A"
-		label variable `i'_dum_Aminus "`var_lbl' A-"
-		label variable `i'_dum_Bplus "`var_lbl' B+"
-		label variable `i'_dum_B "`var_lbl' B"
-		label variable `i'_dum_Cplus "`var_lbl' C+"
-		label variable `i'_dum_C "`var_lbl' C"
-		label variable `i'_dum_belowC "`var_lbl' Below C"
-		label variable `i'_dum_miss "`var_lbl' Missing"
+		local var_lbl : variable label `j'
+		recode `j' (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(`j'_dum)
+		label values `j'_dum admav
+		tabulate `j'_dum, generate(`j'_dum_)
+		rename `j'_dum_1 `j'_dum_Aplus
+		rename `j'_dum_2 `j'_dum_A
+		rename `j'_dum_3 `j'_dum_Aminus
+		rename `j'_dum_4 `j'_dum_Bplus
+		rename `j'_dum_5 `j'_dum_B
+		rename `j'_dum_6 `j'_dum_Cplus
+		rename `j'_dum_7 `j'_dum_C
+		rename `j'_dum_8 `j'_dum_belowC
+		rename `j'_dum_9 `j'_dum_miss
+		label variable `j'_dum_Aplus "`var_lbl' A+"
+		label variable `j'_dum_A "`var_lbl' A"
+		label variable `j'_dum_Aminus "`var_lbl' A-"
+		label variable `j'_dum_Bplus "`var_lbl' B+"
+		label variable `j'_dum_B "`var_lbl' B"
+		label variable `j'_dum_Cplus "`var_lbl' C+"
+		label variable `j'_dum_C "`var_lbl' C"
+		label variable `j'_dum_belowC "`var_lbl' Below C"
+		label variable `j'_dum_miss "`var_lbl' Missing"
 	}
 	
 }
