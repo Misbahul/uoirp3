@@ -416,7 +416,7 @@ foreach i in _fall _y1 {
 	label values english_lowest`i' grade_codes
 	tabulate english_lowest`i', missing
 
-	egen french_lowest = rowmax(fra1528`i' fra1538`i' fra1710`i')
+	egen french_lowest`i' = rowmax(fra1528`i' fra1538`i' fra1710`i')
 	label values french_lowest`i' grade_codes
 	tabulate french_lowest`i', missing
 
