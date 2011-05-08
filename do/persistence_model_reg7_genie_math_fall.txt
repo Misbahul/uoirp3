@@ -1,4 +1,4 @@
-#persistence_model_reg7_genie_math.txt
+#persistence_model_reg7_genie_math_fall.txt
 #First set of models - uottawa persistence - Leave in either second or third year.
 grade	Controls and Specific Grade Only
 hs_grade	Controls, Admission Average, Specific Grade
@@ -66,11 +66,11 @@ gpa_cat_dum_Cplus	C+	1	1	0	0	1	1
 gpa_cat_dum_C	C	1	1	0	0	1	1
 gpa_cat_dum_belowC	Below C	1	1	0	0	1	1
 
->Highest Math Grade (B+)
-highest_math_dum_Aplus	A+	1	1	1	1	1	1
-highest_math_dum_A	A	1	1	1	1	1	1
-highest_math_dum_Aminus	A-	1	1	1	1	1	1
-highest_math_dum_B	B	1	1	1	1	1	1
-highest_math_dum_Cplus	C+	1	1	1	1	1	1
-highest_math_dum_C	C	1	1	1	1	1	1
-highest_math_dum_belowC	Below C	1	1	1	1	1	1
+>Highest Math Grade - Fall (B+)
+highest_math_fall_dum_Aplus	A+	1	1	1	1	1	1
+highest_math_fall_dum_A	A	1	1	1	1	1	1
+highest_math_fall_dum_Aminus	A-	1	1	1	1	1	1
+highest_math_fall_dum_B	B	1	1	1	1	1	1
+highest_math_fall_dum_Cplus	C+	1	1	1	1	1	1
+highest_math_fall_dum_C	C	1	1	1	1	1	1
+highest_math_fall_dum_belowC	Below C	1	1	1	1	1	1

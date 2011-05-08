@@ -1,4 +1,4 @@
-#persistence_model_reg7_genie_math.txt
+#persistence_model_reg7_ssan_enfr.txt
 #First set of models - uottawa persistence - Leave in either second or third year.
 grade	Controls and Specific Grade Only
 hs_grade	Controls, Admission Average, Specific Grade
