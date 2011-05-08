@@ -86,9 +86,9 @@ do/persistence_model_reg5_french_highest_male.txt	french_highest_male	Persistenc
 do/persistence_model_reg5_french_lowest.txt	french_lowest	Persistence Model -- Lowest FRA Grade -- Year 2 or 3
 do/persistence_model_reg5_franch_lowest_female.txt	french_lowest_female	Persistence Model -- Lowest FRA Grade-- Year 2 or 3 -- Females
 do/persistence_model_reg5_french_lowest_male.txt	french_lowest_male	Persistence Model -- Lowest FRA Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_philosophy_highest.txt	philosophy_highest	Persistence Model -- Highest PHI Grade -- Year 2 or 3
-do/persistence_model_reg5_philosophy_highest_female.txt	philosophy_highest_female	Persistence Model -- Highest PHI Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_philosophy_highest_male.txt	philosophy_highest_male	Persistence Model -- Highest PHI Grade -- Year 2 or 3 -- Males
+do/persistence_model_reg5_phil_highest.txt	phil_highest	Persistence Model -- Highest PHI Grade -- Year 2 or 3
+do/persistence_model_reg5_phil_highest_female.txt	phil_highest_female	Persistence Model -- Highest PHI Grade-- Year 2 or 3 -- Females
+do/persistence_model_reg5_phil_highest_male.txt	phil_highest_male	Persistence Model -- Highest PHI Grade -- Year 2 or 3 -- Males
 do/persistence_model_reg5_philosophy_lowest.txt	philosophy_lowest	Persistence Model -- Lowest PHI Grade -- Year 2 or 3
 do/persistence_model_reg5_philosophy_lowest_female.txt	philosophy_lowest_female	Persistence Model -- Lowest PHI Grade-- Year 2 or 3 -- Females
 do/persistence_model_reg5_philosophy_lowest_male.txt	philosophy_lowest_male	Persistence Model -- Lowest PHI Grade -- Year 2 or 3 -- Males
