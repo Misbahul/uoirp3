@@ -259,8 +259,6 @@ program define persistence_model
 end
 
 include do/header.do	
-capture log close
-log using "log/`dofilename'.log", replace text
 	
 ensuredir "estimates/"
 ensuredir "estimates/`dofilename'/"
