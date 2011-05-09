@@ -223,8 +223,8 @@ rename tl_3 tl_imm
 
 clonevar used_fr = used_tongue
 
-recode admission_cat (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(admav)
-label define admav 1 "A+" 2 "A" 3 "A-" 4 "B+" 5 "B" 6 "C+" 7 "C", add
+recode admission_cat (7/11 = 7 "C or Below") (missing = 8 "Missing"), generate(admav)
+label define admav 1 "A+" 2 "A" 3 "A-" 4 "B+" 5 "B" 6 "C+", add
 tabulate admav, generate(admav_)
 rename admav_1 admav_Aplus
 rename admav_2 admav_A
@@ -232,17 +232,15 @@ rename admav_3 admav_Aminus
 rename admav_4 admav_Bplus
 rename admav_5 admav_B
 rename admav_6 admav_Cplus
-rename admav_7 admav_C
-rename admav_8 admav_belowC
-rename admav_9 admav_miss
+rename admav_7 admav_Cbelow
+rename admav_8 admav_miss
 label variable admav_Aplus "Admission Average A+"
 label variable admav_A "Admission Average A"
 label variable admav_Aminus "Admission Average A-"
 label variable admav_Bplus "Admission Average B+"
 label variable admav_B "Admission Average B"
 label variable admav_Cplus "Admission Average C+"
-label variable admav_C "Admission Average C"
-label variable admav_belowC "Admission Average Below C"
+label variable admav_Cbelow "Admission Average C or Below"
 label variable admav_miss "Admission Average Missing"
 
 foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 english_highest english_lowest math_highest math_lowest french_highest french_lowest phil_highest phil_lowest any_highest any_lowest {
