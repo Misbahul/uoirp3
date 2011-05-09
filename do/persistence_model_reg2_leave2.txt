@@ -5,6 +5,7 @@ lang	Language Controls
 local	Local Students
 hsavg	High School Admission Average
 pgrm	uOttawa Program
+consistent
 @
 leave2	Leave in Second Year
 @
@@ -23,6 +24,7 @@ cohort_2005	2005	1	1	1	1	1	1	1
 cohort_2006	2006	1	1	1	1	1	1	1
 cohort_2007	2007	1	1	1	1	1	1	1
 cohort_2008	2008	1	1	1	1	1	1	1
+cohort_2009	2009	1	1	1	1	1	1	1
 \
 >
 >Province (Ontario)

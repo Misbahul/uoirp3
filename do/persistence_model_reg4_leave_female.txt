@@ -7,6 +7,7 @@ hsavg	High School Admission Average
 gpa	uOttawa GPA
 hsgpa	Admission Average and GPA
 pgrm	uOttawa Program
+consistent
 @
 leave	Leave in Second or Third Year
 male==0	Female Students Only
@@ -22,6 +23,7 @@ cohort_2004	2004	1	1	1	1	1	1	1	1	1
 cohort_2005	2005	1	1	1	1	1	1	1	1	1
 cohort_2006	2006	1	1	1	1	1	1	1	1	1
 cohort_2007	2007	1	1	1	1	1	1	1	1	1
+cohort_2008	2008	1	1	1	1	1	1	1	1	1
 \
 >
 >Province (Ontario)

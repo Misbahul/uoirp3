@@ -5,6 +5,7 @@ lang	Language Controls
 local	Local Students
 hsavg	High School Admission Average
 pgrm	uOttawa Program
+consistent
 @
 leave2	Leave in Second Year
 @
