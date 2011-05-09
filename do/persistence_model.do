@@ -226,7 +226,6 @@ program define persistence_model
 			save( "`estdir'`estname`i''.ster") ///
 			dummies( `dummies') estname( `estname`i'') ///
 			regtitle( "`regname`i''")
-		set trace on
 		local estlist "`estlist' `estname`i''"
 		quietly estimates describe using "`estdir'`estname`i''.ster"
 		local esttimestamp : display %tc r(datetime)
@@ -238,11 +237,8 @@ program define persistence_model
 		// local ++cwidthcount
 		// local cwidthlist "`cwidthlist', `cwidthcount' `cwidth_blank'"
 		// local ++cwidthcount
-		set trace off
 	} 
 	
-	set tracedepth 4
-	set trace on
 	local mycblanks ""
 	// local blankcount = 0
 	// local blankincrement = 2
@@ -263,7 +259,6 @@ program define persistence_model
 		`sheet' cblanks( `mycblanks') font( "Arial" 8) stats(N) ///
 		cwidth( `cwidthlist') ///
 		format((SCLR0) (SCCB0 `colformats' NCCR0))
-	set trace off
 end
 
 include do/header.do	
