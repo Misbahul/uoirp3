@@ -1,4 +1,4 @@
-#persistence_model2_reg5_any_highest.txt
+#persistence_model2_reg5_any_hi.txt
 #First set of models - uottawa persistence - Leave in either second or third year.
 grade	Controls and Specific Grade Only
 fa_grade	Controls, Faculty, Specific Grade
@@ -80,11 +80,11 @@ gpa_cat_dum_miss	Missing	1	1	0	0	0	0	1	1	1	1
 \
 >
 >Highest Grade Grade (B+)
-any_highest_dum_Aplus	A+	1	1	1	1	1	1	1	1	1	1
-any_highest_dum_A	A	1	1	1	1	1	1	1	1	1	1
-any_highest_dum_Aminus	A-	1	1	1	1	1	1	1	1	1	1
-any_highest_dum_B	B	1	1	1	1	1	1	1	1	1	1
-any_highest_dum_Cplus	C+	1	1	1	1	1	1	1	1	1	1
-any_highest_dum_C	C	1	1	1	1	1	1	1	1	1	1
-any_highest_dum_belowC	Below C	1	1	1	1	1	1	1	1	1	1
-any_highest_dum_miss	Missing	1	1	1	1	1	1	1	1	1	1
+any_hi_dum_Aplus	A+	1	1	1	1	1	1	1	1	1	1
+any_hi_dum_A	A	1	1	1	1	1	1	1	1	1	1
+any_hi_dum_Aminus	A-	1	1	1	1	1	1	1	1	1	1
+any_hi_dum_B	B	1	1	1	1	1	1	1	1	1	1
+any_hi_dum_Cplus	C+	1	1	1	1	1	1	1	1	1	1
+any_hi_dum_C	C	1	1	1	1	1	1	1	1	1	1
+any_hi_dum_belowC	Below C	1	1	1	1	1	1	1	1	1	1
+any_hi_dum_miss	Missing	1	1	1	1	1	1	1	1	1	1

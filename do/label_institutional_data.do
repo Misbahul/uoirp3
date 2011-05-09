@@ -756,54 +756,54 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 }
 
 // Highest in each category
-egen math_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
-label values math_highest grade_codes
-tabulate math_highest, missing
+egen math_hi = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
+label values math_hi grade_codes
+tabulate math_hi, missing
 
-egen eng_highest = rowmin(eng1100 eng1112)
-label values eng_highest grade_codes
-tabulate eng_highest, missing
+egen eng_hi = rowmin(eng1100 eng1112)
+label values eng_hi grade_codes
+tabulate eng_hi, missing
 
-egen fre_highest = rowmin(fra1528 fra1538 fra1710)
-label values fre_highest grade_codes
-tabulate fre_highest, missing
+egen fre_hi = rowmin(fra1528 fra1538 fra1710)
+label values fre_hi grade_codes
+tabulate fre_hi, missing
 
-egen phil_highest = rowmin(phi1101 phi1501)
-label values phil_highest grade_codes
-tabulate phil_highest, missing
+egen phil_hi = rowmin(phi1101 phi1501)
+label values phil_hi grade_codes
+tabulate phil_hi, missing
 
-egen enfr_highest = rowmax(eng1100 eng1112 fra1528 fra1538 fra1710)
-label values enfr_highest grade_codes
-tabulate enfr_highest, missing
+egen enfr_hi = rowmax(eng1100 eng1112 fra1528 fra1538 fra1710)
+label values enfr_hi grade_codes
+tabulate enfr_hi, missing
 
-egen any_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
-label values any_highest grade_codes
-tabulate any_highest, missing
+egen any_hi = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
+label values any_hi grade_codes
+tabulate any_hi, missing
 
 // Lowest in each category
-egen math_lowest = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
-label values math_lowest grade_codes
-tabulate math_highest, missing
+egen math_ho = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
+label values math_ho grade_codes
+tabulate math_hi, missing
 
-egen eng_lowest = rowmax(eng1100 eng1112)
-label values eng_lowest grade_codes
-tabulate eng_lowest, missing
+egen eng_ho = rowmax(eng1100 eng1112)
+label values eng_ho grade_codes
+tabulate eng_ho, missing
 
-egen fre_lowest = rowmax(fra1528 fra1538 fra1710)
-label values fre_lowest grade_codes
-tabulate fre_lowest, missing
+egen fre_ho = rowmax(fra1528 fra1538 fra1710)
+label values fre_ho grade_codes
+tabulate fre_ho, missing
 
-egen phil_lowest = rowmax(phi1101 phi1501)
-label values phil_lowest grade_codes
-tabulate phil_lowest, missing
+egen phil_ho = rowmax(phi1101 phi1501)
+label values phil_ho grade_codes
+tabulate phil_ho, missing
 
-egen enfr_lowest = rowmin(eng1100 eng1112 fra1528 fra1538 fra1710)
-label values enfr_lowest grade_codes
-tabulate enfr_lowest, missing
+egen enfr_ho = rowmin(eng1100 eng1112 fra1528 fra1538 fra1710)
+label values enfr_ho grade_codes
+tabulate enfr_ho, missing
 
-egen any_lowest = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
-label values any_lowest grade_codes
-tabulate any_lowest, missing
+egen any_ho = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
+label values any_ho grade_codes
+tabulate any_ho, missing
 
 // Admission Average
 rename ADMISSION_AVG admission_avg
@@ -890,16 +890,16 @@ label variable fra1538 "FRA1538 Grade"
 label variable fra1710 "FRA1710 Grade"
 label variable phi1101 "PHI1101 Grade"
 label variable phi1501 "PHI1501 Grade"
-label variable math_highest "Highest Math Grade"
-label variable eng_highest "Highest English Grade"
-label variable fre_highest "Highest French Grade"
-label variable phil_highest "Highest Philosophy Grade"
-label variable any_highest "Highest Grade"
-label variable math_lowest "Lowest Math Grade"
-label variable eng_lowest "Lowest English Grade"
-label variable fre_lowest "Lowest French Grade"
-label variable phil_lowest "Lowest Philosophy Grade"
-label variable any_lowest "Lowest Grade"
+label variable math_hi "Highest Math Grade"
+label variable eng_hi "Highest English Grade"
+label variable fre_hi "Highest French Grade"
+label variable phil_hi "Highest Philosophy Grade"
+label variable any_hi "Highest Grade"
+label variable math_ho "Lowest Math Grade"
+label variable eng_ho "Lowest English Grade"
+label variable fre_ho "Lowest French Grade"
+label variable phil_ho "Lowest Philosophy Grade"
+label variable any_ho "Lowest Grade"
 label variable mat1320_session "MAT1320 Session"
 label variable mat1720_session "MAT1720 Session"
 label variable mat1330_session "MAT1330 Session"
@@ -927,7 +927,7 @@ compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd
 compress er_province session_cd cohort gender primary_org_cd cip_2digit cip_4digit prgm7
 capture compress  cip_french_desc
 compress cip_english_desc post_cd coop_ind used_tongue cont2 cont3
-compress mat* eng* fra* phi* math_highest eng_highest phil_highest any_highest
+compress mat* eng* fra* phi* math_hi eng_hi phil_hi any_hi
 compress year_of_study session_*_awards gov_grant_s* gov_loan_s*
 
 drop SESSION_CD
