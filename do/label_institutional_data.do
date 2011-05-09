@@ -760,13 +760,13 @@ egen math_highest = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
 label values math_highest grade_codes
 tabulate math_highest, missing
 
-egen english_highest = rowmin(eng1100 eng1112)
-label values english_highest grade_codes
-tabulate english_highest, missing
+egen eng_highest = rowmin(eng1100 eng1112)
+label values eng_highest grade_codes
+tabulate eng_highest, missing
 
-egen french_highest = rowmin(fra1528 fra1538 fra1710)
-label values french_highest grade_codes
-tabulate french_highest, missing
+egen fre_highest = rowmin(fra1528 fra1538 fra1710)
+label values fre_highest grade_codes
+tabulate fre_highest, missing
 
 egen phil_highest = rowmin(phi1101 phi1501)
 label values phil_highest grade_codes
@@ -891,8 +891,8 @@ label variable fra1710 "FRA1710 Grade"
 label variable phi1101 "PHI1101 Grade"
 label variable phi1501 "PHI1501 Grade"
 label variable math_highest "Highest Math Grade"
-label variable english_highest "Highest English Grade"
-label variable french_highest "Highest French Grade"
+label variable eng_highest "Highest English Grade"
+label variable fre_highest "Highest French Grade"
 label variable phil_highest "Highest Philosophy Grade"
 label variable any_highest "Highest Grade"
 label variable math_lowest "Lowest Math Grade"
@@ -927,7 +927,7 @@ compress princ_teaching_lng main_subject1_cd main_subject2_cd j_main_subject1_cd
 compress er_province session_cd cohort gender primary_org_cd cip_2digit cip_4digit prgm7
 capture compress  cip_french_desc
 compress cip_english_desc post_cd coop_ind used_tongue cont2 cont3
-compress mat* eng* fra* phi* math_highest english_highest phil_highest any_highest
+compress mat* eng* fra* phi* math_highest eng_highest phil_highest any_highest
 compress year_of_study session_*_awards gov_grant_s* gov_loan_s*
 
 drop SESSION_CD
