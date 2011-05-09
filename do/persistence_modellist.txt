@@ -2,9 +2,9 @@
 do/persistence_model_reg5_eng_highest.txt	eng_highest	Persistence Model -- Highest ENG Grade -- Year 2 or 3
 do/persistence_model_reg5_eng_highest_female.txt	eng_highest_female	Persistence Model -- Highest ENG Grade-- Year 2 or 3 -- Females
 do/persistence_model_reg5_eng_highest_male.txt	eng_highest_male	Persistence Model -- Highest END Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_english_lowest.txt	english_lowest	Persistence Model -- Lowest ENG Grade -- Year 2 or 3
-do/persistence_model_reg5_english_lowest_female.txt	english_lowest_female	Persistence Model -- Lowest ENG Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_english_lowest_male.txt	english_lowest_male	Persistence Model -- Lowest ENG Grade -- Year 2 or 3 -- Males
+do/persistence_model_reg5_eng_lowest.txt	eng_lowest	Persistence Model -- Lowest ENG Grade -- Year 2 or 3
+do/persistence_model_reg5_eng_lowest_female.txt	eng_lowest_female	Persistence Model -- Lowest ENG Grade-- Year 2 or 3 -- Females
+do/persistence_model_reg5_eng_lowest_male.txt	eng_lowest_male	Persistence Model -- Lowest ENG Grade -- Year 2 or 3 -- Males
 do/persistence_model_reg5_math_highest.txt	math_highest	Persistence Model -- Highest MAT Grade -- Year 2 or 3
 do/persistence_model_reg5_math_highest_female.txt	math_highest_female	Persistence Model -- Highest MAT Grade-- Year 2 or 3 -- Females
 do/persistence_model_reg5_math_highest_male.txt	math_highest_male	Persistence Model -- Highest MAT Grade -- Year 2 or 3 -- Males
@@ -14,9 +14,9 @@ do/persistence_model_reg5_math_lowest_male.txt	math_lowest_male	Persistence Mode
 do/persistence_model_reg5_fre_highest.txt	fre_highest	Persistence Model -- Highest FRA Grade -- Year 2 or 3
 do/persistence_model_reg5_franch_highest_female.txt	fre_highest_female	Persistence Model -- Highest FRA Grade-- Year 2 or 3 -- Females
 do/persistence_model_reg5_fre_highest_male.txt	fre_highest_male	Persistence Model -- Highest FRA Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_french_lowest.txt	french_lowest	Persistence Model -- Lowest FRA Grade -- Year 2 or 3
-do/persistence_model_reg5_franch_lowest_female.txt	french_lowest_female	Persistence Model -- Lowest FRA Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_french_lowest_male.txt	french_lowest_male	Persistence Model -- Lowest FRA Grade -- Year 2 or 3 -- Males
+do/persistence_model_reg5_fre_lowest.txt	fre_lowest	Persistence Model -- Lowest FRA Grade -- Year 2 or 3
+do/persistence_model_reg5_franch_lowest_female.txt	fre_lowest_female	Persistence Model -- Lowest FRA Grade-- Year 2 or 3 -- Females
+do/persistence_model_reg5_fre_lowest_male.txt	fre_lowest_male	Persistence Model -- Lowest FRA Grade -- Year 2 or 3 -- Males
 do/persistence_model_reg5_phil_highest.txt	phil_highest	Persistence Model -- Highest PHI Grade -- Year 2 or 3
 do/persistence_model_reg5_phil_highest_female.txt	phil_highest_female	Persistence Model -- Highest PHI Grade-- Year 2 or 3 -- Females
 do/persistence_model_reg5_phil_highest_male.txt	phil_highest_male	Persistence Model -- Highest PHI Grade -- Year 2 or 3 -- Males

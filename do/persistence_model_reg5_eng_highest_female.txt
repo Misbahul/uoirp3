@@ -1,4 +1,4 @@
-#persistence_model2_reg5_english_highest.txt
+#persistence_model2_reg5_eng_highest_female.txt
 #First set of models - uottawa persistence - Leave in either second or third year.
 grade	Controls and Specific Grade Only
 fa_grade	Controls, Faculty, Specific Grade
@@ -11,10 +11,8 @@ fa_hs_gpa_grade	Controls, Faculty, Admission Average, uOttawa GPA, Specific Grad
 consistent
 @
 leave	Leave in Second or Third Year
+male=0	Female Students Only
 @
->Gender (Female)
-male	Male	1	0	1	1	1	1	1	1	1	1
->
 >Cohort (1997)
 cohort_1998	1998	1	1	1	1	1	1	1	1	1	1
 cohort_1999	1999	1	1	1	1	1	1	1	1	1	1
@@ -80,11 +78,12 @@ gpa_cat_dum_miss	Missing	1	1	0	0	0	0	1	1	1	1
 \
 >
 >Highest ENG Grade (B+)
-english_highest_dum_Aplus	A+	1	1	1	1	1	1	1	1	1	1
-english_highest_dum_A	A	1	1	1	1	1	1	1	1	1	1
-english_highest_dum_Aminus	A-	1	1	1	1	1	1	1	1	1	1
-english_highest_dum_B	B	1	1	1	1	1	1	1	1	1	1
-english_highest_dum_Cplus	C+	1	1	1	1	1	1	1	1	1	1
-english_highest_dum_C	C	1	1	1	1	1	1	1	1	1	1
-english_highest_dum_belowC	Below C	1	1	1	1	1	1	1	1	1	1
-english_highest_dum_miss	Missing	1	1	1	1	1	1	1	1	1	1
+eng_highest_dum_Aplus	A+	1	1	1	1	1	1	1	1	1	1
+eng_highest_dum_A	A	1	1	1	1	1	1	1	1	1	1
+eng_highest_dum_Aminus	A-	1	1	1	1	1	1	1	1	1	1
+eng_highest_dum_B	B	1	1	1	1	1	1	1	1	1	1
+eng_highest_dum_Cplus	C+	1	1	1	1	1	1	1	1	1	1
+eng_highest_dum_C	C	1	1	1	1	1	1	1	1	1	1
+eng_highest_dum_belowC	Below C	1	1	1	1	1	1	1	1	1	1
+eng_highest_dum_miss	Missing	1	1	1	1	1	1	1	1	1	1
+
