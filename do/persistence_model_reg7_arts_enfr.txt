@@ -67,10 +67,10 @@ gpa_cat_dum_C	C	1	1	0	0	1	1
 gpa_cat_dum_belowC	Below C	1	1	0	0	1	1
 
 >Highest English/French Grade (B+)
-highest_enfr_dum_Aplus	A+	1	1	1	1	1	1
-highest_enfr_dum_A	A	1	1	1	1	1	1
-highest_enfr_dum_Aminus	A-	1	1	1	1	1	1
-highest_enfr_dum_B	B	1	1	1	1	1	1
-highest_enfr_dum_Cplus	C+	1	1	1	1	1	1
-highest_enfr_dum_C	C	1	1	1	1	1	1
-highest_enfr_dum_belowC	Below C	1	1	1	1	1	1
+enfr_hi_dum_Aplus	A+	1	1	1	1	1	1
+enfr_hi_dum_A	A	1	1	1	1	1	1
+enfr_hi_Aminus	A-	1	1	1	1	1	1
+enfr_hi_dum_B	B	1	1	1	1	1	1
+enfr_hi_dum_Cplus	C+	1	1	1	1	1	1
+enfr_hi_dum_C	C	1	1	1	1	1	1
+enfr_hi_dum_belowC	Below C	1	1	1	1	1	1
