@@ -103,7 +103,8 @@ program define persistence_model
 					local ++models
 					tokenize `"`macval(line)'"', parse(`"`delimiter'"')	/* " */
 					while regexm( "`3'", "[,]") {
-						local `3' = regexr( "`3'", "[,]", " " )
+						local 3 = regexr( "`3'", "[,]", " " )
+						display as text "`3'"
 					} 
 					local estname`models' "`1'"
 					local regname`models' "`3'"
@@ -321,7 +322,7 @@ forvalues i = 1/`count' {
 			title( "Regression Output: `modelname`m''") ///
 			notes( Average marginal effects shown., Data file: `datafile`i'' (`nick`i''), Do file: ${dofilename}.do, Model file: `modelfile`m''; Date ran: `timestring' ) ///
 			sheet( "`modelnick`m''_`n'") ///
-			save( "`outputdir'/`nick`i''/`modelnick`m''/${dofilename}_`nick`i''_`modelnick`m''.xls") `myreplace'
+			save( "`outputdir'/`nick`i''/`modelnick`m''/`dofilename'_`nick`i''_`modelnick`m''.xls") `myreplace'
 		local myreplace "append" 
 	} 	
 } 
