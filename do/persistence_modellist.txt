@@ -12,7 +12,7 @@ do/persistence_model_reg5_math_lowest.txt	math_lowest	Persistence Model -- Lowes
 do/persistence_model_reg5_math_lowest_female.txt	math_lowest_female	Persistence Model -- Lowest MAT Grade-- Year 2 or 3 -- Females
 do/persistence_model_reg5_math_lowest_male.txt	math_lowest_male	Persistence Model -- Lowest MAT Grade -- Year 2 or 3 -- Males
 do/persistence_model_reg5_fre_highest.txt	fre_highest	Persistence Model -- Highest FRA Grade -- Year 2 or 3
-do/persistence_model_reg5_franch_highest_female.txt	fre_highest_female	Persistence Model -- Highest FRA Grade-- Year 2 or 3 -- Females
+do/persistence_model_reg5_fre_highest_female.txt	fre_highest_female	Persistence Model -- Highest FRA Grade-- Year 2 or 3 -- Females
 do/persistence_model_reg5_fre_highest_male.txt	fre_highest_male	Persistence Model -- Highest FRA Grade -- Year 2 or 3 -- Males
 do/persistence_model_reg5_fre_lowest.txt	fre_lowest	Persistence Model -- Lowest FRA Grade -- Year 2 or 3
 do/persistence_model_reg5_fre_lowest_female.txt	fre_lowest_female	Persistence Model -- Lowest FRA Grade-- Year 2 or 3 -- Females
