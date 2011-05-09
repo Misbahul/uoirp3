@@ -53,8 +53,7 @@ admav_A	A	1	1	0	0	0	1	0	1	1
 admav_Aminus	A-	1	1	0	0	0	1	0	1	1
 admav_B	B	1	1	0	0	0	1	0	1	1
 admav_Cplus	C+	1	1	0	0	0	1	0	1	1
-admav_C	C	1	1	0	0	0	1	0	1	1
-admav_belowC	Below C	1	1	0	0	0	1	0	1	1
+admav_Cbelow	C or Below	1	1	0	0	0	1	0	1	1
 admav_miss	Missing	1	1	0	0	0	1	0	1	1
 \
 >
