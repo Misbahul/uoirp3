@@ -80,11 +80,11 @@ gpa_cat_dum_miss	Missing	1	1	0	0	0	0	1	1	1	1
 \
 >
 >Lowest FRA Grade (B+)
-fre_ho_dum_Aplus	A+	1	1	1	1	1	1	1	1	1	1
-fre_ho_dum_A	A	1	1	1	1	1	1	1	1	1	1
-fre_ho_dum_Aminus	A-	1	1	1	1	1	1	1	1	1	1
-fre_ho_dum_B	B	1	1	1	1	1	1	1	1	1	1
-fre_ho_dum_Cplus	C+	1	1	1	1	1	1	1	1	1	1
-fre_ho_dum_C	C	1	1	1	1	1	1	1	1	1	1
-fre_ho_dum_belowC	Below C	1	1	1	1	1	1	1	1	1	1
-fre_ho_dum_miss	Missing	1	1	1	1	1	1	1	1	1	1
+fre_lo_dum_Aplus	A+	1	1	1	1	1	1	1	1	1	1
+fre_lo_dum_A	A	1	1	1	1	1	1	1	1	1	1
+fre_lo_dum_Aminus	A-	1	1	1	1	1	1	1	1	1	1
+fre_lo_dum_B	B	1	1	1	1	1	1	1	1	1	1
+fre_lo_dum_Cplus	C+	1	1	1	1	1	1	1	1	1	1
+fre_lo_dum_C	C	1	1	1	1	1	1	1	1	1	1
+fre_lo_dum_belowC	Below C	1	1	1	1	1	1	1	1	1	1
+fre_lo_dum_miss	Missing	1	1	1	1	1	1	1	1	1	1
