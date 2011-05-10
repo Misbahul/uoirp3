@@ -306,6 +306,14 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	label variable `i'_rel3_1lower "`var_lbl' 1 Level Lower than GPA"
 	label variable `i'_rel3_2lower "`var_lbl' 2 Levels Lower than GPA"
 }
+
+foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 { 
+	local var_lbl : variable label `i'
+	recode `i' (1/max = 1) (missing = 0), generate(`i'x)
+	label variable `i'x "Took `var_lbl'"
+	label define `i'x 0 "Did not take `var_lbl'" 1 "Took `var_label'"
+	label values `i'x `i'x
+}
 	
 tabulate prgm7, generate(prgm_) missing
 rename prgm_1 prgm_ed
