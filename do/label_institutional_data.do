@@ -781,29 +781,29 @@ label values any_hi grade_codes
 tabulate any_hi, missing
 
 // Lowest in each category
-egen math_ho = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
-label values math_ho grade_codes
+egen math_lo = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
+label values math_lo grade_codes
 tabulate math_hi, missing
 
-egen eng_ho = rowmax(eng1100 eng1112)
-label values eng_ho grade_codes
-tabulate eng_ho, missing
+egen eng_lo = rowmax(eng1100 eng1112)
+label values eng_lo grade_codes
+tabulate eng_lo, missing
 
-egen fre_ho = rowmax(fra1528 fra1538 fra1710)
-label values fre_ho grade_codes
-tabulate fre_ho, missing
+egen fre_lo = rowmax(fra1528 fra1538 fra1710)
+label values fre_lo grade_codes
+tabulate fre_lo, missing
 
-egen phil_ho = rowmax(phi1101 phi1501)
-label values phil_ho grade_codes
-tabulate phil_ho, missing
+egen phil_lo = rowmax(phi1101 phi1501)
+label values phil_lo grade_codes
+tabulate phil_lo, missing
 
-egen enfr_ho = rowmin(eng1100 eng1112 fra1528 fra1538 fra1710)
-label values enfr_ho grade_codes
-tabulate enfr_ho, missing
+egen enfr_lo = rowmin(eng1100 eng1112 fra1528 fra1538 fra1710)
+label values enfr_lo grade_codes
+tabulate enfr_lo, missing
 
-egen any_ho = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
-label values any_ho grade_codes
-tabulate any_ho, missing
+egen any_lo = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
+label values any_lo grade_codes
+tabulate any_lo, missing
 
 // Admission Average
 rename ADMISSION_AVG admission_avg
@@ -895,11 +895,11 @@ label variable eng_hi "Highest English Grade"
 label variable fre_hi "Highest French Grade"
 label variable phil_hi "Highest Philosophy Grade"
 label variable any_hi "Highest Grade"
-label variable math_ho "Lowest Math Grade"
-label variable eng_ho "Lowest English Grade"
-label variable fre_ho "Lowest French Grade"
-label variable phil_ho "Lowest Philosophy Grade"
-label variable any_ho "Lowest Grade"
+label variable math_lo "Lowest Math Grade"
+label variable eng_lo "Lowest English Grade"
+label variable fre_lo "Lowest French Grade"
+label variable phil_lo "Lowest Philosophy Grade"
+label variable any_lo "Lowest Grade"
 label variable mat1320_session "MAT1320 Session"
 label variable mat1720_session "MAT1720 Session"
 label variable mat1330_session "MAT1330 Session"

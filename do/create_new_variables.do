@@ -130,7 +130,7 @@ label values gpa_cat grade_codes
 /*
 	Simplified Grade variables -- just letter grades
 */
-foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_ho math_hi math_ho fre_hi fre_ho phil_hi phil_ho any_hi any_ho {
+foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_lo math_hi math_lo fre_hi fre_lo phil_hi phil_lo any_hi any_lo {
 	recode `i' (1 2 3 = 1 "A") (4 5 = 2 "B") (6 7 = 3 "C") (8 9 = 4 "D") (10 = 5 "E") (11 = 6 "F"), generate(`i'_s)
 	local var_lbl : variable label `i'
 	label variable `i'_s "`var_lbl' (simplified)"
@@ -146,7 +146,7 @@ foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng
 label define grade_rel1 1 "Higher than GPA" 2 "Same as GPA" 3 "Lower than GPA"
 label define grade_rel2 1 "3+ levels higher" 2 "2 levels higher" 3 "1 level higher" 4 "Same level" 5 "1 level lower" 6 "2 levels lower" 7 "3+ levels lower"
 label define grade_rel3 1 "2+ letters higher" 2 "1 letter higher" 3 "Same letter" 4 "1 letter lower" 5 "2 letters lower"
-foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_ho math_hi math_ho fre_hi fre_ho phil_hi phil_ho any_hi any_ho {
+foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_lo math_hi math_lo fre_hi fre_lo phil_hi phil_lo any_hi any_lo {
 	local var_lbl : variable label `i'
 	generate `i'_rel1 = .
 	replace `i'_rel1 = 1 if `i' < gpa_cat & !missing(`i') & !missing(gpa_cat)
@@ -243,7 +243,7 @@ label variable admav_Cplus "Admission Average C+"
 label variable admav_Cbelow "Admission Average C or Below"
 label variable admav_miss "Admission Average Missing"
 
-foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_ho math_hi math_ho fre_hi fre_ho phil_hi phil_ho any_hi any_ho {
+foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_lo math_hi math_lo fre_hi fre_lo phil_hi phil_lo any_hi any_lo {
 	local var_lbl : variable label `i'
 	recode `i' (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(`i'_dum)
 	label values `i'_dum admav
@@ -268,7 +268,7 @@ foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng
 	label variable `i'_dum_miss "`var_lbl' Missing"
 } 
 
-foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_ho math_hi math_ho fre_hi fre_ho phil_hi phil_ho any_hi any_ho {
+foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_lo math_hi math_lo fre_hi fre_lo phil_hi phil_lo any_hi any_lo {
 	local var_lbl : variable label `i'
 	tabulate `i'_rel1, generate(`i'_rel1_)
 	rename `i'_rel1_1 `i'_rel1_higher
@@ -414,31 +414,31 @@ foreach i in _fall _y1 {
 	tabulate any_hi`i', missing
 
 	// Lowest in each category
-	egen math_ho`i' = rowmax(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i')
-	label values math_ho`i' grade_codes
+	egen math_lo`i' = rowmax(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i')
+	label values math_lo`i' grade_codes
 	tabulate math_hi`i', missing
 
-	egen eng_ho`i' = rowmax(eng1100`i' eng1112`i')
-	label values eng_ho`i' grade_codes
-	tabulate eng_ho`i', missing
+	egen eng_lo`i' = rowmax(eng1100`i' eng1112`i')
+	label values eng_lo`i' grade_codes
+	tabulate eng_lo`i', missing
 
-	egen fre_ho`i' = rowmax(fra1528`i' fra1538`i' fra1710`i')
-	label values fre_ho`i' grade_codes
-	tabulate fre_ho`i', missing
+	egen fre_lo`i' = rowmax(fra1528`i' fra1538`i' fra1710`i')
+	label values fre_lo`i' grade_codes
+	tabulate fre_lo`i', missing
 
-	egen phil_ho`i' = rowmax(phi1101`i' phi1501`i')
-	label values phil_ho`i' grade_codes
-	tabulate phil_ho`i', missing
+	egen phil_lo`i' = rowmax(phi1101`i' phi1501`i')
+	label values phil_lo`i' grade_codes
+	tabulate phil_lo`i', missing
 
-	egen enfr_ho`i' = rowmin(eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i')
-	label values enfr_ho`i' grade_codes
-	tabulate enfr_ho`i', missing
+	egen enfr_lo`i' = rowmin(eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i')
+	label values enfr_lo`i' grade_codes
+	tabulate enfr_lo`i', missing
 
-	egen any_ho`i' = rowmax(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i')
-	label values any_ho`i' grade_codes
-	tabulate any_ho`i', missing
+	egen any_lo`i' = rowmax(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i')
+	label values any_lo`i' grade_codes
+	tabulate any_lo`i', missing
 	
-	foreach j of varlist mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i' eng_hi`i' eng_ho`i' math_hi`i' math_ho`i' fre_hi`i' fre_ho`i' phil_hi`i' phil_ho`i' any_hi`i' any_ho`i' {
+	foreach j of varlist mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i' eng_hi`i' eng_lo`i' math_hi`i' math_lo`i' fre_hi`i' fre_lo`i' phil_hi`i' phil_lo`i' any_hi`i' any_lo`i' {
 		local var_lbl : variable label `j'
 		recode `j' (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(`j'_dum)
 		label values `j'_dum admav

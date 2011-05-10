@@ -1,4 +1,4 @@
-#persistence_model2_reg5_fre_ho.txt
+#persistence_model2_reg5_fre_lo.txt
 #First set of models - uottawa persistence - Leave in either second or third year.
 grade	Controls and Specific Grade Only
 fa_grade	Controls, Faculty, Specific Grade
