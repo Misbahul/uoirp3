@@ -28,7 +28,7 @@ program uwtab2
 	macro shift	// The varlist is now all the column variables
 	local rest `*'
 
-	quietly tabulate `rowvar' if `touse', `missing' matcell(`A') matrow(`A_row')
+	quietly tabulate `row_var' if `touse', `missing' matcell(`A') matrow(`A_row')
 	mata: labelmatrix1("`row_var'", "`A'", st_matrix("`A_row'"))
 	matrix colnames `A' = All
 	matrix list `A'

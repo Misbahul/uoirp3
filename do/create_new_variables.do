@@ -243,7 +243,7 @@ label variable admav_Cplus "Admission Average C+"
 label variable admav_Cbelow "Admission Average C or Below"
 label variable admav_miss "Admission Average Missing"
 
-foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_lo math_hi math_lo fre_hi fre_lo phil_hi phil_lo any_hi any_lo {
+foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_lo math_hi math_lo fre_hi fre_lo phil_hi phil_lo any_hi any_lo enfr_hi enfr_lo {
 	local var_lbl : variable label `i'
 	recode `i' (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(`i'_dum)
 	label values `i'_dum admav
@@ -438,7 +438,7 @@ foreach i in _fall _y1 {
 	label values any_lo`i' grade_codes
 	tabulate any_lo`i', missing
 	
-	foreach j of varlist mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i' eng_hi`i' eng_lo`i' math_hi`i' math_lo`i' fre_hi`i' fre_lo`i' phil_hi`i' phil_lo`i' any_hi`i' any_lo`i' {
+	foreach j of varlist mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i' eng_hi`i' eng_lo`i' math_hi`i' math_lo`i' fre_hi`i' fre_lo`i' phil_hi`i' phil_lo`i' any_hi`i' any_lo`i' enfr_hi`i' enfr_lo`i' {
 		local var_lbl : variable label `j'
 		recode `j' (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(`j'_dum)
 		label values `j'_dum admav
