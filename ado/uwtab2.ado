@@ -28,6 +28,17 @@ program uwtab2
 	macro shift	// The varlist is now all the column variables
 	local rest `*'
 
+	quietly tabulate `rowvar' if `touse', `missing' matcell(`A') matrow(`A_row')
+	mata: labelmatrix1("`row_var'", "`A'", st_matrix("`A_row'"))
+	matrix colnames `A' = All
+	matrix list `A'
+	matrix `D' = nullmat( `D') , `A'
+	mata: col_proportion("`A'", "`B'")
+	mata: labelmatrix1("`row_var'", "`B'", st_matrix("`A_row'"))
+	matrix colnames `B' = `i'
+	matrix list `B'
+	matrix `E' = nullmat( `E') , `B'
+	
 	foreach i of local rest { 	
 		quietly tabulate `row_var' if `touse', subpop(`i') `missing' matcell(`A') matrow(`A_row')
 		mata: labelmatrix1("`row_var'", "`A'", st_matrix("`A_row'"))
