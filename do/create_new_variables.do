@@ -323,6 +323,76 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	label define `i'x 0 "Did not take `var_lbl'" 1 "Took `var_label'"
 	label values `i'x `i'x
 }
+generate byte no_key_course = 0
+replace no_key_course = 1 if mat1320==0 & mat1720==0 & mat1330==0 & mat1730==0 & mat1300==0 & mat1700==0 & eng1100==0 & eng1112==0 & fra1528==0 & fra1538==0 & fra1710==0 & phil1101==0 & phil1501==0
+label variable "Took no key courses"
+label define no_key_course 0 "Took a key course." 1 "Took no key courses"
+label values no_key_course no_key_course
+
+generate byte key_math = 0
+replace key_math = 1 if mat1320 | mat1720 | mat1330 | mat1730 | mat1300 | mat1700
+label variable key_math "Took a key math course"
+label define key_math 0 "Did not take a key math course" 1 "Took a key math course"
+label values key_math key_math
+
+generate byte key_eng = 0
+replace key_eng = 1 if eng1100 | eng1112
+label variable key_eng "Took a key english course"
+label define key_eng 0 "Did not take a key english course" 1 "Took a key english course"
+label values key_end key_eng
+
+generate byte key_fra = 0
+replace key_fra = 1 if fra1528 | fra1538 | 1710
+label variable key_fra "Took a key french course"
+label define key_fra 0 "Did not take a key french course" 1 "Took a key french course"
+label values key_fra key_fra
+
+generate byte key_phil = 0
+replace key_phil = 1 if phil1101 | phil1501
+label variable key_phil "Took a key philosophy course"
+label define key_phil 0 "Did not take a key philosophy course" 1 "Took a key philosophy course"
+label values key_phil key_phil
+
+generate byte key_math_eng = 0
+replace key_math_eng = 1 if key_math & key_eng
+label variable key_math_eng "Took both key math and english courses"
+
+generate byte key_math_fra = 0
+replace key_math_fra = 1 if key_math & key_fra
+label variable key_math_fra "Took both key math and french courses"
+
+generate byte key_math_phil = 0
+replace key_math_phil = 1 if key_math & key_phil
+label variable key_math_phil "Took both key math and philosophy courses"
+
+generate byte key_eng_fra = 0
+replace key_eng_fra = 1 if key_eng & key_fra
+label variable key_eng_fra "Took both key english and french courses"
+
+generate byte key_eng_phil = 0
+replace key_eng_phil = 1 if key_eng & key_phil
+label variable key_eng_phil "Took both key english and philosophy courses"
+
+generate byte key_fra_phil = 0
+replace key_fra_phil = 1 if key_fra & key_phil
+label variable key_fra_phil "Took both key french and philosophy courses"
+
+generate byte key_math_eng_fra = 0
+replace key_math_eng_fra = 1 if key_math & key_eng & key_fra
+label key_math_eng_fra "Took key math, english and french courses"
+
+generate byte key_math_eng_phil = 0
+replace key_math_eng_phil = 1 if key_math & key_eng & key_phil
+label key_math_eng_phil "Took key math, english and philosophy courses"
+
+generate byte key_eng_fra_phil = 0
+replace key_eng_fra_phil = 1 if key_eng & key_fra & key_phil
+label key_eng_fra_phil "Took key english, french and philosophy courses"
+
+generate byte key_all = 0
+replace key_all = 1 if key_math & key_end & key_fra & key_phil
+label key_all "Took key math, english, french and philosophy courses"
+
 	
 tabulate prgm7, generate(prgm_) missing
 rename prgm_1 prgm_ed
