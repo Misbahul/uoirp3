@@ -47,9 +47,12 @@ quietly levelsof cohort, local(cohortlist)
 
 local myreplace "replace"
 foreach i of local cohortlist {
-	uwtab2 main_subject1_cd no_key_course, save( "`outputdir'`dofilename'_missing_by_cohort.xls") `myreplace' sheet( "missing_`i'") title( "Missing Key Course for `i' Cohort")
-	uwtab2 main_subject1_cd mat1320x mat1720x mat1330x mat1730x mat1300x mat1700x eng1100x eng1112x fra1528x fra1538x fra1710x phi1101x phi1501x no_key_course key_math key_eng key_fra key_phil key_math_eng key_math_fra key_math_phil key_eng_fra key_eng_phil key_fra_phil key_math_eng_fra key_math_eng_phil key_eng_fra_phil key_all, save( "`outputdir'`dofilename'_full_by_cohort.xls") `myreplace' sheet( "bycohort_`i'") title( "Key Course Info for `i' Cohort")
+	local cohort_name : variable label `i'
+	uwtab2 main_subject1_cd no_key_course if cohort==`i', save( "`outputdir'`dofilename'_missing_by_cohort.xls") `myreplace' sheet( "missing_`cohort_name'") title( "Missing Key Course for `cohort_name' Cohort")
+	uwtab2 main_subject1_cd mat1320x mat1720x mat1330x mat1730x mat1300x mat1700x eng1100x eng1112x fra1528x fra1538x fra1710x phi1101x phi1501x no_key_course key_math key_eng key_fra key_phil key_math_eng key_math_fra key_math_phil key_eng_fra key_eng_phil key_fra_phil key_math_eng_fra key_math_eng_phil key_eng_fra_phil key_all if cohort==`i', save( "`outputdir'`dofilename'_full_by_cohort.xls") `myreplace' sheet( "bycohort_`cohort_name'") title( "Key Course Info for `cohort_name' Cohort")
 	local myreplace "append"
 } 
 
 include do/footer.do
+
+
