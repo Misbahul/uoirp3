@@ -325,7 +325,7 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 }
 generate byte no_key_course = 0
 replace no_key_course = 1 if mat1320x==0 & mat1720x==0 & mat1330x==0 & mat1730x==0 & mat1300x==0 & mat1700x==0 & eng1100x==0 & eng1112x==0 & fra1528x==0 & fra1538x==0 & fra1710x==0 & phi1101x==0 & phi1501x==0
-label variable "Took no key courses"
+label variable no_key_course "Took no key courses"
 label define no_key_course 0 "Took a key course." 1 "Took no key courses"
 label values no_key_course no_key_course
 
