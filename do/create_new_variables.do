@@ -266,6 +266,15 @@ foreach i of varlist gpa_cat mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng
 	label variable `i'_dum_C "`var_lbl' C"
 	label variable `i'_dum_belowC "`var_lbl' Below C"
 	label variable `i'_dum_miss "`var_lbl' Missing"
+	clonevar `i'_Aplus = `i'_dum_Aplus 
+	clonevar `i'_A = `i'_dum_A
+	clonevar `i'_Aminus = `i'_dum_Aminus
+	clonevar `i'_Bplus = `i'_dum_Bplus
+	clonevar `i'_B = `i'_dum_B
+	clonevar `i'_Cplus = `i'_dum_Cplus
+	clonevar `i'_C = `i'_dum_C
+	clonevar `i'_belowC = `i'_dum_belowC
+	clonevar `i'_miss = `i'_dum_miss
 } 
 
 foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 eng_hi eng_lo math_hi math_lo fre_hi fre_lo phil_hi phil_lo any_hi any_lo {
@@ -443,24 +452,24 @@ foreach i in _fall _y1 {
 		recode `j' (8/11 = 8 " Below C") (missing = 9 "Missing"), generate(`j'_dum)
 		label values `j'_dum admav
 		tabulate `j'_dum, generate(`j'_dum_)
-		rename `j'_dum_1 `j'_dum_Aplus
-		rename `j'_dum_2 `j'_dum_A
-		rename `j'_dum_3 `j'_dum_Aminus
-		rename `j'_dum_4 `j'_dum_Bplus
-		rename `j'_dum_5 `j'_dum_B
-		rename `j'_dum_6 `j'_dum_Cplus
-		rename `j'_dum_7 `j'_dum_C
-		rename `j'_dum_8 `j'_dum_belowC
-		rename `j'_dum_9 `j'_dum_miss
-		label variable `j'_dum_Aplus "`var_lbl' A+"
-		label variable `j'_dum_A "`var_lbl' A"
-		label variable `j'_dum_Aminus "`var_lbl' A-"
-		label variable `j'_dum_Bplus "`var_lbl' B+"
-		label variable `j'_dum_B "`var_lbl' B"
-		label variable `j'_dum_Cplus "`var_lbl' C+"
-		label variable `j'_dum_C "`var_lbl' C"
-		label variable `j'_dum_belowC "`var_lbl' Below C"
-		label variable `j'_dum_miss "`var_lbl' Missing"
+		rename `j'_dum_1 `j'_Aplus
+		rename `j'_dum_2 `j'_A
+		rename `j'_dum_3 `j'_Aminus
+		rename `j'_dum_4 `j'_Bplus
+		rename `j'_dum_5 `j'_B
+		rename `j'_dum_6 `j'_Cplus
+		rename `j'_dum_7 `j'_C
+		rename `j'_dum_8 `j'_belowC
+		rename `j'_dum_9 `j'_miss
+		label variable `j'_Aplus "`var_lbl' A+"
+		label variable `j'_A "`var_lbl' A"
+		label variable `j'_Aminus "`var_lbl' A-"
+		label variable `j'_Bplus "`var_lbl' B+"
+		label variable `j'_B "`var_lbl' B"
+		label variable `j'_Cplus "`var_lbl' C+"
+		label variable `j'_C "`var_lbl' C"
+		label variable `j'_belowC "`var_lbl' Below C"
+		label variable `j'_miss "`var_lbl' Missing"
 	}
 	
 }

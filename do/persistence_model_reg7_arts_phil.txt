@@ -67,10 +67,10 @@ gpa_cat_dum_C	C	1	1	0	0	1	1
 gpa_cat_dum_belowC	Below C	1	1	0	0	1	1
 
 >Highest Philosophy Grade (B+)
-phil_hi_dum_Aplus	A+	1	1	1	1	1	1
-phil_hi_dum_A	A	1	1	1	1	1	1
-phil_hi_dum_Aminus	A-	1	1	1	1	1	1
-phil_hi_dum_B	B	1	1	1	1	1	1
-phil_hi_dum_Cplus	C+	1	1	1	1	1	1
-phil_hi_dum_C	C	1	1	1	1	1	1
-phil_hi_dum_belowC	Below C	1	1	1	1	1	1
+phil_hi_Aplus	A+	1	1	1	1	1	1
+phil_hi_A	A	1	1	1	1	1	1
+phil_hi_Aminus	A-	1	1	1	1	1	1
+phil_hi_B	B	1	1	1	1	1	1
+phil_hi_Cplus	C+	1	1	1	1	1	1
+phil_hi_C	C	1	1	1	1	1	1
+phil_hi_belowC	Below C	1	1	1	1	1	1
