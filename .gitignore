@@ -3,4 +3,4 @@ do/user_locals.do
 do/user_locals_backup.do
 ado/*.mo
 data/source/~$*
-
+*.swp
