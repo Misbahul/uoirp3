@@ -390,7 +390,7 @@ replace key_eng_fra_phil = 1 if key_eng & key_fra & key_phil
 label variable key_eng_fra_phil "Took key english, french and philosophy courses"
 
 generate byte key_all = 0
-replace key_all = 1 if key_math & key_end & key_fra & key_phil
+replace key_all = 1 if key_math & key_eng & key_fra & key_phil
 label variable key_all "Took key math, english, french and philosophy courses"
 
 	
