@@ -339,7 +339,7 @@ generate byte key_eng = 0
 replace key_eng = 1 if eng1100x | eng1112x
 label variable key_eng "Took a key english course"
 label define key_eng 0 "Did not take a key english course" 1 "Took a key english course"
-label values key_end key_eng
+label values key_eng key_eng
 
 generate byte key_fra = 0
 replace key_fra = 1 if fra1528x | fra1538x | fra1710x
@@ -379,19 +379,19 @@ label variable key_fra_phil "Took both key french and philosophy courses"
 
 generate byte key_math_eng_fra = 0
 replace key_math_eng_fra = 1 if key_math & key_eng & key_fra
-label key_math_eng_fra "Took key math, english and french courses"
+label variable key_math_eng_fra "Took key math, english and french courses"
 
 generate byte key_math_eng_phil = 0
 replace key_math_eng_phil = 1 if key_math & key_eng & key_phil
-label key_math_eng_phil "Took key math, english and philosophy courses"
+label variable key_math_eng_phil "Took key math, english and philosophy courses"
 
 generate byte key_eng_fra_phil = 0
 replace key_eng_fra_phil = 1 if key_eng & key_fra & key_phil
-label key_eng_fra_phil "Took key english, french and philosophy courses"
+label variable key_eng_fra_phil "Took key english, french and philosophy courses"
 
 generate byte key_all = 0
 replace key_all = 1 if key_math & key_end & key_fra & key_phil
-label key_all "Took key math, english, french and philosophy courses"
+label variable key_all "Took key math, english, french and philosophy courses"
 
 	
 tabulate prgm7, generate(prgm_) missing
