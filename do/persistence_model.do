@@ -256,7 +256,7 @@ program define persistence_model
 	xml_tab `estlist', `save' `replace' `append' below ///
 		`title' `mynotes' lines(COL_NAMES 3 LAST_ROW 4) ///
 		rblanks( `rowblank')  ///
-		keep( `keepvars') ///
+		/* keep( `keepvars') */ ///
 		`sheet' cblanks( `mycblanks') font( "Arial" 8) stats(N) ///
 		cwidth( `cwidthlist') ///
 		format((SCLR0) (SCCB0 `colformats' NCCR0))
