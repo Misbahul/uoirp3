@@ -9,6 +9,7 @@ consistent
 leave	Leave in Second or Third Year
 primary_org_cd==3
 prov_sk==0
+prov_yk==0
 admav_Cbelow==0
 gpa_cat_dum_Aplus==0
 @
