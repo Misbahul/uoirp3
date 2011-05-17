@@ -47,6 +47,16 @@ ml2_oth	Other	1	1	1	1	1	1
 >Local Student (Non-Local)
 local1	Local	1	1	1	1	1	1
 >
+>Highest Math Grade - Year 1(B+)
+math_hi_y1_Aplus	A+	1	1	1	1	1	1
+math_hi_y1_A	A	1	1	1	1	1	1
+math_hi_y1_Aminus	A-	1	1	1	1	1	1
+math_hi_y1_B	B	1	1	1	1	1	1
+math_hi_y1_Cplus	C+	1	1	1	1	1	1
+math_hi_y1_C	C	1	1	1	1	1	1
+math_hi_y1_belowC	Below C	1	1	1	1	1	1
+\
+>
 >High School Admission Average (B+)
 admav_Aplus	A+	1	1	0	1	0	1
 admav_A	A	1	1	0	1	0	1
@@ -66,11 +76,3 @@ gpa_cat_dum_Cplus	C+	1	1	0	0	1	1
 gpa_cat_dum_C	C	1	1	0	0	1	1
 gpa_cat_dum_belowC	Below C	1	1	0	0	1	1
 
->Highest Math Grade - Year 1(B+)
-math_hi_y1_Aplus	A+	1	1	1	1	1	1
-math_hi_y1_A	A	1	1	1	1	1	1
-math_hi_y1_Aminus	A-	1	1	1	1	1	1
-math_hi_y1_B	B	1	1	1	1	1	1
-math_hi_y1_Cplus	C+	1	1	1	1	1	1
-math_hi_y1_C	C	1	1	1	1	1	1
-math_hi_y1_belowC	Below C	1	1	1	1	1	1
