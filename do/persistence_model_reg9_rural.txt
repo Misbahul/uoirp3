@@ -1,13 +1,15 @@
-#persistence_model_reg9_male.txt
-#Backround variables + HS + PSE - Male Students Only
+#persistence_model_reg9.txt
+#Backround variables + HS + PSE
 backgr	Background Variables
 hs	High School Variables
 pse	PSE Variables
 consistent
 @
 leave	Leave in Second or Third Year
-male==1	Male Students Only
 @
+>Gender (Female)
+male	Male	1	0	1	1	1
+>
 >Cohort (1997)
 cohort_1998	1998	1	1	1	1	1
 cohort_1999	1999	1	1	1	1	1
