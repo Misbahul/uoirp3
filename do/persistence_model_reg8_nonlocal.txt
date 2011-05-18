@@ -1,0 +1,55 @@
+#persistence_model2_reg8.txt
+#Backround variables only
+base	Basic Controls Only
+base_rur	Basic Controls and Rural
+base_lang	Basic Controls and Language
+local	Basic Controls and Local
+local_lang	Basic Controls, Local and Language
+local_rur	Basic Controls, Local and Rural
+local_rur_lang	Basic Controls, Local, Rural and Language
+regions	Basic Controls and Regions
+regions_lang	Basic Controls, Regions and Language
+regions_rur	Basic Controls, Regions and Rural
+regions_rur_lang	Basic Controls, Regions, Rural and Language
+consistent
+@
+leave	Leave in Second or Third Year
+@
+>Gender (Female)
+male	Male	1	0	1	1	1	1	1	1	1	1	1	1	1
+>
+>Cohort (1997)
+cohort_1998	1998	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_1999	1999	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_2000	2000	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_2001	2001	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_2002	2002	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_2003	2003	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_2004	2004	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_2005	2005	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_2006	2006	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_2007	2007	1	1	1	1	1	1	1	1	1	1	1	1	1
+cohort_2008	2008	1	1	1	1	1	1	1	1	1	1	1	1	1
+\
+Rural (Urban)
+rural_code	Rural	1	0	0	1	0	0	0	1	1	0	0	1	1
+>
+>Language (English)
+ml2_fr	French	1	1	0	0	1	0	1	0	1	0	1	0	1
+ml2_oth	Other	1	1	0	0	1	0	1	0	1	0	1	0	1
+\
+>Non Local Student (Local)
+non_local	Non-Local	1	0	0	0	0	1	1	1	1	0	0	0	0
+>
+>Regions (Local)
+region_gta	GTA	1	1	0	0	0	0	0	0	0	1	1	1	1
+region_co	Central Ontario	1	1	0	0	0	0	0	0	0	1	1	1	1
+region_eo	Eastern Ontario		1	1	0	0	0	0	0	0	0	1	1	1	1
+region_swo	Southwestern Ontario	1	1	0	0	0	0	0	0	0	1	1	1	1
+region_neo	Northeastern Ontario	1	1	0	0	0	0	0	0	0	1	1	1	1
+region_nwo	Northwestern Ontario	1	1	0	0	0	0	0	0	0	1	1	1	1
+region_atl	Atlantic Canada	1	1	0	0	0	0	0	0	0	1	1	1	1
+region_que	Que	1	1	0	0	0	0	0	0	0	1	1	1	1
+region_wec	Western Canada	1	1	0	0	0	0	0	0	0	1	1	1	1
+region_oth	Other	1	1	0	0	0	0	0	0	0	1	1	1	1
+
