@@ -15,21 +15,23 @@ set trace off
 set tracedepth 1
 capture log close
 local mydofilename = subinstr( "`dofilename'", " ", "", .)
-local fileprefix "`logpath'`locationname'/"
-ensuredir "`fileprefix'"
-local datestringp "$S_DATE" 
-// Convert the datestring to something a bit more useful.
-tokenize `datestringp'
-local month `2'
-local year `3'
-local day = string(`1',"%02.0f") // Add a leading zero to the day number
-local datestring : subinstr local datestringp " " "", all
-local timestringp "$S_TIME"
-local timestring : subinstr local timestringp ":" "_", all
-local logfilename "`fileprefix'"
-local filesuffix ".log"
-local logfilename "`logfilename'`dofilename'`filesuffix'"
-log using "`logfilename'", replace text
+if "`mydofilename'" != "" { 
+	local fileprefix "`logpath'`locationname'/"
+	ensuredir "`fileprefix'"
+	local datestringp "$S_DATE" 
+	// Convert the datestring to something a bit more useful.
+	tokenize `datestringp'
+	local month `2'
+	local year `3'
+	local day = string(`1',"%02.0f") // Add a leading zero to the day number
+	local datestring : subinstr local datestringp " " "", all
+	local timestringp "$S_TIME"
+	local timestring : subinstr local timestringp ":" "_", all
+	local logfilename "`fileprefix'"
+	local filesuffix ".log"
+	local logfilename "`logfilename'`dofilename'`filesuffix'"
+	log using "`logfilename'", replace text
+}
 
 shell git describe --tags
 
@@ -55,3 +57,4 @@ clear mata
 set memory 750m
 set matsize 1000
 version 10.1
+
