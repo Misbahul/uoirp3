@@ -1,5 +1,5 @@
-#persistence_model2_reg8.txt
-#Backround variables only
+#persistence_model2_reg8_rural.txt
+#Backround variables only - Rural Students Only
 base	Basic Controls Only
 base_rur	Basic Controls and Rural
 base_lang	Basic Controls and Language
@@ -14,6 +14,7 @@ regions_rur_lang	Basic Controls, Regions, Rural and Language
 consistent
 @
 leave	Leave in Second or Third Year
+rural_code==1	Rural Students Only
 @
 >Gender (Female)
 male	Male	1	0	1	1	1	1	1	1	1	1	1	1	1
@@ -31,13 +32,12 @@ cohort_2006	2006	1	1	1	1	1	1	1	1	1	1	1	1	1
 cohort_2007	2007	1	1	1	1	1	1	1	1	1	1	1	1	1
 cohort_2008	2008	1	1	1	1	1	1	1	1	1	1	1	1	1
 \
-Rural (Urban)
-rural_code	Rural	1	0	0	1	0	0	0	1	1	0	0	1	1
 >
 >Language (English)
 ml2_fr	French	1	1	0	0	1	0	1	0	1	0	1	0	1
 ml2_oth	Other	1	1	0	0	1	0	1	0	1	0	1	0	1
 \
+>
 >Non Local Student (Local)
 non_local	Non-Local	1	0	0	0	0	1	1	1	1	0	0	0	0
 >

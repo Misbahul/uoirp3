@@ -31,7 +31,8 @@ cohort_2006	2006	1	1	1	1	1	1	1	1	1	1	1	1	1
 cohort_2007	2007	1	1	1	1	1	1	1	1	1	1	1	1	1
 cohort_2008	2008	1	1	1	1	1	1	1	1	1	1	1	1	1
 \
-Rural (Urban)
+>
+>Rural (Urban)
 rural_code	Rural	1	0	0	1	0	0	0	1	1	0	0	1	1
 >
 >Language (English)
