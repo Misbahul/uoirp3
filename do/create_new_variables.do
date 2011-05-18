@@ -574,7 +574,7 @@ recode county (18 19 20 21 24 = 1 "GTA") ///
 		(nonmissing = 7 "Outside Ontario") ///
 		(missing = .) ///
 			, generate(on_region)
-label on_region "Region within Ontario"
+label variable on_region "Region within Ontario"
 
 clonevar on_region2 = on_region
 replace on_region2 = 0 if local1==1
