@@ -582,6 +582,10 @@ label define on_region 0 "Ottawa", add
 label values on_region on_region
 label values on_region on_region2
 
+// Non Local
+recode local1 (1 = 0 "Local Student") (0 = 1 "Non Local") (missing = .), generate(non_local)
+label variable non_local "Non Local Student"
+
 
 // Region of Canada
 recode text_province (10 11 12 13 = 1 "Atlantic") (24 = 2 "Quebec") (35 = 3 "Ontario") (46 47 48 59 = 4 "Western Canada") ///
