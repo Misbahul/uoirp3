@@ -563,7 +563,81 @@ foreach i of varlist session_*_awards gov_grant_s* gov_loan_s* {
 	label variable `i'_cat_10000 "`varlbl' 6 000 to 10 000"
 	capture label variable `i'_cat_max "`varlbl' 10 000 and up"
 }
+
+// Region of Ontario
+recode county (18 19 20 21 24 = 1 "GTA") ///
+		(14 15 16 22 23 25 26 28 29 30 43 44 46 = 2 "Central") ///
+		(1 2 6 7 9 10 11 12 13 47 = 3 "East") ///
+		(31 32 34 36 37 38 39 40 41 42 = 4 "Southwest") ///
+		(48 49 51 52 53 54 56 57 = 5 "Northeast") ///
+		(58 59 60 = 6 "Northwest") ///
+		(nonmissing = 7 "Outside Ontario") ///
+		(missing = .) ///
+			, generate(on_region)
+label on_region "Region within Ontario"
+
+clonevar on_region2 = on_region
+replace on_region2 = 0 if local1==1
+label define on_region 0 "Ottawa", add
+label values on_region on_region
+label values on_region on_region2
+
+
+// Region of Canada
+recode text_province (10 11 12 13 = 1 "Atlantic") (24 = 2 "Quebec") (35 = 3 "Ontario") (46 47 48 59 = 4 "Western Canada") ///
+		(nonmissing = 5 "Other") ///
+		(missing = .) ///
+			, generate(ca_region)
+
+// Both sets of Regions
+clonevar both_region = on_region2
+recode both_region (7 = .)
+replace both_region = 11 if ca_region==1 & missing(both_region)
+replace both_region = 12 if ca_region==2 & missing(both_region)
+replace both_region = 14 if ca_region==4 & missing(both_region)
+replace both_region = 15 if ca_region--5 & missing(both_region)
+
+label define both_region 0 "Ottawa" 1 "GTA" 2 "Central Ontario" 3 "Eastern Ontario" 4 "Southwestern Ontario" 5 "Northeastern Ontario" 6 "Northwestern Ontario" ///
+	11 "Atlantic Canada" 12 "Quebec" 14 "Western Canada" 15 "Other"
+label values both_region both_region
+
+tabulate both_region, generate(region_)
+rename region_1 region_ott
+rename region_2 region_gta
+rename region_3 region_co
+rename region_4 region_eo
+rename region_5 region_swo
+rename region_6 region_neo
+rename region_7 region_nwo
+rename region_8 region_atl
+rename region_9 region_que
+rename region_10 region_wec
+rename region_11 region_oth
+
+label variable region_ott "Ottawa"
+label variable region_gta "GTA"
+label variable region_co "Central Ontario"
+label variable region_eo "Eastern Ontario"
+label variable region_swo "Southwestern Ontario"
+label variable region_neo "Northeastern Onatrio"
+label variable region_nwo "Northwestern Ontario"
+label variable region_atl "Atlantic Canada"
+label variable region_que "Quebec"
+label variable region_wec "Western Canada"
+label variable region_oth "Other"
+
+
+// Rural Postal Delivery
+generate rural_code = regexs(1) if regexm(postal_cd, "^[A-Z]([0-9])[A-Z]")
+destring rural_code, replace
+recode rural_code (0 = 1) (1/9 = 0)
+label define rural_code 0 "Urban" 1 "Rural"
+label values rural_code rural_code
+label variable rural_code "Rural (by Postal Delivery Method)"
+
 set trace off
+
+
 
 save "`workdatapath'new_variable_data.dta", replace
 

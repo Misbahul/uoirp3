@@ -88,6 +88,8 @@ label define province 59 "British Columbia", add
 label define province 60 "Northwest Territories", add
 label define province 61 "Yukon", add
 label define province 62 "Nunavut", add
+label define province 70 "United States", add
+label define province 71 "Other Country", add
 
 label values province province
 
@@ -199,6 +201,25 @@ recode ECON_REGION_ORIGIN 	(1010/1040	= 10) ///
 							
 label values er_province province
 tab2 province er_province
+
+// PROVINCE
+label define text_province 48 "ALBERTA"
+label define text_province 59 "BRITISH_COLUMBIA", add
+label define text_province 46 "MANITOBA", add
+label define text_province 10 "NEWFOUNDLAND", add
+label define text_province 13 "NEW_BRUNSWICK", add
+label define text_province 61 "NORTH_WEST_TERRITORIES", add
+label define text_province 12 "NOVA_SCOTIA", add
+label define text_province 62 "NUNAVUT", add
+label define text_province 35 "ONTARIO", add
+label define text_province 71 "OTHER_COUNTRY", add
+label define text_province 11 "PRINCE_EDWARDS_ISLAND", add
+label define text_province 24 "QUEBEC", add
+label define text_province 47 "SASKATCHEWAN", add
+label define text_province 70 "UNITED_STATES", add
+label define text_province 60 "YUKON", add
+my_encode PROVINCE, generate(text_province) label(text_province)
+label values text_province province
 
 // SESSION_CD
 label define SESSION_CD 19979 "September 1997", add

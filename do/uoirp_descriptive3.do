@@ -84,6 +84,6 @@ foreach i of varlist cont2 cont3 uoreturn leave2 leave3 leave {
 	Actually, to pull this off I think I'm going to need another table making program.
 */
 
-uwtab2 main_subject1_cd mat1320x mat1720x mat1330x mat1730x mat1300x mat1700x eng1100x eng1112x fra1528x fra1538x fra1710x phi1101x phi1501x, save( "`outputdir'`dofilename'_keycourses.xls") replace sheet( "key_courses")
+// uwtab2 main_subject1_cd mat1320x mat1720x mat1330x mat1730x mat1300x mat1700x eng1100x eng1112x fra1528x fra1538x fra1710x phi1101x phi1501x, save( "`outputdir'`dofilename'_keycourses.xls") replace sheet( "key_courses")
 
 include do/footer.do

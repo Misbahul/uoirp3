@@ -65,6 +65,7 @@ local cat_vars "`cat_vars' fra1710_relsession phi1101_relsession phi1501_relsess
 local cat_vars "`cat_vars' session_1_awards_cat session_2_awards_cat"
 local cat_vars "`cat_vars' gov_grant_s1_cat gov_loan_s1_cat"
 local cat_vars "`cat_vars' gov_grant_s2_cat gov_loan_s2_cat"
+local cat_vars "`cat_vars' both_region rural_code"
 
 
 // local cat_vars "imstat"
