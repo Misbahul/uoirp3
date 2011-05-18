@@ -30,18 +30,17 @@ cohort_2007	2007	1	1	1	1	1	1
 cohort_2008	2008	1	1	1	1	1	1
 \
 >
->Province (Ontario)
-prov_nl	Newfoundland and Labrador	1	1	1	1	1	1
-prov_pei	Prince Edward Island	1	1	1	1	1	1
-prov_ns	Nova Scotia	1	1	1	1	1	1
-prov_nb	New Brunswick	1	1	1	1	1	1
-prov_qc	Québe	1	1	1	1	1	1
-prov_mb	Manitoba	1	1	1	1	1	1
-prov_sk	Saskatchewan	1	1	1	1	1	1
-prov_ab	Alberta	1	1	1	1	1	1
-prov_bc	British Columbia	1	1	1	1	1	1
-prov_yk	Yukon	1	1	1	1	1	1
-prov_oth	Other	1	1	1	1	1	1
+>Region (Local)
+region_gta	GTA	1	1	1	1	1	1
+region_co	Centeral Ontario	1	1	1	1	1	1
+region_eo	Eastern Ontario	1	1	1	1	1	1
+region_swo	Southwesten Ontario	1	1	1	1	1	1
+region_neo	Northeastern Ontario	1	1	1	1	1	1
+region_nwo	Northwestern Ontario	1	1	1	1	1	1
+region_atl	Atlantic Canada	1	1	1	1	1	1
+region_que	Que	1	1	1	1	1	1
+region_wec	Western Canada	1	1	1	1	1	1
+region_oth	Other	1	1	1	1	1	1
 \
 >
 >Language (English)

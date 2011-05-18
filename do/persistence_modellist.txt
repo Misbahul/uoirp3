@@ -1,37 +1,4 @@
 #persistence_modellist.txt
-do/persistence_model_reg5_eng_highest.txt	eng_highest	Persistence Model -- Highest ENG Grade -- Year 2 or 3
-do/persistence_model_reg5_eng_highest_female.txt	eng_highest_female	Persistence Model -- Highest ENG Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_eng_highest_male.txt	eng_highest_male	Persistence Model -- Highest END Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_eng_lowest.txt	eng_lowest	Persistence Model -- Lowest ENG Grade -- Year 2 or 3
-do/persistence_model_reg5_eng_lowest_female.txt	eng_lowest_female	Persistence Model -- Lowest ENG Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_eng_lowest_male.txt	eng_lowest_male	Persistence Model -- Lowest ENG Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_math_highest.txt	math_highest	Persistence Model -- Highest MAT Grade -- Year 2 or 3
-do/persistence_model_reg5_math_highest_female.txt	math_highest_female	Persistence Model -- Highest MAT Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_math_highest_male.txt	math_highest_male	Persistence Model -- Highest MAT Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_math_lowest.txt	math_lowest	Persistence Model -- Lowest MAT Grade -- Year 2 or 3
-do/persistence_model_reg5_math_lowest_female.txt	math_lowest_female	Persistence Model -- Lowest MAT Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_math_lowest_male.txt	math_lowest_male	Persistence Model -- Lowest MAT Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_fre_highest.txt	fre_highest	Persistence Model -- Highest FRA Grade -- Year 2 or 3
-do/persistence_model_reg5_fre_highest_female.txt	fre_highest_female	Persistence Model -- Highest FRA Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_fre_highest_male.txt	fre_highest_male	Persistence Model -- Highest FRA Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_fre_lowest.txt	fre_lowest	Persistence Model -- Lowest FRA Grade -- Year 2 or 3
-do/persistence_model_reg5_fre_lowest_female.txt	fre_lowest_female	Persistence Model -- Lowest FRA Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_fre_lowest_male.txt	fre_lowest_male	Persistence Model -- Lowest FRA Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_phil_highest.txt	phil_highest	Persistence Model -- Highest PHI Grade -- Year 2 or 3
-do/persistence_model_reg5_phil_highest_female.txt	phil_highest_female	Persistence Model -- Highest PHI Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_phil_highest_male.txt	phil_highest_male	Persistence Model -- Highest PHI Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_phil_lowest.txt	phil_lowest	Persistence Model -- Lowest PHI Grade -- Year 2 or 3
-do/persistence_model_reg5_phil_lowest_female.txt	phil_lowest_female	Persistence Model -- Lowest PHI Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_phil_lowest_male.txt	phil_lowest_male	Persistence Model -- Lowest PHI Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_any_highest.txt	any_highest	Persistence Model -- Highest Grade -- Year 2 or 3
-do/persistence_model_reg5_any_highest_female.txt	any_highest_female	Persistence Model -- Highest Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_any_highest_male.txt	any_highest_male	Persistence Model -- Highest Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg5_any_lowest.txt	any_lowest	Persistence Model -- Lowest Grade -- Year 2 or 3
-do/persistence_model_reg5_any_lowest_female.txt	any_lowest_female	Persistence Model -- Lowest Grade-- Year 2 or 3 -- Females
-do/persistence_model_reg5_any_lowest_male.txt	any_lowest_male	Persistence Model -- Lowest Grade -- Year 2 or 3 -- Males
-do/persistence_model_reg6_leave.txt	aid1	Persistence Model -- Aid Effects
-do/persistence_model_reg6_leave_female.txt	aid1_female	Persistence Model -- Aid Effects -- Females
-do/persistence_model_reg6_leave_male.txt	aid1_male	Persistence Model -- Aid Effects -- Males
 do/persistence_model_reg7_arts_enfr.txt	arts_enfr	Arts Faculty -- English or French Grade
 do/persistence_model_reg7_arts_enfr_fall.txt	arts_enfr_fall	Arts Faculty -- English or French Grade -- Fall Y1 Only
 do/persistence_model_reg7_arts_enfr_y1.txt	arts_enfr_y1	Arts Faculty -- English or French Grade -- Y1 Only
@@ -56,3 +23,22 @@ do/persistence_model_reg7_ssan_enfr_y1.txt	ssan_enfr_y1	Health Faculty -- Englis
 do/persistence_model_reg7_ssoc_enfr.txt	ssoc_enfr	Social Science Faculty -- English or French Grade
 do/persistence_model_reg7_ssoc_enfr_fall.txt	ssoc_enfr_fall	Social Science Faculty -- English or French Grade -- Fall Y1 Only
 do/persistence_model_reg7_ssoc_enfr_y1.txt	ssoc_enfr_y1	Social Science Faculty -- English or French Grade -- Y1 Only
+do/persistence_model_reg8.txt	backgr_all	Background Variables -- All Observations
+do/persistence_model_reg8_female.txt	backgr_female	Background Variables -- Females
+do/persistence_model_reg8_male.txt	backgr_male	Background Variables -- Males
+do/persistence_model_reg8_local.txt	backgr_local	Background Variables -- Local
+do/persistence_model_reg8_nonlocal.txt	backgr_nonlocal	Background Variables -- Non-Local
+do/persistence_model_reg8_rural.txt	backgr_rural	Background Variables -- Rural
+do/persistence_model_reg8_urban.txt	backgr_urban	Background Variables -- Urban
+do/persistence_model_reg9.txt	local_all	Background Variables and Local -- All Observations
+do/persistence_model_reg9_female.txt	local_female	Background Variables and Local -- Females
+do/persistence_model_reg9_male.txt	local_male	Background Variables and Local -- Males
+do/persistence_model_reg9_rural.txt	local_rural	Background Variables and Local -- Rural Students
+do/persistence_model_reg9_urban.txt	local_urban	Background Variables and Local -- Urban Students
+do/persistence_model_reg10.txt	regions_all	Background Variables and Regions -- All Observations
+do/persistence_model_reg10_female.txt	regions_female	Background Variables and Regions -- Females
+do/persistence_model_reg10_male.txt	regions_male	Background Variables and Regions - Males
+do/persistence_model_reg10_nonlocal.txt	regions_nonlocal	Background Variables and Regions -- Non-Local
+do/persistence_model_reg10_rural.txt	regions_rural	Background Variables and Regions -- Rural
+do/persistence_model_reg10_urban.txt	regions_urban	Background Variables and Regions -- Urban
+
