@@ -35,7 +35,7 @@ rural_code	Rural	1	0	1	1	1	1
 >Language (English)
 ml2_fr	French	1	1	1	1	1	1
 ml2_oth	Other	1	1	1	1	1	1
-\
+>
 >Non Local Student (Local)
 non_local	Non-Local	1	0	1	1	1	1
 >
