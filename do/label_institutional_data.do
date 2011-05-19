@@ -843,7 +843,7 @@ summarize lin_phil_hi, detail
 
 generate byte fail_phil = .
 replace fail_phil = 0 if !missing(phi1101) | !missing(phi1501)
-replace fail_phil = 1 if fail_phil1101==1 | fail_phil1501==1
+replace fail_phil = 1 if fail_phi1101==1 | fail_phi1501==1
 label variable fail_phil "Failed on Philosophy Course"
 tabulate fail_phil
 
