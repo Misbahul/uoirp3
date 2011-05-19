@@ -837,7 +837,7 @@ egen phil_hi = rowmin(phi1101 phi1501)
 label values phil_hi grade_codes
 tabulate phil_hi, missing
 
-egen lin_phil_hi = rowmax(lin_phil1101 lin_phil1501)
+egen lin_phil_hi = rowmax(lin_phi1101 lin_phi1501)
 label variable lin_phil_hi "Highest Philosophy Grade (Linear)"
 summarize lin_phil_hi, detail
 
@@ -865,7 +865,7 @@ egen any_hi = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 label values any_hi grade_codes
 tabulate any_hi, missing
 
-egen lin_any_hi = rowmax(lin_mat1320 lin_mat1720 lin_mat1330 lin_mat1730 lin_mat1300 lin_mat1700 lin_eng1100 lin_eng1112 lin_fra1528 lin_fra1538 lin_fra1710 lin_phil1101 lin_phi1501)
+egen lin_any_hi = rowmax(lin_mat1320 lin_mat1720 lin_mat1330 lin_mat1730 lin_mat1300 lin_mat1700 lin_eng1100 lin_eng1112 lin_fra1528 lin_fra1538 lin_fra1710 lin_phi1101 lin_phi1501)
 label variable lin_any_hi "Any Highest Grade (Linear)"
 summarize lin_any_hi, detail
 
