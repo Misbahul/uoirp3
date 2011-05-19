@@ -1,0 +1,50 @@
+#persistence_model_reg11.txt
+#Backround variables + HS + PSE
+backgr	Background Variables
+hs	High School Variables
+pse_only	PSE Variables only -- no HS
+pse	PSE Variables
+consistent
+@
+leave	Leave in Second or Third Year
+@
+>Gender (Female)
+male	Male	1	0	1	1	1	1
+>
+>Cohort (1997)
+cohort_1998	1998	1	1	1	1	1	1
+cohort_1999	1999	1	1	1	1	1	1
+cohort_2000	2000	1	1	1	1	1	1
+cohort_2001	2001	1	1	1	1	1	1
+cohort_2002	2002	1	1	1	1	1	1
+cohort_2003	2003	1	1	1	1	1	1
+cohort_2004	2004	1	1	1	1	1	1
+cohort_2005	2005	1	1	1	1	1	1
+cohort_2006	2006	1	1	1	1	1	1
+cohort_2007	2007	1	1	1	1	1	1
+cohort_2008	2008	1	1	1	1	1	1
+\
+>
+>Rural (Urban)
+rural_code	Rural	1	0	1	1	1	1
+>
+>Language (English)
+ml2_fr	French	1	1	1	1	1	1
+ml2_oth	Other	1	1	1	1	1	1
+\
+>Non Local Student (Local)
+non_local	Non-Local	1	0	1	1	1	1
+>
+>High School Admission Average (10 percent)
+admission_avg10	HS Average	1	0	0	1	0	1
+>
+>uOttawa GPA (0-10)
+cgpa	GPA	1	0	0	0	1	1
+>
+>uOttawa Faculty (Arts)
+faculty_admin	Administration	1	1	0	0	1	1
+faculty_genie	Engineering	1	1	0	0	1	1
+faculty_scien	Science	1	1	0	0	1	1
+faculty_ssan	Health Sciences	1	1	0	0	1	1
+faculty_ssoc	Social Science	1	1	0	0	1	1
+
