@@ -880,25 +880,49 @@ egen math_lo = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
 label values math_lo grade_codes
 tabulate math_hi, missing
 
+egen lin_math_lo = rowmin(lin_mat1320 lin_mat1720 lin_mat1330 lin_mat1730 lin_mat1300 lin_mat1700)
+label variable lin_math_lo "Lowest Math Grade (Linear)"
+summarize lin_math_lo, detail
+
 egen eng_lo = rowmax(eng1100 eng1112)
 label values eng_lo grade_codes
 tabulate eng_lo, missing
+
+egen lin_eng_lo = rowmin(lin_egn1100 lin_eng1112)
+label variable lin_eng_lo "Lowest English Grade (Linear)"
+summarize lin_eng_lo, detail
 
 egen fre_lo = rowmax(fra1528 fra1538 fra1710)
 label values fre_lo grade_codes
 tabulate fre_lo, missing
 
+egen lin_fre_lo = rowmin(lin_fra1528 lin_fra1538 lin_fra1710)
+label variable lin_fre_lo "Lowest French Grade (Linear)"
+summarize lin_fre_lo, detail
+
 egen phil_lo = rowmax(phi1101 phi1501)
 label values phil_lo grade_codes
 tabulate phil_lo, missing
+
+egen lin_phil_lo = rowmin(lin_phi1101 lin_phi1501)
+label variable lin_phil_lo "Lowest Philosophy Grade (Linear)"
+summarize lin_phil_lo, detail
 
 egen enfr_lo = rowmin(eng1100 eng1112 fra1528 fra1538 fra1710)
 label values enfr_lo grade_codes
 tabulate enfr_lo, missing
 
+egen lin_enfr_lo = rowmin(lin_eng1100 lin_eng1112 lin_fra1528 lin_fra1538 lkin_fra1710)
+label variable lin_enfr_lo "Lowest English or French Grade (Linear)"
+summarize lin_enfr_lo, detail
+
 egen any_lo = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
 label values any_lo grade_codes
 tabulate any_lo, missing
+
+egen lin_any_lo = rowmin(lin_mat1320 lin_mat1720 lin_mat1330 lin_mat1730 lin_mat1300 lin_mat1700 lin_eng1100 lin_eng1112 lin_fra1528 lin_fra1538 lin_fra1710 lin_phi1101 lin_phi1501)
+label variable lin_any_lo "Lowest Any Grade (Linear)"
+summarize lin_any_lo, detail
 
 // Admission Average
 rename ADMISSION_AVG admission_avg
