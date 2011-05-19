@@ -43,8 +43,6 @@ region_oth	Other	1	1	1	1	1	1
 ml2_fr	French	1	1	1	1	1	1
 ml2_oth	Other	1	1	1	1	1	1
 \
->Local Student (Non-Local)
-local1	Local	1	1	1	1	1	1
 >
 >Highest Math Grade - Year 1(B+)
 math_hi_y1_Aplus	A+	1	1	1	1	1	1
