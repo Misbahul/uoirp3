@@ -1,28 +1,28 @@
 #persistence_modellist.txt
-do/persistence_model_reg7_arts_enfr.txt	arts_enfr	Arts Faculty -- English or French Grade
-do/persistence_model_reg7_arts_enfr_fall.txt	arts_enfr_fall	Arts Faculty -- English or French Grade -- Fall Y1 Only
-do/persistence_model_reg7_arts_enfr_y1.txt	arts_enfr_y1	Arts Faculty -- English or French Grade -- Y1 Only
-do/persistence_model_reg7_arts_phil.txt	arts_phil	Arts Faculty -- Philosophy Grade
-do/persistence_model_reg7_arts_phil_fall.txt	arts_phil_fall	Arts Faculty -- Philosophy Grade -- Fall Y1 Only
-do/persistence_model_reg7_arts_phil_y1.txt	arts_phil_y1	Arts Faculty -- Philosophy Grade -- Y1 Only
-do/persistence_model_reg7_genie_enfr.txt	genie_enfr	Engineering Faculty -- English or French Grade
-do/persistence_model_reg7_genie_enfr_fall.txt	genie_enfr_fall	Engineering Faculty -- English or French Grade -- Fall Y1 Only
-do/persistence_model_reg7_genie_enfr_y1.txt	genie_enfr_y1	Engineering Faculty -- English or French Grade -- Y1 Only
-do/persistence_model_reg7_genie_math.txt	genie_math	Engineering Faculty -- Math Grade
-do/persistence_model_reg7_genie_math_fall.txt	genie_math_fall	Engineering Faculty -- Math Grade -- Fall Y1 Only
-do/persistence_model_reg7_genie_math_y1.txt	genie_math_y1	Engineering Faculty -- Math Grade -- Y1 Only
-do/persistence_model_reg7_scien_enfr.txt	scien_enfr	Science Faculty -- English or French Grade
-do/persistence_model_reg7_scien_enfr_fall.txt	scien_enfr_fall	Science Faculty -- English or French Grade -- Fall Y1 Only
-do/persistence_model_reg7_scien_enfr_y1.txt	scien_enfr_y1	Science Faculty -- English or French Grade -- Y1 Only
-do/persistence_model_reg7_scien_math.txt	scien_math	Science Faculty -- Math Grade
-do/persistence_model_reg7_scien_math_fall.txt	scien_math_fall	Science Faculty -- Math Grade -- Fall Y1 Only
-do/persistence_model_reg7_scien_math_y1.txt	scien_math_y1	Science Faculty -- Math Grade -- Y1 Only
-do/persistence_model_reg7_ssan_enfr.txt	ssan_enfr	Health Faculty -- English or French Grade
-do/persistence_model_reg7_ssan_enfr_fall.txt	ssan_enfr_fall	Health Faculty -- English or French Grade -- Fall Y1 Only
-do/persistence_model_reg7_ssan_enfr_y1.txt	ssan_enfr_y1	Health Faculty -- English or French Grade -- Y1 Only
-do/persistence_model_reg7_ssoc_enfr.txt	ssoc_enfr	Social Science Faculty -- English or French Grade
-do/persistence_model_reg7_ssoc_enfr_fall.txt	ssoc_enfr_fall	Social Science Faculty -- English or French Grade -- Fall Y1 Only
-do/persistence_model_reg7_ssoc_enfr_y1.txt	ssoc_enfr_y1	Social Science Faculty -- English or French Grade -- Y1 Only
+#do/persistence_model_reg7_arts_enfr.txt	arts_enfr	Arts Faculty -- English or French Grade
+#do/persistence_model_reg7_arts_enfr_fall.txt	arts_enfr_fall	Arts Faculty -- English or French Grade -- Fall Y1 Only
+#do/persistence_model_reg7_arts_enfr_y1.txt	arts_enfr_y1	Arts Faculty -- English or French Grade -- Y1 Only
+#do/persistence_model_reg7_arts_phil.txt	arts_phil	Arts Faculty -- Philosophy Grade
+#do/persistence_model_reg7_arts_phil_fall.txt	arts_phil_fall	Arts Faculty -- Philosophy Grade -- Fall Y1 Only
+#do/persistence_model_reg7_arts_phil_y1.txt	arts_phil_y1	Arts Faculty -- Philosophy Grade -- Y1 Only
+#do/persistence_model_reg7_genie_enfr.txt	genie_enfr	Engineering Faculty -- English or French Grade
+#do/persistence_model_reg7_genie_enfr_fall.txt	genie_enfr_fall	Engineering Faculty -- English or French Grade -- Fall Y1 Only
+#do/persistence_model_reg7_genie_enfr_y1.txt	genie_enfr_y1	Engineering Faculty -- English or French Grade -- Y1 Only
+#do/persistence_model_reg7_genie_math.txt	genie_math	Engineering Faculty -- Math Grade
+#do/persistence_model_reg7_genie_math_fall.txt	genie_math_fall	Engineering Faculty -- Math Grade -- Fall Y1 Only
+#do/persistence_model_reg7_genie_math_y1.txt	genie_math_y1	Engineering Faculty -- Math Grade -- Y1 Only
+#do/persistence_model_reg7_scien_enfr.txt	scien_enfr	Science Faculty -- English or French Grade
+#do/persistence_model_reg7_scien_enfr_fall.txt	scien_enfr_fall	Science Faculty -- English or French Grade -- Fall Y1 Only
+#do/persistence_model_reg7_scien_enfr_y1.txt	scien_enfr_y1	Science Faculty -- English or French Grade -- Y1 Only
+#do/persistence_model_reg7_scien_math.txt	scien_math	Science Faculty -- Math Grade
+#do/persistence_model_reg7_scien_math_fall.txt	scien_math_fall	Science Faculty -- Math Grade -- Fall Y1 Only
+#do/persistence_model_reg7_scien_math_y1.txt	scien_math_y1	Science Faculty -- Math Grade -- Y1 Only
+#do/persistence_model_reg7_ssan_enfr.txt	ssan_enfr	Health Faculty -- English or French Grade
+#do/persistence_model_reg7_ssan_enfr_fall.txt	ssan_enfr_fall	Health Faculty -- English or French Grade -- Fall Y1 Only
+#do/persistence_model_reg7_ssan_enfr_y1.txt	ssan_enfr_y1	Health Faculty -- English or French Grade -- Y1 Only
+#do/persistence_model_reg7_ssoc_enfr.txt	ssoc_enfr	Social Science Faculty -- English or French Grade
+#do/persistence_model_reg7_ssoc_enfr_fall.txt	ssoc_enfr_fall	Social Science Faculty -- English or French Grade -- Fall Y1 Only
+#do/persistence_model_reg7_ssoc_enfr_y1.txt	ssoc_enfr_y1	Social Science Faculty -- English or French Grade -- Y1 Only
 do/persistence_model_reg8.txt	backgr_all	Background Variables -- All Observations
 do/persistence_model_reg8_female.txt	backgr_female	Background Variables -- Females
 do/persistence_model_reg8_male.txt	backgr_male	Background Variables -- Males
