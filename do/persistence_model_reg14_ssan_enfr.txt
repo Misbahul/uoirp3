@@ -2,7 +2,7 @@
 #Backround variables + HS + PSE
 backgr	Background Variables
 hs	High School Variables
-pse_only	PSE Variables only -- no HS
+pse_only	PSE Variables only
 pse	PSE Variables
 consistent
 @
