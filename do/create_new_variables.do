@@ -113,7 +113,7 @@ label values admission_cat grade_codes
 // Admission Average divided by 10
 clonevar admission_avg10 = admission_avg
 replace admission_avg10 = admission_avg10 / 10
-label variable admission_avg10 "Admission Average (10 percent)":w
+label variable admission_avg10 "Admission Average (10 percent)"
 
 // uOttawa GPA
 generate gpa_cat = .
@@ -542,7 +542,7 @@ foreach i in _fall _y1 {
 	label values fre_lo`i' grade_codes
 	tabulate fre_lo`i', missing
 
-	eng lin_fre_lo`i' = rowmin(lin_fra1528`i' lin_fra1538`i' lin_fra1710`i')
+	egen lin_fre_lo`i' = rowmin(lin_fra1528`i' lin_fra1538`i' lin_fra1710`i')
 	summarize lin_fre_lo`i', detail
 
 	egen phil_lo`i' = rowmax(phi1101`i' phi1501`i')
