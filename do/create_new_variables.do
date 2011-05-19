@@ -467,8 +467,16 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 {
 	clonevar `i'_fall = `i'
 	clonevar `i'_y1 = `i'
+	clonevar lin_`i'_fall = lin_`i'
+	clonevar lin_`i'_y1 = lin_`i'
+	clonevar fail_`i'_fall = fail_`i'
+	clonevar fail_`i'_y1 = fail_`i'
 	replace `i'_fall = .x if `i'_relsession > 1
 	replace `i'_y1 = .x if `i'_relsession > 3
+	replace lin_`i'_fall = .x if `i'_relsession > 1
+	replace lin_`i'_y1 = .x if `i'_relsession > 3
+	replace fail_`i'_fall = .x if `i'_relsession > 1
+	replace fail_`i'_y1 = .x if `i'_relsession > 3
 }
 
 foreach i in _fall _y1 {
@@ -477,50 +485,86 @@ foreach i in _fall _y1 {
 	label values math_hi`i' grade_codes
 	tabulate math_hi`i', missing
 
+	egen lin_math_hi`i' = rowmax(lin_mat1320`i' lin_mat1720`i' lin_mat1330`i' lin_mat1730`i' lin_mat1300`i' lin_mat1700`i')
+	summarize lin_math_hi`i', detail
+
 	egen eng_hi`i' = rowmin(eng1100`i' eng1112`i')
 	label values eng_hi`i' grade_codes
 	tabulate eng_hi`i', missing
+
+	egen lin_eng_hi`i' = rowmax(lin_eng1100`i' lin_eng1112`i')
+	summarize lin_eng_hi`i', detail
 
 	egen fre_hi`i' = rowmin(fra1528`i' fra1538`i' fra1710`i')
 	label values fre_hi`i' grade_codes
 	tabulate fre_hi`i', missing
 
+	egen lin_fre_hi`i' = rowmax(lin_fra1528`i' lin_fra1538`i' lin_fra1710`i')
+	summarize lin_fre_hi`i', detail
+
 	egen phil_hi`i' = rowmin(phi1101`i' phi1501`i')
 	label values phil_hi`i' grade_codes
 	tabulate phil_hi`i', missing
 
-	egen enfr_hi`i' = rowmax(eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i')
+	egen lin_phil_hi`i' = rowmax(lin_phi1101`i' lin_phi1501`i')
+	summarize lin_phil_hi`i', detail
+
+	egen enfr_hi`i' = rowmin(eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i')
 	label values enfr_hi`i' grade_codes
 	tabulate enfr_hi`i', missing
+
+	egen lin_enfr_hi`i' = rowmax(lin_eng1100`i' lin_eng1112`i' lin_fra1528`i' lin_fra1538`i' lin_fra1710`i')
+	summarize lin_enfr_hi`i', detail
 
 	egen any_hi`i' = rowmin(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i')
 	label values any_hi`i' grade_codes
 	tabulate any_hi`i', missing
+
+	egen lin_any_hi`i' = rowmax(lin_mat1320`i' lin_mat1720`i' lin_mat1330`i' lin_mat1730`i' lin_mat1300`i' lin_mat1700`i' lin_eng1100`i' lin_eng1112`i' lin_fra1528`i' lin_fra1538`i' lin_fra1710`i' lin_phi1101`i' lin_phi1501`i')
+	summarize lin_any_hi`i', detail
 
 	// Lowest in each category
 	egen math_lo`i' = rowmax(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i')
 	label values math_lo`i' grade_codes
 	tabulate math_hi`i', missing
 
+	egen lin_math_lo`i' = rowmin(lin_mat1320`i' lin_mat1720`i' lin_mat1330`i' lin_mat1730`i' lin_mat1300`i' lin_mat1700`i')
+	summarize lin_math_lo`i', detail
+
 	egen eng_lo`i' = rowmax(eng1100`i' eng1112`i')
 	label values eng_lo`i' grade_codes
 	tabulate eng_lo`i', missing
+
+	egen lin_eng_lo`i' = rowmin(lin_eng1100`i' lin_eng1112`i')
+	summarize lin_eng_lo`i', detail
 
 	egen fre_lo`i' = rowmax(fra1528`i' fra1538`i' fra1710`i')
 	label values fre_lo`i' grade_codes
 	tabulate fre_lo`i', missing
 
+	eng lin_fre_lo`i' = rowmin(lin_fra1528`i' lin_fra1538`i' lin_fra1710`i')
+	summarize lin_fre_lo`i', detail
+
 	egen phil_lo`i' = rowmax(phi1101`i' phi1501`i')
 	label values phil_lo`i' grade_codes
 	tabulate phil_lo`i', missing
 
-	egen enfr_lo`i' = rowmin(eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i')
+	egen lin_phil_lo`i' = rowmin(lin_phi1101`i' lin_phi1501`i')
+	summarize lin_phil_lo`i', detail
+
+	egen enfr_lo`i' = rowmax(eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i')
 	label values enfr_lo`i' grade_codes
 	tabulate enfr_lo`i', missing
+
+	egen lin_enfr_lo`i' = rowmin(lin_eng1100`i' lin_eng1112`i' lin_fra1528`i' lin_fra1538`i' lin_fra1710`i')
+	summarize lin_enfr_lo`i', detail
 
 	egen any_lo`i' = rowmax(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i')
 	label values any_lo`i' grade_codes
 	tabulate any_lo`i', missing
+
+	egen lin_any_lo`i' = rowmin(lin_mat1320`i' lin_mat1720`i' lin_mat1330`i' lin_mat1730`i' lin_mat1300`i' lin_mat1700`i' lin_eng1100`i' lin_eng1112`i' lin_fra1528`i' lin_fra1710`i' lin_phi1101`i' lin_phi1501`i')
+	summarize lin_any_lo`i', detail
 	
 	foreach j of varlist mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i' eng_hi`i' eng_lo`i' math_hi`i' math_lo`i' fre_hi`i' fre_lo`i' phil_hi`i' phil_lo`i' any_hi`i' any_lo`i' enfr_hi`i' enfr_lo`i' {
 		local var_lbl : variable label `j'
