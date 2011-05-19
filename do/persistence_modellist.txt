@@ -51,4 +51,12 @@ do/persistence_model_reg13_scien_enfr.txt	lin_scien_enfr	Science Faculty -- Engl
 do/persistence_model_reg13_scien_math.txt	lin_scien_math	Science Faculty -- Math Grade -- Linear
 do/persistence_model_reg13_ssan_enfr.txt	lin_scien_enfr	Health Faculty -- English or French Grade -- Linear
 do/persistence_model_reg13_ssoc_enfr.txt	lin_ssoc_enfr	Social Science Faculty -- English or French Grade -- Linear
+do/persistence_model_reg14_arts_enfr.txt	fail_arts_enfr	Arts Faculty -- Failed English or French Course 
+do/persistence_model_reg14_arts_phil.txt	fail_arts_phil	Arts Faculty -- Failed Philosophy Course
+do/persistence_model_reg14_genie_enfr.txt	fail_genie_enfr	Engineering Faculty -- Failed English or French Course
+do/persistence_model_reg14_genie_math.txt	fail_genie_math	Engineering Faculty -- Failed Math Course
+do/persistence_model_reg14_scien_enfr.txt	fail_scien_enfr	Science Faculty -- Failed English or French Course
+do/persistence_model_reg14_scien_math.txt	fail_scien_math	Science Faculty -- Failed Math Course
+do/persistence_model_reg14_ssan_enfr.txt	fail_ssan_enfr	Health Faculty -- Failed English or French Course
+do/persistence_model_reg14_ssoc_enfr.txt	fail_ssoc_enfr	Social Science Faculty -- Failed English or French Course
 

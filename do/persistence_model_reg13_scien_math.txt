@@ -10,7 +10,7 @@ leave	Leave in Second or Third Year
 primary_org_cd==4	Science Students
 @
 >Key Course
-lin_math_fall	Math	1	0	1	1	1	1
+lin_math_hi_fall	Math	1	0	1	1	1	1
 >
 >Gender (Female)
 male	Male	1	0	1	1	1	1
