@@ -888,7 +888,7 @@ egen eng_lo = rowmax(eng1100 eng1112)
 label values eng_lo grade_codes
 tabulate eng_lo, missing
 
-egen lin_eng_lo = rowmin(lin_egn1100 lin_eng1112)
+egen lin_eng_lo = rowmin(lin_eng1100 lin_eng1112)
 label variable lin_eng_lo "Lowest English Grade (Linear)"
 summarize lin_eng_lo, detail
 
@@ -912,7 +912,7 @@ egen enfr_lo = rowmin(eng1100 eng1112 fra1528 fra1538 fra1710)
 label values enfr_lo grade_codes
 tabulate enfr_lo, missing
 
-egen lin_enfr_lo = rowmin(lin_eng1100 lin_eng1112 lin_fra1528 lin_fra1538 lkin_fra1710)
+egen lin_enfr_lo = rowmin(lin_eng1100 lin_eng1112 lin_fra1528 lin_fra1538 lin_fra1710)
 label variable lin_enfr_lo "Lowest English or French Grade (Linear)"
 summarize lin_enfr_lo, detail
 
