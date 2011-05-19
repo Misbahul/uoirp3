@@ -776,30 +776,104 @@ foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng
 	label values `i' grade_codes
 }
 
+foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 {
+	recode `i' (1 = 10) (2 = 9) (3 = 8) (4 = 7) (5 = 6) (6 = 5) (7 = 4) (8 = 3) (9 = 2) (10 = 1) (11 12 16 = 0) (.a = 0) (.f = 0) ///
+		(13 = .b) (14 = .c) (15 = .c) (17 = .g) (18 = .h) (19 = .i), generate(lin_`i')
+	label variable lin_`i' "`i' (linear)"
+	summarize lin_`i', detail
+}
+
+
+foreach i of varlist mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501 {
+	recode `i' (1/9 = 0 "Pass") (10 11 12 16 = 1 "Fail") (.a .f = 1), generate(fail_`i')
+	label variable fail_`i' "Failed `i'"
+	tabulate fail_`i'
+}
+
 // Highest in each category
 egen math_hi = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)
 label values math_hi grade_codes
 tabulate math_hi, missing
 
+egen lin_math_hi = rowmax(lin_mat1320 lin_mat1720 lin_mat1330 lin_mat1730 lin_mat1300 lin_mat1700)
+label variable lin_math_hi "Highest Math Grade (Linear)"
+summarize lin_math_hi, detail
+
+generate byte fail_math = . 
+replace fail_math = 0 if !missing(mat1320) | !missing(mat1720) | !missing(mat1330) | !missing(mat1730) | !missing(mat1300) | !missing(mat1700)
+replace fail_math = 1 if fail_mat1320==1 | fail_mat1720==1 | fail_mat1330==1 | fail_mat1730==1 | fail_mat1300==1 | fail_mat1700==1
+label variable fail_math "Failed one Math Course"
+tabulate fail_math
+
 egen eng_hi = rowmin(eng1100 eng1112)
 label values eng_hi grade_codes
 tabulate eng_hi, missing
+
+egen lin_eng_hi = rowmax(lin_eng1100 lin_eng1112)
+label variable lin_eng_hi "Highest English Grade (Linear)"
+summarize lin_eng_hi, detail
+
+generate byte fail_eng = .
+replace fail_eng = 0 if !missing(eng1100) | !missing(eng1112)
+replace fail_eng = 1 if fail_eng1100==1 | fail_eng1112==1
+label variable fail_eng "Failed one English Course"
+tabulate fail_eng
 
 egen fre_hi = rowmin(fra1528 fra1538 fra1710)
 label values fre_hi grade_codes
 tabulate fre_hi, missing
 
+egen lin_fre_hi = rowmax(lin_fra1528 lin_fra1538 lin_fra1710)
+label variable lin_fre_hi "Highest French Grade (Linear)"
+summarize lin_fre_hi, detail
+
+generate byte fail_fre = .
+replace fail_fre = 0 if !missing(fra1528) | !missing(fra1538) | !missing(fra1710)
+replace fail_fre = 1 if fail_fra1528==1 | fail_fra1538==1 | fail_fra1710==1
+label variable fail_fre "Failed one French Course"
+tabulate fail_fre
+
 egen phil_hi = rowmin(phi1101 phi1501)
 label values phil_hi grade_codes
 tabulate phil_hi, missing
+
+egen lin_phil_hi = rowmax(lin_phil1101 lin_phil1501)
+label variable lin_phil_hi "Highest Philosophy Grade (Linear)"
+summarize lin_phil_hi, detail
+
+generate byte fail_phil = .
+replace fail_phil = 0 if !missing(phil1101) | !missing(phil1501)
+replace fail_phil = 1 if fail_phil1101==1 | fail_phil1501==1
+label variable fail_phil "Failed on Philosophy Course"
+tabulate fail_phil
 
 egen enfr_hi = rowmax(eng1100 eng1112 fra1528 fra1538 fra1710)
 label values enfr_hi grade_codes
 tabulate enfr_hi, missing
 
+egen lin_enfr_hi = rowmax(lin_eng1100 lin_eng1112 lin_fra1528 lin_fra1538 lin_fra1710)
+label variable lin_enfr_hi "Highest English/French Grade (Linear)"
+summarize lin_enfr_hi, detail
+
+generate byte fail_enfr = .
+replace fail_enfr = 0 if !missing(eng1100) | !missing(eng1112) | !missing(fra1528) | !missing(fra1538) | !missing(fra1710)
+replace fail_enfr = 1 if fail_eng1100==1 | fail_eng1112==1 | fail_fra1528==1 | fail_fra1538==1 | fail_fra1710==1
+label variable fail_enfr "Failed one English or French Course"
+tabulate fail_enfr
+
 egen any_hi = rowmin(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700 eng1100 eng1112 fra1528 fra1538 fra1710 phi1101 phi1501)
 label values any_hi grade_codes
 tabulate any_hi, missing
+
+egen lin_any_hi = rowmax(lin_mat1320 lin_mat1720 lin_mat1330 lin_mat1730 lin_mat1300 lin_mat1700 lin_eng1100 lin_eng1112 lin_fra1528 lin_fra1538 lin_fra1710 lin_phil1101 lin_phi1501)
+label variable lin_any_hi "Any Highest Grade (Linear)"
+summarize lin_any_hi, detail
+
+generate byte fail_any = .
+replace fail_any = 0 if !missing(mat1320) | !missing(mat1720) | !missing(mat1330) | !missing(mat1730) | !missing(mat1300) | !missing(mat1700) | !missing(eng1100) | !missing(eng1112) | !missing(fra1528) | !missing(fra1538) | !missing(fra1710) | !missing(phi1101) | !missing(phi1501)
+replace fail_any = 1 if fail_mat1320==1 | fail_mat1720==1 | fail_mat1330==1 | fail_mat1730==1 | fail_mat1300==1 | fail_mat1700==1 | fail_eng1100==1 | fail_eng1112==1 | fail_fra1528==1 | fail_fra1538==1 | fail_fra1710==1 | fail_phi1101==1 | fail_phi1501==1
+label variable fail_any "Failed Any Key Course"
+tabulate fail_any
 
 // Lowest in each category
 egen math_lo = rowmax(mat1320 mat1720 mat1330 mat1730 mat1300 mat1700)

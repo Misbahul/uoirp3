@@ -110,6 +110,11 @@ replace admission_cat = 11	if	admission_avg >=	0	&	admission_avg	<	40		// F
 label variable admission_cat "Admission Average (Categorical Letter Grade)"
 label values admission_cat grade_codes
 
+// Admission Average divided by 10
+clonevar admission_avg10 = admission_avg
+replace admission_avg10 = admission_avg10 / 10
+label variable admission_avg10 "Admission Average (10 percent)":w
+
 // uOttawa GPA
 generate gpa_cat = .
 replace gpa_cat = 1		if	cgpa >=		10	&	cgpa	<=	10	// A+
