@@ -488,12 +488,20 @@ foreach i in _fall _y1 {
 	egen lin_math_hi`i' = rowmax(lin_mat1320`i' lin_mat1720`i' lin_mat1330`i' lin_mat1730`i' lin_mat1300`i' lin_mat1700`i')
 	summarize lin_math_hi`i', detail
 
+	generate byte fail_math`i' = .
+	replace fail_math`i' = 0 if !missing(mat1320`i') | !missing(mat1720`i') | !missing(mat1330`i') | !missing(mat1730`i') | !missing(mat1330`i') | !missing(mat1700`i')
+	replace fail_math`i' = 1 if fail_mat1320`i'==1 | fail_mat1720`i'==1 | fail_mat1330`i'==1 | fail_mat1730`i'==1 | fail_mat1330`i'==1 | fail_mat1700`i'==1
+
 	egen eng_hi`i' = rowmin(eng1100`i' eng1112`i')
 	label values eng_hi`i' grade_codes
 	tabulate eng_hi`i', missing
 
 	egen lin_eng_hi`i' = rowmax(lin_eng1100`i' lin_eng1112`i')
 	summarize lin_eng_hi`i', detail
+
+	generate byte fail_eng`i' = .
+	replace fail_eng`i' = 0 if !missing(eng1100`i') | !missing(eng1112`i')
+	replace fail_eng`i' = 1 if fail_eng1100`i'==1 | fail_eng1112`i'==1
 
 	egen fre_hi`i' = rowmin(fra1528`i' fra1538`i' fra1710`i')
 	label values fre_hi`i' grade_codes
@@ -502,9 +510,17 @@ foreach i in _fall _y1 {
 	egen lin_fre_hi`i' = rowmax(lin_fra1528`i' lin_fra1538`i' lin_fra1710`i')
 	summarize lin_fre_hi`i', detail
 
+	generate byte fail_fre`i' = .
+	replace fail_fre`i' = 0 if !missing(fra1528`i') | !missing(fra1538`i') | !missing(fra1710`i')
+	replace fail_fre`i' = 1 if fail_fra1528`i'==1 | fail_fra1538`i'==1 | fail_fra1710`i'==1
+
 	egen phil_hi`i' = rowmin(phi1101`i' phi1501`i')
 	label values phil_hi`i' grade_codes
 	tabulate phil_hi`i', missing
+
+	generate byte fail_phil`i' = .
+	replace fail_phil`i' = 0 if !missing(phi1101`i') | !missing(phi1501`i')
+	replace fail_phil`i' = 1 if fail_phi1101`i'==1 | fail_phi1501`i'==1
 
 	egen lin_phil_hi`i' = rowmax(lin_phi1101`i' lin_phi1501`i')
 	summarize lin_phil_hi`i', detail
@@ -515,6 +531,10 @@ foreach i in _fall _y1 {
 
 	egen lin_enfr_hi`i' = rowmax(lin_eng1100`i' lin_eng1112`i' lin_fra1528`i' lin_fra1538`i' lin_fra1710`i')
 	summarize lin_enfr_hi`i', detail
+
+	generate byte fail_enfr`i' = .
+	replace fail_enfr`i' = 0 if !missing(eng1100`i') | !missing(eng1112`i') | !missing(fra1528`i') | !missing(fra1538`i') | !missing(fra1710`i')
+	replace fail_enfr`i' = 1 if fail_eng1100`i'==1 | fail_eng1112`i'==1 | fail_fra1528`i'==1 | fail_fra1538`i'==1 | fail_fra1710`i'==1
 
 	egen any_hi`i' = rowmin(mat1320`i' mat1720`i' mat1330`i' mat1730`i' mat1300`i' mat1700`i' eng1100`i' eng1112`i' fra1528`i' fra1538`i' fra1710`i' phi1101`i' phi1501`i')
 	label values any_hi`i' grade_codes
