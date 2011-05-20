@@ -10,7 +10,7 @@ leave	Leave in Second or Third Year
 primary_org_cd==2	Arts Students
 @
 >Key Course
-lin_enfr_hi_fall	English or French	1	0	1	1	1	1
+lin_phil_hi_fall	Philosophy	1	0	1	1	1	1
 >
 >Gender (Female)
 male	Male	1	0	1	1	1	1
