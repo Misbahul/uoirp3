@@ -9,7 +9,7 @@ regions_lang	Basic Controls, Regions and Language
 consistent
 @
 leave	Leave in Second or Third Year
-rural_code==1	Rural Students Only
+rural_code==0	Urban Students Only
 @
 >Gender (Female)
 male	Male	1	0	1	1	1	1	1	1
