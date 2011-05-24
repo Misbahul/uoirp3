@@ -42,6 +42,12 @@ do/persistence_model_reg10_nonlocal.txt	regions_nonlocal	Background Variables an
 do/persistence_model_reg10_rural.txt	regions_rural	Background Variables and Regions -- Rural
 do/persistence_model_reg10_urban.txt	regions_urban	Background Variables and Regions -- Urban
 do/persistence_model_reg11.txt	local_linear	Local Variable and Linear Grade Variables
+do/persistence_model_reg11_female.txt	local_lin_female	Local Variable and Linear Grade Variables - Females
+do/persistence_model_reg11_male.txt	local_lin_male	Local Variable and Linear Grade Variables - Males
+do/persistence_model_reg11_rural.txt	local_lin_rural	Local Variable and Linear Grade Variables - Rural Students
+do/persistence_model_reg11_urban.txt	local_lin_urban	Local Variable and Linear Grade Variables - URban Students
+do/persistence_model_reg11_local.txt	local_lin_local	Local Variable and Linear Grade Variables - Local
+do/persistence_model_reg11_nonlocal.txt	local_lin_nonlocal	Local Variable and Linear Grade Variables - Non-Local
 do/persistence_model_reg12.txt	regions_linear	Region Variables and Linear Grade Variables
 do/persistence_model_reg13_arts_enfr.txt	lin_arts_enfr	Arts Faculty -- English or French Grade -- Linear
 do/persistence_model_reg13_arts_phil.txt	lin_arts_phil	Arts Faculty -- Philospohy Grade -- Linear
