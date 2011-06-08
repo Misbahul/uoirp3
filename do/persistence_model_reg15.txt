@@ -1,6 +1,7 @@
 #persistence_model_reg15.txt
 #Faculty Experiment
 faculty	Faculty Only
+faculty_con	Faculty and Controls
 backgr	Background Variables
 hs	High School Grades
 pse_only	PSE Only
