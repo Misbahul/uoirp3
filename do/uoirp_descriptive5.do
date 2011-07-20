@@ -99,7 +99,7 @@ forvalues j = 0/1 {
     local g_name "Males"
   } 
   foreach i of varlist `cat_vars' {
-    local short_i = substr("`i'",1,30)
+    local short_i = substr("`i'",1,12)
     local var_lbl : variable label `i'
     local var_out "`var_lbl' (`i')"
     display _newline as text "Processing variable " as result "`var_out'" as text "."
