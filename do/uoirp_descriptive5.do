@@ -82,8 +82,8 @@ foreach i of varlist cohort `cat_vars' {
 	local var_lbl : variable label `i'
 	local var_out "`var_lbl' (`i')"
 	display _newline as text "Processing variable " as result "`var_out'" as text "."
-	uwtab `i' gender, col save("`outputdir'`dofilename'_step1.xls") `myrep' sheet("`short_i'") title( "`var_out'")
-	uwtab `i' if missing(cgpa), col save("`outputdir'`dofilename'_step1_nogpa.xls") `myrep' sheet("`short_i'_nogpa") title( "`var_out' (Missing GPA)")
+	uwtab `i' gender, col row save("`outputdir'`dofilename'_step1.xls") `myrep' sheet("`short_i'") title( "`var_out'")
+	// uwtab `i' if missing(cgpa), col row save("`outputdir'`dofilename'_step1_nogpa.xls") `myrep' sheet("`short_i'_nogpa") title( "`var_out' (Missing GPA)")
 	local myrep "append"
 } 
 
@@ -104,7 +104,7 @@ forvalues j = 0/1 {
     local var_out "`var_lbl' (`i')"
     display _newline as text "Processing variable " as result "`var_out'" as text "."
     uwtab `i' cohort if gender==`j', col row save("`outputdir'`dofilename'_step2.xls") `myrep' sheet("`short_i'_`g_ind'") title( "`var_out' by cohort (`g_name')")
-    uwtab `i' cohort if missing(cgpa) & gender==`j', col row save("`outputdir'`dofilename'_step2_nogpa.xls") `myrep' sheet("`short_i'_nogpa_`g_ind'") title( "`var_out' bycohort (`g_name', Missing GPA)")
+    // uwtab `i' cohort if missing(cgpa) & gender==`j', col row save("`outputdir'`dofilename'_step2_nogpa.xls") `myrep' sheet("`short_i'_nogpa_`g_ind'") title( "`var_out' bycohort (`g_name', Missing GPA)")
     local myrep "append"
   }
 }
