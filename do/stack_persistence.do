@@ -89,3 +89,5 @@ save "`workdatapath'stacked.dta", replace
 log close
 clear
 
+include do/footer.do
+
